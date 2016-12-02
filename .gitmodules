@@ -1,0 +1,3 @@
+[submodule "One-Nexus"]
+	path = One-Nexus
+	url = https://github.com/esr360/One-Nexus.git
