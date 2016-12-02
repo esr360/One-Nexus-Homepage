@@ -1,0 +1,6 @@
+.vscode
+.settings
+.sass-cache
+node_modules
+dist
+docs

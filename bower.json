@@ -1,0 +1,35 @@
+{
+  "name": "One-Nexus Homepage",
+  "version": "1.0.0",
+  "description": "The homepage for One-Nexus.",
+  "main": [
+    "src/scss/_synergy.scss",
+    "src/js/synergy.js"
+  ],
+  "keywords": [
+    "css",
+    "sass",
+    "js",
+    "responsive",
+    "mobile-first",
+    "front-end",
+    "framework",
+    "boilerplate",
+    "web",
+    "development",
+    "theme",
+    "themes",
+    "html",
+    "html5"
+  ],
+  "homepage": "http://onenexus.io/",
+  "ignore": [
+    "**/.*",
+    ".node_modules",
+    "bower.json"
+  ],
+  "authors": [
+    "Edmund Reed <esr360@live.com>"
+  ],
+  "license": "MIT"
+}
