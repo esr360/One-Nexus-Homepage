@@ -17,14 +17,14 @@ module.exports = function(grunt) {
      * Set the default theme to compile assets for
      * @var {string} theme
      */
-    var theme = grunt.option('theme') || 'One-Nexus';
+    var theme = grunt.option('theme') || 'Homepage';
 
     /**
      * List of all themes used by the project
      * @var {object} themes
      */
     var themes = grunt.option('themes') || [
-        'default', 'One-Nexus'
+        'Homepage'
     ]
     
     /**
@@ -68,12 +68,23 @@ module.exports = function(grunt) {
     }
 
     /**
+     * One-Nexus assets
+     * @var {object} OneNexus
+     */
+    var OneNexus = {
+        scripts:[
+            'One-Nexus/vendor/Synergy/dist/synergy.js',
+            'One-Nexus/assets/tools/**/*.js',
+            'One-Nexus/assets/modules/**/*.js'
+        ]
+    }
+
+    /**
      * Set the scripts used to create the theme's main js file
      * @var {object} _scripts
      */
     var _scripts = [
-        project.vendor + 'Synergy/dist/synergy.js',
-        project.source[0] + 'tools/**/*.js',
+        OneNexus.scripts,
         project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
     ];
@@ -82,7 +93,9 @@ module.exports = function(grunt) {
      * Set all optional scripts to be used by the project
      * @var {object} _globalScripts
      */
-    var _globalScripts = [];
+    var _globalScripts = [
+        project.vendor + 'Stellar/jquery.stellar.js'
+    ];
 
     /**
      * Set all optional styles to be used by the project

@@ -1,5 +1,11 @@
 .homepage {
 
+    &_content {
+        position: absolute;
+        top: 95vw;
+        width: 100%;
+    }
+
     &_section1 {
         background-color: #2E3882;
         position: relative;
