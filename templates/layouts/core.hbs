@@ -27,11 +27,7 @@ FontAwesome: 4.7.0
     </head>
 
     <body class="{{bodyClass}}">
-        {{> header}}
-
         {{> body}}
-
-        {{> footer}}
     </body>
 
     <div id="{{modulesID}}"></div>
@@ -50,18 +46,9 @@ FontAwesome: 4.7.0
     {{/if}}
 
     {{#is environment "dev"}}
-        <script src="{{assets}}themes/{{theme}}/app.js"></script>
+        <script src="{{assets}}assets/themes/{{theme}}/app.js"></script>
     {{/is}}
     {{#is environment "prod"}}
-        <script src="{{assets}}themes/{{theme}}/app.min.js"></script>
+        <script src="{{assets}}assets/themes/{{theme}}/app.min.js"></script>
     {{/is}}
-
-    {{#if parallax}}
-        <script src="{{assets}}assets/scripts/jquery.stellar.js"></script>
-        <script>
-            if (window.matchMedia("(min-width: 960px)").matches) {
-                $.stellar();
-            }
-        </script>
-    {{/if}}
 </html>

@@ -41,7 +41,7 @@ $(document).ready(function() {
     //*************************************************************
 
     $(_billboard).billboard();
-    
+
     //$('#google-map').googleMap();
 
     $(_footer).footer();
@@ -65,15 +65,5 @@ $(document).ready(function() {
     //*************************************************************
 
     $('a[href*="#"]:not([href*="modal"])').smoothScroll();
-
-    // Fade spacestation content on scroll
-    if (window.matchMedia("(min-width: 960px)").matches) {
-        $(window).on('scroll', function() {
-            var scrollTop = $(this).scrollTop();
-            $('.spacestation_content').css({
-                'opacity' : 1 - scrollTop/1200
-            });
-        });
-    }
 
 });

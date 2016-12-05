@@ -3,14 +3,20 @@
 /// @author [@esr360](http://twitter.com/esr360)
 ///****************************************************************
 
-@if $theme == 'homepage' {
+@if $theme == 'Homepage' {
 
     ///************************************************************
     /// Skeleton
     ///************************************************************
 
 	@include palettes;
-	@include typography;
+
+	@include typography((
+		'colors':(
+			'link' : color('brand', 'brand-2')
+		)
+	));
+
 	@include grid;
 	@include core;
 	@include helpers;
@@ -19,13 +25,26 @@
     /// Elements
     ///************************************************************
 
-	@include accordions;
+	@include accordions((
+        'title-active-bg': color('brand', 'brand-2')
+    ));
+    
 	@include alert-bars;
 	@include blockquotes;
-	@include buttons;
+
+	@include buttons((
+		'active-background': color('brand', 'brand-3'),
+		'combine':(
+			'primary'  : ('round', 'size-4', 'brand-1'),
+			'secondary': ('sharp', 'size-4', 'brand-2')
+		)
+	));
+
 	@include carousels;
 	@include forms;
-	@include headings;
+
+	@include headings();
+
 	@include images;
 	@include lists;
 	@include modals;
@@ -45,7 +64,11 @@
 	@include breadcrumb;
 	@include footer;
 	@include google-map;
-	@include header;
+
+	@include header((
+		'background' : color('greyscale', 'grey-6')
+	));
+
 	@include logo;
 	@include navigation;
 	@include dropdown;
@@ -62,6 +85,9 @@
     ///************************************************************
 
 	@include sections;
-	@include billboard;
+
+	@include billboard((
+		'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
+	));
 
 }

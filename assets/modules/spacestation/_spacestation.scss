@@ -1,23 +1,11 @@
-
-
-@mixin parallax($distance: 0, $perspective: 100) {
-  transform:
-    translateZ($distance * $perspective * 1px)
-    scale(abs($distance - $perspective))
-  ;
-}
-
 .spacestation {
 
-    $image-path: '../../images/spacestation';
+    $image-path: '#{$asset-path}/images/spacestation';
 
     background-color: #000120;
-    perspective: 100px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: absolute;
-    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
 
     @media (max-width: 960px) {
         background-image: url('#{$image-path}/spacestation.svg');
@@ -27,8 +15,8 @@
 
     &_content {
         position: absolute;
-        z-index: 1;
-        top: 20%;
+        z-index: 0;
+        top: 15%;
         left: 0;
         right: 0;
         width: 800px;
@@ -45,7 +33,7 @@
 
     &_tagline {
         color: white;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.12em;
         margin-top: 1.75em;
         opacity: 0.8;
         text-shadow: 1px 1px 1px rgba(black, 0.75);
@@ -54,12 +42,17 @@
     // Layers
 
     &_layers {
-        height: 100%;
+        perspective: 100px;
+        height: 0;
+        width: 100%;
+        padding-top: 80%;
     }
 
     &_layer {
+        background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
+        top: 0;
         height: 100%;
         width: 100%;
         @media (max-width: 960px) {
@@ -67,104 +60,95 @@
         }
     }
 
-    @for $i from 1 to 14 {
-        &_layer#{$i} {
-            background-image: url('#{$image-path}/layer#{$i}.svg');
-        }
+    // stars
+    &_stars1 {
+        position: fixed;
+        background-image: url('#{$image-path}/layer1.svg');
     }
 
-    // dark stars
-    &_layer1 {
-        background-size: 100%;
-        transform: translateZ(-10000px) scale(100);
+    // stars
+    &_stars2 {
+        position: fixed;
+        background-position-y: -22vw;
+        background-image: url('#{$image-path}/layer2.svg');
     }
 
-    // light stars
-    &_layer2 {
-        background-size: 100%;
-        transform: translateZ(-10000px) scale(100);
+    // stars
+    &_planets {
+        background-image: url('#{$image-path}/layer3.svg');
     }
 
-    // planets
-    &_layer3 {
-        background-size: 100%;
-        transform: translateZ(-10000px) scale(100);
+    // rocket
+    &_rocket {
+        position: fixed;
+        top: 0;
+        height: 120%;
+        width: 120%;
+        background-size: 7.5%;
+        background-position: 20% 10vw;
+        background-repeat: no-repeat;
+        animation: spin 60s infinite linear;
+        background-image: url('#{$image-path}/layer6.svg');
     }
 
     // sun
     &_layer4 {
-        background-size: 25%;
-        background-position-x: 48%;
-        top: 340vw;
-        transform: translateZ(-1000px) scale(10);
+        background-size: 28%;
+        background-position: 51% 36vw;
+        background-image: url('#{$image-path}/layer4.svg');
     }
 
     // mountain
     &_layer5 {
         background-size: 65%;
-        background-position-x: 0;
-        top: 115vw;
-        transform: translateZ(-500px) scale(6);
-    }
-
-    // rocket
-    &_layer6 {
-        background-size: 12%;
-        animation: spin 40s infinite linear;
+        background-position: 0 22vw;
+        background-image: url('#{$image-path}/layer5.svg');
     }
 
     // beacon
     &_layer7 {
-        background-position-x: 70%;
-        background-size: 7%;
-        top: -45vw;
-        transform: translateZ(-500px) scale(6);
+        background-size: 8%;
+        background-position: 68% -15vw;
+        background-image: url('#{$image-path}/layer7.svg');
     }
 
     // green land
     &_layer8 {
-        background-size: 100%;
-        background-position-x: 0;
-        top: 115vw;
-        transform: translateZ(-250px) scale(3.5);
+        background-position: 0 35vw;
+        background-image: url('#{$image-path}/layer8.svg');
     }
 
     // stardust
     &_layer9 {
-        background-size: 20%;
-        background-position-x: 94%;
-        top: 82vw;
-        transform: translateZ(-155px) scale(1.75);
+        background-size: 17%;
+        background-position: 78% 41vw;
+        background-image: url('#{$image-path}/layer9.svg');
     }
 
     // stardust
     &_layer10 {
         background-size: 15%;
-        background-position-x: 25%;
-        top: 80vw;
-        transform: translateZ(-100px) scale(2.5);
+        background-position: 20% 38vw;
+        background-image: url('#{$image-path}/layer10.svg');
     }
 
     // UFO
     &_layer11 {
         background-size: 20%;
-        background-position-x: 45%;
-        top: 50vw;
-        transform: translateZ(-100px) scale(2.5);
+        background-position: 35% 20vw;
+        background-image: url('#{$image-path}/layer11.svg');
     }
 
     // foreground
     &_layer12 {
-        background-position-x: 0;
-        transform: translateZ(-20px) scale(1.2);
-        top: 90vw;
+        background-position: 0 65vw;
+        background-image: url('#{$image-path}/layer12.svg');
     }
 
     // stardust
     &_layer13 {
-        background-size: 73%;
-        top: 40vw;
-        transform: translateZ(50px) scale(0.8);
+        background-position: 0 50vw;
+        background-image: url('#{$image-path}/layer13.svg');
     }
 
 }

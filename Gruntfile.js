@@ -86,6 +86,7 @@ module.exports = function(grunt) {
     var _scripts = [
         OneNexus.scripts,
         project.source[0] + 'modules/**/*.js',
+        project.source[0] + 'js/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
     ];
 
@@ -93,9 +94,7 @@ module.exports = function(grunt) {
      * Set all optional scripts to be used by the project
      * @var {object} _globalScripts
      */
-    var _globalScripts = [
-        project.vendor + 'Stellar/jquery.stellar.js'
-    ];
+    var _globalScripts = [];
 
     /**
      * Set all optional styles to be used by the project

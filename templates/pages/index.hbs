@@ -1,11 +1,18 @@
 ---
 layout: core.hbs
 wide: false
-parallax: false
 demo: true
+header:
+    modifiers:
+    - sticky
 ---
 
 <div class="spacestation">
+
+    <div class="spacestation_layer spacestation_stars1"></div>
+    <div class="spacestation_layer spacestation_stars2"></div>
+    <div class="spacestation_layer spacestation_planets"></div>
+    <div class="spacestation_rocket"></div>
 
     <div class="spacestation_content">
         <div class="logo">
@@ -15,16 +22,10 @@ demo: true
             A UI Toolkit From Out of This World
         </h2>
     </div>
-
-    <div class="spacestation_stars2"></div>
-    <div class="spacestation_rocket"></div>
     
     <div class="spacestation_layers">
-        <div class="spacestation_layer spacestation_layer1"></div>
-        <div class="spacestation_layer spacestation_layer3"></div>
         <div class="spacestation_layer spacestation_layer4"></div>
         <div class="spacestation_layer spacestation_layer5"></div>
-        <div class="spacestation_layer spacestation_layer6"></div>
         <div class="spacestation_layer spacestation_layer7"></div>
         <div class="spacestation_layer spacestation_layer8"></div>
         <div class="spacestation_layer spacestation_layer9"></div>
@@ -34,20 +35,24 @@ demo: true
         <div class="spacestation_layer spacestation_layer13"></div>
     </div>
 
-    <div class="homepage_content">
-        <div class="homepage_section1">
-            <div class="container">
-                <div class="row">
-                    <div class="span-8">
-                        <h3 class="heading-size-6">What is One-Nexus?</h3>
-                        <p>One-Nexus is a UI toolkit built using the <a href="#">Synergy</a> Sass framework, combined with a custom grid system; <a href="#">Kayzen-GS</a>. Together they form a powerful framework for building modular, responsive websites. Build upon the default modules and create your own with ease</p>
-                        <div class="button_group">
-                            <button class="button-border-white-size-3">View More</button>
-                        </div>
+</div>
+
+<div class="homepage_content">
+    <div class="homepage_section1">
+        <div class="container">
+            <div class="row">
+                <div class="span-8">
+                    <h3 class="heading-size-6">What is One-Nexus?</h3>
+                    <p>One-Nexus is a UI toolkit built using the <a href="#">Synergy</a> Sass framework, combined with a custom grid system; <a href="#">Kayzen-GS</a>. Together they form a powerful framework for building responsive websites with a modular and configurable UI. Build upon the default modules and create your own with ease</p>
+                    <div class="button_group">
+                        <button class="button-border-white-size-3">View More</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
+
+{{> header}}
+
+<div style="height: 1500px"></div>

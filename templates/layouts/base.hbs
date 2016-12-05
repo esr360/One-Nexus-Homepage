@@ -12,12 +12,14 @@ container:
     - section
 breadcrumb: true
 ---
+{{> header}}
 
 {{#if billboard}}
     {{> billboard}}
 {{/if}}
 
 <main id="{{contentID}}">
+
     {{#if container}}
         <div class="container{{#each container.modifiers}}-{{.}}{{/each}}{{#if wide}}-large{{/if}}">
     {{/if}}
@@ -32,3 +34,5 @@ breadcrumb: true
         </div>
     {{/if}}
 </main>
+
+{{> footer}}
