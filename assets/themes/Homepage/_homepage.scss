@@ -9,85 +9,85 @@
     /// Skeleton
     ///************************************************************
 
-	@include palettes;
+    @include palettes;
 
-	@include typography((
-		'colors':(
-			'link' : color('brand', 'brand-2')
-		)
-	));
+    @include typography((
+        'colors':(
+            'link' : color('brand', 'brand-2')
+        )
+    ));
 
-	@include grid;
-	@include core;
-	@include helpers;
+    @include grid;
+    @include core;
+    @include helpers;
 
     ///************************************************************
     /// Elements
     ///************************************************************
 
-	@include accordions((
+    @include accordions((
         'title-active-bg': color('brand', 'brand-2')
     ));
-    
-	@include alert-bars;
-	@include blockquotes;
 
-	@include buttons((
-		'active-background': color('brand', 'brand-3'),
-		'combine':(
-			'primary'  : ('round', 'size-4', 'brand-1'),
-			'secondary': ('sharp', 'size-4', 'brand-2')
-		)
-	));
+    @include alert-bars;
+    @include blockquotes;
 
-	@include carousels;
-	@include forms;
+    @include buttons((
+        'active-background': color('brand', 'brand-3'),
+        'combine':(
+            'primary'  : ('round', 'size-4', 'brand-1'),
+            'secondary': ('sharp', 'size-4', 'brand-2')
+        )
+    ));
 
-	@include headings();
+    @include carousels;
+    @include forms;
 
-	@include images;
-	@include lists;
-	@include modals;
-	@include progress-bars;
-	@include tables;
-	@include tabs;
-	@include thumbnails;
-	@include tooltips;
-	@include wells;
-	@include widgets;
+    @include headings();
+
+    @include images;
+    @include lists;
+    @include modals;
+    @include progress-bars;
+    @include tables;
+    @include tabs;
+    @include thumbnails;
+    @include tooltips;
+    @include wells;
+    @include widgets;
 
     ///************************************************************
     /// Objects
     ///************************************************************
 
-	@include top-bar;
-	@include breadcrumb;
-	@include footer;
-	@include google-map;
+    @include top-bar;
+    @include breadcrumb;
+    @include footer;
+    @include google-map;
 
-	@include header((
-		'background' : color('greyscale', 'grey-6')
-	));
+    @include header((
+        'background' : color('greyscale', 'grey-6')
+    ));
 
-	@include logo;
-	@include navigation;
-	@include dropdown;
-	@include side-nav;
-	@include flyout-nav;
-	@include mega-menu;
-	@include scroll-top;
-	@include search;
-	@include site-overlay;
-	@include twitter-feed;
+    @include logo;
+    @include navigation;
+    @include dropdown;
+    @include side-nav;
+    @include flyout-nav;
+    @include mega-menu;
+    @include scroll-top;
+    @include search;
+    @include site-overlay;
+    @include twitter-feed;
 
     ///************************************************************
     /// Sections
     ///************************************************************
 
-	@include sections;
+    @include sections;
 
-	@include billboard((
-		'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
-	));
+    @include billboard((
+        'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
+    ));
 
 }
