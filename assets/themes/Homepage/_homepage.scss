@@ -25,12 +25,9 @@
     /// Elements
     ///************************************************************
 
-	@include accordions((
-        'title-active-bg': color('brand', 'brand-2')
-    ));
-    
-	@include alert-bars;
-	@include blockquotes;
+	@include accordions();
+	@include alert-bars();
+	@include blockquotes();
 
 	@include buttons((
 		'active-background': color('brand', 'brand-3'),
@@ -42,9 +39,7 @@
 
 	@include carousels;
 	@include forms;
-
 	@include headings();
-
 	@include images;
 	@include lists;
 	@include modals;
@@ -65,9 +60,7 @@
 	@include footer;
 	@include google-map;
 
-	@include header((
-		'background' : color('greyscale', 'grey-6')
-	));
+	@include header(('background': transparent));
 
 	@include logo;
 	@include navigation;
@@ -88,6 +81,16 @@
 
 	@include billboard((
 		'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
-	));
+	)) {
+		background-attachment: fixed;
+		@include component('wrapper') {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100%;
+			transform: none;
+			top: 0;
+		}
+	};
 
 }
