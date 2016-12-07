@@ -26,7 +26,7 @@ $(window).on('scroll', function() {
 
     // sun
     (function(){
-        var scrollPos = scrollTop/1.1;
+        var scrollPos = scrollTop/1.05;
 
         $('.spacestation_layer4').css({
             'transform' : 'translateY(' + scrollPos + 'px)'
@@ -35,7 +35,7 @@ $(window).on('scroll', function() {
 
     // mountain
     (function(){
-        var scrollPos = scrollTop/1.2;
+        var scrollPos = scrollTop/1.15;
         var brightness = 100 - scrollTop * 0.05;
 
         $('.spacestation_layer5').css({
