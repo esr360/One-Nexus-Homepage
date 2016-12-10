@@ -1,4 +1,4 @@
-.spacestation {
+@include module('spacestation') {
 
     $image-path: '#{$asset-path}/images/spacestation';
 
@@ -6,6 +6,9 @@
     overflow: hidden;
     position: relative;
     z-index: 0;
+    height: 0;
+    width: 100%;
+    padding-top: 70%;
 
     @media (max-width: 960px) {
         background-image: url('#{$image-path}/spacestation.svg');
@@ -13,10 +16,9 @@
         background-position-y: bottom;
     }
 
-    &_content {
-        position: fixed;
-        z-index: 0;
-        top: 25%;
+    @include component('content') {
+        position: absolute;
+        top: 10vw;
         left: 0;
         right: 0;
         width: 800px;
@@ -31,7 +33,7 @@
         }
     }
 
-    &_tagline {
+    @include component('tagline') {
         color: white;
         letter-spacing: 0.12em;
         margin-top: 1.75em;
@@ -41,115 +43,78 @@
 
     // Layers
 
-    &_layers {
-        perspective: 100px;
-        height: 0;
-        width: 100%;
-        padding-top: 80%;
-    }
+    @include component('layer') {
 
-    &_layer {
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
         position: absolute;
-        top: 0;
-        height: 200%;
-        width: 100%;
+
         @media (max-width: 960px) {
             display: none;
         }
-    }
 
-    // stars
-    &_stars1 {
-        position: fixed;
-        background-image: url('#{$image-path}/layer1.svg');
-    }
+        @include modifier('planets') {
+            top: 0;
+            width: 100%;
+        }
 
-    // stars
-    &_stars2 {
-        position: fixed;
-        background-position-y: -22vw;
-        background-image: url('#{$image-path}/layer2.svg');
-    }
+        @include modifier('rocket') {
+            position: fixed;
+            top: 5vw;
+            left: 10%;
+            width: 10%;
+            animation: spin 40s infinite linear;
+            transform-origin: 35vw 35vw;
+        }
 
-    // stars
-    &_planets {
-        background-image: url('#{$image-path}/layer3.svg');
-    }
+        @include modifier('sun') {
+            top: 32vw;
+            left: 40%;
+            width: 25%;
+        }
 
-    // rocket
-    &_rocket {
-        position: fixed;
-        top: 0;
-        height: 120%;
-        width: 120%;
-        background-size: 7.5%;
-        background-position: 20% 10vw;
-        background-repeat: no-repeat;
-        animation: spin 60s infinite linear;
-        background-image: url('#{$image-path}/layer6.svg');
-    }
+        @include modifier('mountain') {
+            top: 20vw;
+            left: 0;
+            width: 60%;
+        }
 
-    // sun
-    &_layer4 {
-        background-size: 28%;
-        background-position: 51% 36vw;
-        background-image: url('#{$image-path}/layer4.svg');
-    }
+        @include modifier('beacon') {
+            top: -22vw;
+            left: 65%;
+            width: 8%;
+        }
 
-    // mountain
-    &_layer5 {
-        background-size: 65%;
-        background-position: 0 22vw;
-        background-image: url('#{$image-path}/layer5.svg');
-    }
+        @include modifier('greenland') {
+            top: 30vw;
+            width: 100%;
+        }
 
-    // beacon
-    &_layer7 {
-        background-size: 8%;
-        background-position: 68% -15vw;
-        background-image: url('#{$image-path}/layer7.svg');
-    }
+        @include modifier('stardust1') {
+            top: 35vw;
+            left: 65%;
+            width: 18%;
+        }
 
-    // green land
-    &_layer8 {
-        background-position: 0 35vw;
-        background-image: url('#{$image-path}/layer8.svg');
-    }
+        @include modifier('stardust2') {
+            top: 35vw;
+            left: 15%;
+            width: 18%;
+        }
 
-    // stardust
-    &_layer9 {
-        background-size: 17%;
-        background-position: 78% 41vw;
-        background-image: url('#{$image-path}/layer9.svg');
-    }
+        @include modifier('ufo') {
+            top: 18vw;
+            left: 28%;
+            width: 30%;
+        }
 
-    // stardust
-    &_layer10 {
-        background-size: 15%;
-        background-position: 20% 38vw;
-        background-image: url('#{$image-path}/layer10.svg');
-    }
+        @include modifier('foreground') {
+            top: 56vw;
+            width: 100%;
+        }
 
-    // UFO
-    &_layer11 {
-        background-size: 20%;
-        background-position: 35% 20vw;
-        background-image: url('#{$image-path}/layer11.svg');
-    }
-
-    // foreground
-    &_layer12 {
-        background-position: 0 65vw;
-        background-image: url('#{$image-path}/layer12.svg');
-    }
-
-    // stardust
-    &_layer13 {
-        background-position: 0 50vw;
-        background-image: url('#{$image-path}/layer13.svg');
+        @include modifier('stardust3') {
+            top: 45vw;
+            width: 100%;
+        }
     }
 
 }

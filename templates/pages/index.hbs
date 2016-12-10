@@ -9,14 +9,9 @@ header:
 ---
 {{> header}}
 
-<div class="spacestation">
+<div class="spacestation" data-scrollax-parent="true">
 
-    <div class="spacestation_layer spacestation_stars1"></div>
-    <div class="spacestation_layer spacestation_stars2"></div>
-    <div class="spacestation_layer spacestation_planets"></div>
-    <div class="spacestation_rocket"></div>
-
-    <div class="spacestation_content">
+    <div class="spacestation_content" data-scrollax="properties: {'translateY': '55vw', 'opacity': '1'}">
         <div class="logo">
             <img src="{{assets}}assets/images/logo-light.png" alt="One Nexus Logo">
         </div>
@@ -24,18 +19,92 @@ header:
             A UI Toolkit From Out of This World
         </h2>
     </div>
-    
-    <div class="spacestation_layers">
-        <div class="spacestation_layer spacestation_layer4"></div>
-        <div class="spacestation_layer spacestation_layer5"></div>
-        <div class="spacestation_layer spacestation_layer7"></div>
-        <div class="spacestation_layer spacestation_layer8"></div>
-        <div class="spacestation_layer spacestation_layer9"></div>
-        <div class="spacestation_layer spacestation_layer10"></div>
-        <div class="spacestation_layer spacestation_layer11"></div>
-        <div class="spacestation_layer spacestation_layer12"></div>
-        <div class="spacestation_layer spacestation_layer13"></div>
-    </div>
+
+    <div class="spacestation_layer-stars1"></div>
+    <div class="spacestation_layer-stars2"></div>
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer3.svg" 
+        class="spacestation_layer-planets"
+        data-scrollax="properties: { 
+            'translateY': '62vw'
+        }"
+    />
+
+    <img src="{{assets}}assets/images/spacestation/layer6.svg" class="spacestation_layer-rocket" />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer4.svg" 
+        class="spacestation_layer-sun" 
+        data-scrollax="properties: { 
+            'translateY': '60vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer5.svg" 
+        class="spacestation_layer-mountain" 
+        data-scrollax="properties: { 
+            'translateY': '55vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer7.svg" 
+        class="spacestation_layer-beacon" 
+        data-scrollax="properties: { 
+            'translateY': '55vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer8.svg" 
+        class="spacestation_layer-greenland" 
+        data-scrollax="properties: { 
+            'translateY': '45vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer9.svg" 
+        class="spacestation_layer-stardust1" 
+        data-scrollax="properties: { 
+            'translateY': '40vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer10.svg" 
+        class="spacestation_layer-stardust2" 
+        data-scrollax="properties: { 
+            'translateY': '30vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer11.svg" 
+        class="spacestation_layer-ufo" 
+        data-scrollax="properties: { 
+            'translateY': '35vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer12.svg" 
+        class="spacestation_layer-foreground" 
+        data-scrollax="properties: { 
+            'translateY': '9vw'
+        }"
+    />
+
+    <img 
+        src="{{assets}}assets/images/spacestation/layer13.svg" 
+        class="spacestation_layer-stardust3" 
+        data-scrollax="properties: { 
+            'translateY': '-50vw'
+        }"
+    />
+
 
 </div>
 

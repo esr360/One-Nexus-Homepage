@@ -86,7 +86,7 @@ module.exports = function(grunt) {
     var _scripts = [
         OneNexus.scripts,
         project.source[0] + 'modules/**/*.js',
-        project.source[0] + 'js/**/*.js',
+        project.source[0] + 'js/**/*',
         project.source[1].themes[1].theme + '<%=theme%>.js'
     ];
 
