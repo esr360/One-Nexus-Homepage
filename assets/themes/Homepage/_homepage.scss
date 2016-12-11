@@ -60,7 +60,17 @@
 	@include footer;
 	@include google-map;
 
-	@include header(('background': transparent));
+	@include header(('background': transparent)) {
+		@include modifier('hidden') {
+			display: none;
+		}
+        @include modifier('fixed') {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 12;
+        }
+	};
 
 	@include logo;
 	@include navigation;

@@ -9,6 +9,7 @@
     height: 0;
     width: 100%;
     padding-top: 70%;
+    backface-visibility: hidden;
 
     @media (max-width: 960px) {
         background-image: url('#{$image-path}/spacestation.svg');
@@ -17,7 +18,8 @@
     }
 
     @include component('content') {
-        position: absolute;
+        position: fixed;
+        transform: translateZ(0);
         top: 10vw;
         left: 0;
         right: 0;
@@ -45,7 +47,8 @@
 
     @include component('layer') {
 
-        position: absolute;
+        position: fixed;
+        transform: translateZ(0);
 
         @media (max-width: 960px) {
             display: none;

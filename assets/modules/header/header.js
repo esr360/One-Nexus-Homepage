@@ -44,13 +44,11 @@
     
         $(window).on('load scroll', function(e) {
             if (isHomepage()) {
-            } else {
-                if (header._visible(true)) {
-                    header.addClass('visible');
-                    header.removeClass('invisible');
+                var scroll = $(window).scrollTop();
+                if (scroll > options.stickyOffset) {
+                    $(_appHeader).fadeIn(400);
                 } else {
-                    header.removeClass('visible');
-                    header.addClass('invisible');
+                    $(_appHeader).fadeOut(400);
                 }
             }
         });
