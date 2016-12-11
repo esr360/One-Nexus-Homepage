@@ -1,3 +1,9 @@
 [submodule "One-Nexus"]
 	path = One-Nexus
 	url = https://github.com/esr360/One-Nexus.git
+[submodule "vendor/Stellar"]
+	path = vendor/Stellar
+	url = https://github.com/markdalgleish/stellar.js.git
+[submodule "vendor/scrollSpeed"]
+	path = vendor/scrollSpeed
+	url = https://github.com/nathco/jQuery.scrollSpeed.git
