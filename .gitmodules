@@ -4,6 +4,6 @@
 [submodule "vendor/Stellar"]
 	path = vendor/Stellar
 	url = https://github.com/markdalgleish/stellar.js.git
-[submodule "vendor\\ScrollJack"]
-	path = vendor\\ScrollJack
+[submodule "vendor/ScrollJack"]
+	path = vendor/ScrollJack
 	url = https://github.com/esr360/ScrollJack.js.git

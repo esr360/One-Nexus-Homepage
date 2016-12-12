@@ -14,7 +14,7 @@ $.fn.spacestation = function(custom) {
     var options = $.extend({
         scrollJack: {
             scrollSpeed: [100, 800],
-            conditions: $.fn.browser().isEdge
+            conditions: $.browser().isEdge
         },
         fadeOnScroll: '.spacestation_content'
     }, custom);
@@ -24,7 +24,7 @@ $.fn.spacestation = function(custom) {
 
     // Hi-jack the scrolling for smooth parallax effect
     if (options.scrollJack.conditions) {
-        $.scrollSpeed(
+        $.scrollJack(
             options.scrollJack.scrollSpeed[0],
             options.scrollJack.scrollSpeed[1]
         );

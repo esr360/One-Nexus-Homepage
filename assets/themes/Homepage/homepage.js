@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
-    $(window).stellar();
+    // Disable parallax for IE
+    if (!$.browser().isIE) {
+        $(window).stellar();
+    }
 
     //*************************************************************
     // Elements

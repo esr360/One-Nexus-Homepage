@@ -8,9 +8,9 @@
      * @param {object} custom - where custom config will be passed
      * 
      * @example
-     *     $.fn.browser().isChrome;
+     *     $.browser().isChrome;
      */
-    $.fn.browser = function() {
+    $.browser = function() {
 
         var exports = {};
 
