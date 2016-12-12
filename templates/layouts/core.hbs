@@ -45,6 +45,10 @@ FontAwesome: 4.7.0
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{FontAwesome}}/css/font-awesome.min.css" />
     {{/if}}
 
+    {{#each scripts}}
+        <script src="{{../assets}}{{.}}"></script>
+    {{/each}}
+
     {{#is environment "dev"}}
         <script src="{{assets}}assets/themes/{{theme}}/app.js"></script>
     {{/is}}
