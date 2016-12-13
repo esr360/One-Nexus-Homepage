@@ -59,16 +59,12 @@ $(document).ready(function() {
     //$(_scrollTop).scrollToTop();
     
     //$('#search-trigger').searchBox();
+
+    $(_spacestation).spacestation();
     
     //$(_topBar).topBar();
     
     //$(_twitterFeed).twitterFeed();
-    
-    //*************************************************************
-    // Tools
-    //*************************************************************
-
-    $('.spacestation').spacestation();
 
     $('a[href*="#"]:not([href*="modal"])').smoothScroll();
 

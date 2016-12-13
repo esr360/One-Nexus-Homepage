@@ -36,11 +36,23 @@
 			'secondary': ('sharp', 'size-4', 'brand-2')
 		),
         'font-family'  : typography('typefaces', 'secondary')
-	));
+	)) {
+		@include component('group') {
+			@include component('item') {
+				padding: 0 0.5em;
+			}
+		}
+	};
 
 	@include carousels;
 	@include forms;
-	@include headings();
+
+	@include headings() {
+		@include modifier('brand-1') {
+			color: color('brand', 'brand-1');
+		}
+	};
+
 	@include images;
 	@include lists;
 	@include modals;
@@ -49,7 +61,11 @@
 	@include tabs;
 	@include thumbnails;
 	@include tooltips;
-	@include wells;
+
+	@include wells((
+		'radius' : 0
+	));
+
 	@include widgets;
 
     ///************************************************************
@@ -89,7 +105,6 @@
     ///************************************************************
 
     @include sections;
-	@include spacestation;
 
 	@include billboard((
 		'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
@@ -104,5 +119,16 @@
 			top: 0;
 		}
 	};
+
+	@include spacestation;
+	@include homepage;
+
+    ///************************************************************
+    /// Misc
+    ///************************************************************
+
+	.object-large {
+	    @include object(core('margin')*2);
+	}
 
 }
