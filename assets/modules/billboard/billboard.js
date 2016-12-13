@@ -1,5 +1,4 @@
 (function ($) {
-
     /**
      * Billboard
      * 
@@ -43,6 +42,5 @@
         }
 
     }
-
 
 }(jQuery));

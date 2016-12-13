@@ -1,133 +1,189 @@
-@include module('spacestation') {
+/// Spacestation
+///
+/// @author [@esr360](http://twitter.com/esr360)
+/// @access public
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+/// @outputs all Spacestation styles
+///
+/// @example
+///     @include spacestation((
+///         'title-bg'    : blue,
+///         'title-color' : white
+///     ));
+@mixin spacestation($custom: ()) {
 
-    $image-path: '#{$asset-path}/images/spacestation';
+    //*************************************************************
+    // Configuration
+    //*************************************************************
 
-    background-color: #000120;
-    overflow: hidden;
-    position: relative;
-    z-index: 0;
-    height: 0;
-    width: 100%;
-    padding-top: 70%;
-    backface-visibility: hidden;
+    $spacestation: config((
+        'name'    : 'spacestation'
+    ), $custom);
 
-    @media (max-width: 960px) {
-        background-image: url('#{$image-path}/spacestation.svg');
-        background-size: 100%;
-        background-position-y: bottom;
-    }
+    //*************************************************************
+    // Module
+    //*************************************************************
 
-    @include component('content') {
-        position: fixed;
-        transform: translateZ(0);
-        top: 10vw;
-        left: 0;
-        right: 0;
-        width: 800px;
-        max-width: 90%;
-        margin: auto;
-        text-align: center;
-        .logo {
+    @include module {
+
+        $image-path: '#{$asset-path}/images/spacestation';
+
+        background-color: #000120;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        height: 0;
+        width: 100%;
+        padding-top: 70%;
+        backface-visibility: hidden;
+
+        @media (max-width: breakpoint('break-2')) {
+            padding-top: 90%;
+        }
+
+        @include component('content') {
+            position: fixed;
+            transform: translateZ(0);
+            top: 10vw;
+            left: 0;
+            right: 0;
+            width: 800px;
+            max-width: 90%;
+            margin: auto;
             text-align: center;
-            img {
-                height: 65px;
+            z-index: 0;
+            .logo {
+                text-align: center;
+                width: 340px;
+                margin: auto;
+                max-width: 65%;
+                img {
+                    height: auto;
+                }
             }
         }
-    }
 
-    @include component('tagline') {
-        color: white;
-        letter-spacing: 0.12em;
-        margin-top: 1.75em;
-        opacity: 0.8;
-        text-shadow: 1px 1px 1px rgba(black, 0.75);
-    }
-
-    // Layers
-
-    @include component('layer') {
-
-        position: fixed;
-        transform: translateZ(0);
-
-        @media (max-width: 960px) {
-            display: none;
+        @include component('tagline') {
+            color: white;
+            letter-spacing: 0.12em;
+            margin-top: 1.75em;
+            opacity: 0.8;
+            text-shadow: 1px 1px 1px rgba(black, 0.75);
         }
 
-        @include modifier('planets') {
-            top: 0;
-            width: 100%;
-        }
+        // Layers
 
-        @include modifier('rocket') {
+        @include component('layer') {
+
             position: fixed;
-            top: 5vw;
-            left: 10%;
-            width: 10%;
-            animation: spin 40s infinite linear;
-            transform-origin: 35vw 35vw;
+            transform: translateZ(0);
+
+            @include modifier('planets') {
+                top: 0;
+                width: 100%;
+                z-index: -1;
+            }
+
+            @include modifier('rocket') {
+                position: fixed;
+                top: 5vw;
+                left: 10%;
+                width: 10%;
+                animation: spin 40s infinite linear;
+                transform-origin: 35vw 35vw;
+            }
+
+            @include modifier('sun') {
+                top: 32vw;
+                left: 40%;
+                width: 25%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 52vw;
+                }
+            }
+
+            @include modifier('mountain') {
+                top: 20vw;
+                left: 0;
+                width: 60%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 40vw;
+                }
+            }
+
+            @include modifier('beacon') {
+                top: -22vw;
+                left: 65%;
+                width: 8%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: -2vw;
+                }
+            }
+
+            @include modifier('greenland') {
+                top: 30vw;
+                width: 100%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 50vw;
+                }
+            }
+
+            @include modifier('stardust1') {
+                top: 35vw;
+                left: 65%;
+                width: 18%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 55vw;
+                }
+            }
+
+            @include modifier('stardust2') {
+                top: 35vw;
+                left: 15%;
+                width: 18%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 55vw;
+                }
+            }
+
+            @include modifier('ufo') {
+                top: 18vw;
+                left: 28%;
+                width: 30%;
+                @media (max-width: breakpoint('break-4')) {
+                    display: none !important;
+                }
+            }
+
+            @include modifier('foreground') {
+                top: 56vw;
+                width: 100%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 76vw;
+                }
+            }
+
+            @include modifier('stardust3') {
+                top: 45vw;
+                width: 100%;
+                @media (max-width: breakpoint('break-2')) {
+                    top: 65vw;
+                }
+            }
         }
 
-        @include modifier('sun') {
-            top: 32vw;
-            left: 40%;
-            width: 25%;
-        }
-
-        @include modifier('mountain') {
-            top: 20vw;
-            left: 0;
-            width: 60%;
-        }
-
-        @include modifier('beacon') {
-            top: -22vw;
-            left: 65%;
-            width: 8%;
-        }
-
-        @include modifier('greenland') {
-            top: 30vw;
-            width: 100%;
-        }
-
-        @include modifier('stardust1') {
-            top: 35vw;
-            left: 65%;
-            width: 18%;
-        }
-
-        @include modifier('stardust2') {
-            top: 35vw;
-            left: 15%;
-            width: 18%;
-        }
-
-        @include modifier('ufo') {
-            top: 18vw;
-            left: 28%;
-            width: 30%;
-        }
-
-        @include modifier('foreground') {
-            top: 56vw;
-            width: 100%;
-        }
-
-        @include modifier('stardust3') {
-            top: 45vw;
-            width: 100%;
-        }
     }
 
-}
+    @keyframes spin {
+        0%   { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }   
+    }
 
-@keyframes spin {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }   
-}
+    @keyframes scroll {
+        from { background-position-x: 0%; }
+        to   { background-position-x: 100%; }
+    }
 
-@keyframes scroll {
-    from { background-position-x: 0%; }
-    to   { background-position-x: 100%; }
 }

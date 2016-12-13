@@ -1,5 +1,9 @@
 .homepage {
 
+    &_wrapper {
+        overflow-x: hidden;
+    }
+
     &_content {
         width: 100%;
     }
@@ -15,7 +19,7 @@
             position: absolute;
             z-index: -1;
             height: 100%;
-            width: 102%;
+            width: 102vw;
             background-color: #2E3882;
             transform: rotate(-5.5deg);
             top: -6vw;

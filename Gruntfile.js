@@ -85,6 +85,7 @@ module.exports = function(grunt) {
      */
     var _scripts = [
         OneNexus.scripts,
+        project.vendor + 'scrollJack/ScrollJack.js',
         project.source[0] + 'js/**/*',
         project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
@@ -95,8 +96,7 @@ module.exports = function(grunt) {
      * @var {object} _globalScripts
      */
     var _globalScripts = [
-        project.vendor + 'Stellar/jquery.stellar.js',
-        project.vendor + 'scrollJack/ScrollJack.js'
+        project.vendor + 'Stellar/jquery.stellar.js'
     ];
 
     /**

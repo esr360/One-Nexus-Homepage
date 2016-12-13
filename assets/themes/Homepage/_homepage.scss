@@ -34,7 +34,8 @@
 		'combine':(
 			'primary'  : ('round', 'size-4', 'brand-1'),
 			'secondary': ('sharp', 'size-4', 'brand-2')
-		)
+		),
+        'font-family'  : typography('typefaces', 'secondary')
 	));
 
 	@include carousels;
@@ -88,7 +89,7 @@
     ///************************************************************
 
     @include sections;
-
+	@include spacestation;
 
 	@include billboard((
 		'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
