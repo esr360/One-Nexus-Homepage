@@ -18,19 +18,20 @@
         
         // Options
         var options = $.extend({
-            stickyOffset: getOffset()
+            stickyOffset: getOffset(),
+            fadeDuration: 400
         }, custom);
 
         // The homepage has unique behaviour
         function isHomepage() {
             // .spacestation is the homepage's main feature, so if
             // it exists on the page, return true
-            return $('.spacestation').length;
+            return $(_spacestaion).length;
         }
 
         function getOffset() {
             if (isHomepage()) {
-                return $('.spacestation').outerHeight();
+                return $(_spacestaion).outerHeight();
             } else {
                 return $(_billboard).outerHeight();
             }
@@ -46,9 +47,9 @@
             if (isHomepage()) {
                 var scroll = $(window).scrollTop();
                 if (scroll > options.stickyOffset) {
-                    $(_appHeader).fadeIn(400);
+                    $(_appHeader).fadeIn(options.fadeDuration);
                 } else {
-                    $(_appHeader).fadeOut(400);
+                    $(_appHeader).fadeOut(options.fadeDuration);
                 }
             }
         });

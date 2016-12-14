@@ -5,6 +5,10 @@
 
 $theme : 'Homepage';
 
+// This stops data being output twice, since by default importing
+// One-Nexus app below will output data to JSON as well
+$to-JSON: false;
+
 //*****************************************************************
 // One-Nexus
 //*****************************************************************
