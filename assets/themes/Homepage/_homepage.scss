@@ -13,7 +13,8 @@
 
     @include typography((
         'colors':(
-            'link' : color('brand', 'brand-2')
+            'link': color('brand', 'brand-2'),
+			'link-hover': #39ffdc
         )
     ));
 
@@ -63,7 +64,10 @@
 	@include tooltips;
 
 	@include wells((
-		'radius' : 0
+		'radius' : 0,
+		'CSS': (
+			'box-shadow': 3px 3px 10px rgba(black, 0.1)
+		)
 	));
 
 	@include widgets;
