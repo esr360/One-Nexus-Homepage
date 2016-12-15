@@ -65,26 +65,60 @@ scripts:
         <div class="homepage_section2">
 
             <div class="well-deep container homepage_section2_banner">
-                <h4 class="heading-size-4-brand-1 object-small">Lorem Ipsum Dolor Sit</h4>
-                <p class="object-small">One-Nexus is a UI toolkit built using the Synergy Sass framework, combined with a custom grid system; Kayzen-GS.</p>
+                <h4 class="heading-size-4-brand-1 object-small">Free & Open-Source - Hosted on Github</h4>
+                <i class="fa fa-github-alt"></i>
+                <p class="object-small">One-Nexus is open-source, built using open-source tools. All bugs, issues and feature requests are <a href="#">handled on Github</a>.</p>
             </div>
             
             <div class="container text-center">
                 <div class="heading_group">
                     <h3 class="heading-light-size-8 font-2">Why Choose One-Nexus?</h3>
-                    <p class="homepage_section2_subHeading">With so many frameworks and libraries out there, what makes One-Nexus different?
+                    <p class="homepage_section2_subHeading">With so many frameworks and libraries out there, what makes One-Nexus different?</p>
                 </div>
 
                 <div class="row-block object-large">
                     <div class="span-4 homepage_section2_block">
+                        <div class="livicon-evo" data-options="
+                            name: responsive.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: lines;
+                            tryToSharpen: true;
+                            colorsOnHover: custom;
+                            strokeColorAction: white;
+                            strokeColor: #007b93;
+                            drawOnViewport: true
+                        "></div>
                         <h4 class="heading-size-3 object-small">Custom Grid System</h4>
                         <p class="object-small">One-Nexus uses <a href="#">Kayzen-GS</a>, a powerful grid system custom built for One-Nexus.
                     </div>
                     <div class="span-4 homepage_section2_block">
+                        <div class="livicon-evo" data-options="
+                            name: share.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: lines;
+                            tryToSharpen: true;
+                            colorsOnHover: custom;
+                            strokeColorAction: white;
+                            strokeColor: #008277;
+                            drawOnViewport: true
+                        "></div>
                         <h4 class="heading-size-3 object-small">Unique Modules</h4>
                         <p class="object-small">Built using <a href="#">Synergy</a>, One-Nexus offers a unique approach for building modules.
                     </div>
                     <div class="span-4 homepage_section2_block">
+                        <div class="livicon-evo" data-options="
+                            name: rocket.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: lines;
+                            tryToSharpen: true;
+                            colorsOnHover: custom;
+                            strokeColorAction: white;
+                            strokeColor: #161d51;
+                            drawOnViewport: true
+                        "></div>
                         <h4 class="heading-size-3 object-small">Powerful Theming</h4>
                         <p class="object-small">Create multiple themes by passing different configuration data to modules.</p>
                     </div>
@@ -92,6 +126,121 @@ scripts:
             </div>
         </div>
 
+        <div class="homepage_section3 container" style="min-height: 500px">
+            <div class="heading_group text-center">
+                <h3 class="heading-light-size-8-grey-5 font-2">Quick & Easy To Use</h3>
+                <p>Get up and running in just a few minutes - One-Nexus is simple to set up!</p>
+            </div>
+            <div class="row">
+                <div class="span-8">
+                    <h4 class="heading-light-grey-5">modules/objects/header/_header.scss</h4>
+<pre><code class="scss">@mixin header($custom: ()) {
+
+    // Configuration
+    $header: config((
+        'name'    : 'app-header',
+        'sticky'  : false,
+        'offset'  : 0,
+        'bg-color': #444444
+    ), $custom) !global;
+
+    // Module
+    @include module {
+        position: absolute;
+        top: this('offset');
+        background: this('bg-color');
+
+        @include modifier('fixed') {
+            position: fixed;
+            top: 0;
+        }
+    }
+    
+}</code></pre>
+
+                    <h4 class="heading-light-grey-5">modules/objects/header/header.js</h4>
+<pre><code class="js">$.fn.header = function(custom) {
+    
+    var $module = 'app-header';
+    
+    // Configuration
+    var options = $.extend({
+        sticky : _option($module, 'sticky'),
+        offset : _option($module, 'offset')
+    }, custom);
+        
+    var header = $(this);
+
+    if (options.sticky) {
+        $(window).on('load scroll', function(e) {
+            var scroll = $(window).scrollTop();
+
+            if (scroll > options.offset) {
+                header.addClass($module + '-fixed');
+            } else {
+                header.removeClass($module + '-fixed');
+            }
+        });
+    }
+        
+}</code></pre>
+
+                    <h4 class="heading-light-grey-5">app.scss</h4>
+<pre><code class="scss">// Config
+...
+$theme : 'MyTheme';
+// Vendor Files
+...
+// Tools
+...
+// Utilities
+@import 'modules/utilities/grid/grid';
+...
+// Elements
+@import 'modules/elements/buttons/buttons';
+...
+// Objects
+@import 'modules/objects/header/header';
+...
+// Themes
+@import 'themes/MyTheme/MyTheme';
+...</code></pre>
+
+                    <h4 class="heading-light-grey-5">themes/MyTheme/_MyTheme.scss</h4>
+<pre><code class="scss">@if $theme == 'MyTheme' {
+    // Utilities
+    @include grid();
+    ...
+    // Elements
+    @include buttons();
+    ...
+    // Objects
+    @include header((
+        'sticky'  : true,
+        'offset'  : 50px,
+        'bg-color': black
+    ));
+    ...
+}</code></pre>
+                </div>
+                <div class="span-4"></div>
+            </div>
+        </div>
+
     </div>
 
 </div>
+
+<!-- Syntax Highlighter -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/monokai-sublime.min.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+    .hljs code { 
+        font-family : monospace;
+        font-size: 1em; 
+    }
+    .hljs-meta {
+        color: #f92672;
+    }
+</style>

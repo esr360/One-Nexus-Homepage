@@ -50,7 +50,10 @@
 
 	@include headings() {
 		@include modifier('brand-1') {
-			color: color('brand', 'brand-1');
+			color: #505cb9;
+		}
+		@include modifier('grey-5') {
+            color: color('greyscale', 'grey-5');
 		}
 	};
 

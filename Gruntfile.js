@@ -86,6 +86,9 @@ module.exports = function(grunt) {
     var _scripts = [
         OneNexus.scripts,
         project.vendor + 'scrollJack/ScrollJack.js',
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js',
         project.source[0] + 'js/**/*',
         project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
@@ -195,12 +198,20 @@ module.exports = function(grunt) {
                 ]
             },
             images: {
-                files: [{
-                    cwd: project.source[1].images,
-                    src: '**/*',
-                    dest: project.dist[1].images,
-                    expand: true
-                }]
+                files: [
+                    {
+                        cwd: project.source[1].images,
+                        src: '**/*',
+                        dest: project.dist[1].images,
+                        expand: true
+                    },
+                    {
+                        cwd: project.vendor + 'LivIconsEvo/svg',
+                        src: '**/*.svg',
+                        dest: project.dist[1].images + 'LivIcons/',
+                        expand: true
+                    }
+                ]
             }
         },
 

@@ -34,6 +34,7 @@
 
         @include component('content') {
             width: 100%;
+            background-color: color('greyscale', 'grey-1');
         }
 
         @include component('section1') {
@@ -68,7 +69,7 @@
 
         @include component('section2') {
             background-color: #080d2b;
-            padding: 10em 0 8em;
+            padding: 10em 0 18em;
             color: white;
             position: relative;
             @include component('banner') {
@@ -78,6 +79,15 @@
                 right: 0;
                 transform: translateY(-50%);
                 z-index: 2; 
+                overflow: hidden;
+                .fa {
+                    position: absolute;
+                    font-size: 10em;
+                    top: -0.1em;
+                    right: -0.1em;
+                    transform: rotate(15deg);
+                    color: #d6c5d4;
+                }
             }
             @include component('subHeading') {
                 color: #f1c4eb;
@@ -99,6 +109,26 @@
                 p {
                     opacity: 0.9;
                 }
+            }
+            .livicon-evo-holder {
+                margin: auto;
+            }
+        }
+
+        @include component('section3') {
+            background: #ffffff;
+            box-shadow: 3px 3px 10px rgba(black, 0.1);
+            padding: 6em core('margin') core('margin');
+            position: relative;
+            top: -10em;
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: -7px;
+                height: 7px;
+                width: 100%;
+                background: gradient('brand');
             }
         }
 

@@ -26,12 +26,12 @@
         function isHomepage() {
             // .spacestation is the homepage's main feature, so if
             // it exists on the page, return true
-            return $(_spacestaion).length;
+            return $('.spacestation').length;
         }
 
         function getOffset() {
             if (isHomepage()) {
-                return $(_spacestaion).outerHeight();
+                return $('.spacestation').outerHeight();
             } else {
                 return $(_billboard).outerHeight();
             }
