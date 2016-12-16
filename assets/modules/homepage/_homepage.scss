@@ -29,12 +29,14 @@
     @include module {
 
         @include component('wrapper') {
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         @include component('content') {
             width: 100%;
             background-color: color('greyscale', 'grey-1');
+            position: relative;
+            z-index: 2;
         }
 
         @include component('section1') {
@@ -117,10 +119,11 @@
 
         @include component('section3') {
             background: #ffffff;
-            box-shadow: 3px 3px 10px rgba(black, 0.1);
-            padding: 6em core('margin') core('margin');
+            box-shadow: 1px 1px 5px rgba(black, 0.1);
+            padding: 6em core('margin');
             position: relative;
             top: -10em;
+            margin-bottom: -3em;
             &:before {
                 content: '';
                 position: absolute;
@@ -129,6 +132,27 @@
                 height: 7px;
                 width: 100%;
                 background: gradient('brand');
+            }
+        }
+
+        @include component('section4') {
+            padding-bottom: 6em;
+            position: relative;
+        }
+
+        @include component('section5') {
+            position: relative;
+            padding: 8em 0;
+            background: white;
+            box-shadow: 0px 0px 5px rgba(black, 0.1);
+            
+            @include component('graphic') {
+                position: absolute;
+                width: 60%;
+                min-width: 600px;
+                right: 0;
+                bottom: -15vw;
+                transform: scaleX(-1);
             }
         }
 

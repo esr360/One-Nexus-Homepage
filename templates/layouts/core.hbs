@@ -45,9 +45,64 @@ FontAwesome: 4.7.0
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{FontAwesome}}/css/font-awesome.min.css" />
     {{/if}}
 
+    {{#if Prism}}
+        <!-- Load syntax highlighter -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-scss.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-markup.min.js"></script>
+        <link  href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/themes/prism.min.css" rel="stylesheet" />
+        <!-- Handle code indentation -->
+        <script>      
+            $('pre code').each(function(i, block) {
+                var lines = block.textContent.split('\n');
+
+                if (lines[0] === '') {
+                    lines.shift()
+                }
+
+                var matches = /^[\s\t]+/.exec(lines[0]);
+    
+                if (matches) {
+                    var indentation = matches[0];
+                }
+
+                if (indentation) {
+                    lines = lines.map(function(line) {
+                        line = line.replace(indentation, '')
+                        return line.replace(/\t/g, '    ')
+                    });
+
+                    block.textContent = lines.join('\n').trim();
+                }
+            });
+        </script>
+        <!-- Botch styles -->
+        <style>
+            pre[class*="language"] {
+                /*
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+                background: white;
+                */
+            }
+            pre.border {
+                border-bottom: 6px solid rgba(0,0,0,0.075);
+            }
+        </style>
+    {{/if}}
+
     {{#each scripts}}
         <script src="{{../assets}}{{.}}"></script>
     {{/each}}
+
+    {{#if parallax}}
+        <script>
+            $.stellar({
+                responsive: true
+            });
+        </script>
+    {{/if}}
 
     {{#is environment "dev"}}
         <script src="{{assets}}assets/themes/{{theme}}/app.js"></script>

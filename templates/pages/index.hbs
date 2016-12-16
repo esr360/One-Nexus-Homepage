@@ -1,7 +1,5 @@
 ---
 layout: core.hbs
-wide: false
-demo: true
 header:
     modifiers:
     - fixed
@@ -9,6 +7,8 @@ header:
     - dark
 scripts:
     - assets/scripts/jquery.stellar.js
+parallax: true
+Prism: 1.6.0
 ---
 
 {{> header}}
@@ -133,215 +133,228 @@ scripts:
                 <p>Get up and running in just a few minutes - One-Nexus is simple to set up!</p>
             </div>
 
-            <div class="heading_group text-center">
-                <h3 class="heading-light-size-8-grey-5 font-2">Creating a Module</h3>
-                <p>See the below pseudo exampe to see just what's possible with One-Nexus</p>
-            </div>
+        </div>
 
-            <div class="row tabs">
-                <div class="span-8">
+        <div class="homepage_section4">
 
-                    <div class="tabs_item">
+            <img src="{{assets}}assets/images/mountain.svg" class="homepage_section5_graphic" />
 
-                        <h4 class="heading-light-grey-5">/modules/objects/header/_header.scss</h4>
+            <div class="container">
 
-                        <pre><code class="scss">
-                            @mixin header($custom: ()) {
+                <div class="heading_group object-large text-center">
+                    <h3 class="heading-light-size-8-grey-5 font-2">Creating a Module</h3>
+                    <p>See the below pseudo exampe to see just what's possible with One-Nexus</p>
+                </div>
 
-                                // Configuration
-                                $header: config((
-                                    'name'    : 'app-header',
-                                    'sticky'  : false,
-                                    'offset'  : 0,
-                                    'bg-color': #444444
-                                ), $custom) !global;
+                <div class="row tabs">
+                    <div class="span-8">
 
-                                // Module
-                                @include module {
-                                    position: absolute;
-                                    top: this('offset');
-                                    background: this('bg-color');
+                        <div class="tabs_item active">
 
-                                    @include modifier('fixed') {
-                                        position: fixed;
-                                        top: 0;
-                                    }
-                                }
-                                
-                            }
-                        </code></pre>
+                            <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
 
-                    </div>
+                            <pre class="border"><code class="language-scss">
+                                @mixin header($custom: ()) {
 
-                    <div class="tabs_item">
+                                    // Configuration
+                                    $header: config((
+                                        'name'    : 'app-header',
+                                        'sticky'  : false,
+                                        'offset'  : 0,
+                                        'bg-color': #444444
+                                    ), $custom) !global;
 
-                        <h4 class="heading-light-grey-5">/modules/objects/header/header.js</h4>
+                                    // Module
+                                    @include module() {
+                                        position: absolute;
+                                        top: this('offset');
+                                        background: this('bg-color');
 
-                        <pre><code class="js">
-                            $.fn.header = function(custom) {
-                                
-                                var $module = 'app-header';
-                                
-                                // Configuration
-                                var options = $.extend({
-                                    sticky : _option($module, 'sticky'),
-                                    offset : _option($module, 'offset')
-                                }, custom);
-                                    
-                                var header = $(this);
-
-                                if (options.sticky) {
-                                    $(window).on('load scroll', function(e) {
-                                        var scroll = $(window).scrollTop();
-
-                                        if (scroll > options.offset) {
-                                            header.addClass($module + '-fixed');
-                                        } else {
-                                            header.removeClass($module + '-fixed');
+                                        @include modifier('fixed') {
+                                            position: fixed;
+                                            top: 0;
                                         }
-                                    });
-                                }
+                                    }
                                     
-                            }
-                        </code></pre>
+                                }
+                            </code></pre>
 
-                    </div>
+                        </div>
 
-                    <div class="tabs_item">
+                        <div class="tabs_item">
 
-                        <h4 class="heading-light-grey-5">/app.scss</h4>
+                            <div class="alert-bar-info">/modules/objects/header/<b>header.js</b></div>
 
-                        <pre><code class="scss">
-                            // Config
-                            ...
-                            $theme : 'MyTheme';
-                            // Vendor Files
-                            ...
-                            // Tools
-                            ...
-                            // Utilities
-                            ...
-                            // Elements
-                            ...
-                            // Objects
-                            @import 'modules/objects/header/header';
-                            ...
-                            // Themes
-                            @import 'themes/MyTheme/MyTheme';
-                            ...
-                        </code></pre>
+                            <pre class="border"><code class="language-js">
+                                $.fn.header = function(custom) {
+                                    
+                                    var $module = 'app-header';
+                                    
+                                    // Configuration
+                                    var options = $.extend({
+                                        sticky : _option($module, 'sticky'),
+                                        offset : _option($module, 'offset')
+                                    }, custom);
+                                        
+                                    var header = $(this);
 
-                    </div>
+                                    if (options.sticky) {
+                                        $(window).on('load scroll', function(e) {
+                                            var scroll = $(window).scrollTop();
 
-                    <div class="tabs_item">
+                                            if (scroll > options.offset) {
+                                                header.addClass($module + '-fixed');
+                                            } else {
+                                                header.removeClass($module + '-fixed');
+                                            }
+                                        });
+                                    }
+                                        
+                                }
+                            </code></pre>
 
-                        <h4 class="heading-light-grey-5">/themes/MyTheme/_MyTheme.scss</h4>
+                        </div>
 
-                        <pre><code class="scss">
-                            @if $theme == 'MyTheme' {
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-info">/<b>app.scss</b></div>
+
+                            <pre class="border"><code class="language-scss">
+                                // Config
+                                ...
+                                $theme : 'MyTheme';
+                                // Vendor Files
+                                ...
+                                // Tools
+                                ...
                                 // Utilities
                                 ...
                                 // Elements
                                 ...
                                 // Objects
-                                @include header((
-                                    'sticky'  : true,
-                                    'offset'  : 50px,
-                                    'bg-color': black
-                                ));
+                                @import 'modules/objects/header/header';
                                 ...
-                            }
-                        </code></pre>
+                                // Themes
+                                @import 'themes/MyTheme/MyTheme';
+                                ...
+                            </code></pre>
+
+                        </div>
+
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-info">/themes/MyTheme/<b>_MyTheme.scss</b></div>
+
+                            <pre class="border"><code class="language-scss">
+                                @if $theme == 'MyTheme' {
+                                    // Utilities
+                                    ...
+                                    // Elements
+                                    ...
+                                    // Objects
+                                    @include header((
+                                        'sticky'  : true,
+                                        'offset'  : 50px,
+                                        'bg-color': black
+                                    ));
+                                    ...
+                                }
+                            </code></pre>
+
+                        </div>
+
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-info">/themes/MyTheme/<b>MyTheme.js</b></div>
+
+                            <pre class="border"><code class="language-javascript">
+                                $(document).ready(function() {
+                                    // Utilities
+                                    ...
+                                    // Elements
+                                    ...
+                                    // Objects
+                                    $(_appHeader).header({
+                                        sticky: false
+                                    });
+                                    ...
+                                });
+                            </code></pre>
+
+                        </div>
+
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
+
+                            <pre class="border"><code class="language-markup">
+                                &lt;header class="app-header">
+                                    ...
+                                &lt;/header>
+                                &lt;!-- For a permanently fixed header: -->
+                                &lt;header class="app-header-fixed">
+                                    ...
+                                &lt;/header>
+                            </code></pre> 
+
+                        </div>
+
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
+
+                            <pre class="border"><code class="language-css">
+                                ...
+
+                                .app-header, 
+                                [class*="app-header-"] {
+                                    position: absolute;
+                                    top: 50px;
+                                    background: black;
+                                }
+                                [class*="app-header-"][class*="-fixed"] {
+                                    position: fixed;
+                                    top: 0;
+                                }
+
+                                ...
+                            </code></pre> 
+
+                        </div>
 
                     </div>
 
-                    <div class="tabs_item">
-
-                        <h4 class="heading-light-grey-5">/themes/MyTheme/MyTheme.js</h4>
-
-                        <pre><code class="js">
-                            // Utilities
-                            ...
-                            // Elements
-                            ...
-                            // Objects
-                            $(_appHeader).header({
-                                sticky: false
-                            });
-                            ...
-                        </code></pre>
-
+                    <div class="span-4">
+                        <ul class="tabs_nav list-arrow-interactive">
+                            <li class="active">Sass module</li>
+                            <li>JS module</li>
+                            <li>Import Sass module</li>
+                            <li>Include Sass module</li>
+                            <li>Include JS module</li>
+                            <li>HTML usage</li>
+                            <li>CSS Output</li>
+                        </ul>
+                        <hr class="hrule-line" />
+                        <a href="#" class="button-block-brand-3">View Full Docs</a>
+                        <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
                     </div>
 
-                    <div class="tabs_item">
-
-                        <h4 class="heading-light-grey-5">/dist/MyTheme/MyTheme.css</h4>
-
-                        <pre><code class="css">
-                            ...
-
-                            .app-header, 
-                            [class*="app-header-"] {
-                                position: absolute;
-                                top: 50px;
-                                background: black;
-                            }
-                            [class*="app-header-"][class*="-fixed"] {
-                                position: fixed;
-                                top: 0;
-                            }
-
-                            ...
-                        </code></pre> 
-
-                    </div>
-
-                </div>
-
-                <ul class="span-4 tabs_nav">
-                    <li>1. Foo</li>
-                    <li>2. Bar</li>
-                </ul>
+                </div><!-- /.tabs -->
 
             </div>
+        </div>
+
+        <div class="homepage_section5">
+
+            <div class="container">
+                <div class="heading_group text-center">
+                    <h3 class="heading-light-size-8-grey-5 font-2">More Features...</h3>
+                    <p>See the below pseudo exampe to see just what's possible with One-Nexus</p>
+                </div>
+            </div>
+        
         </div>
 
     </div>
 
 </div>
-
-<!-- Load syntax highlighter -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/monokai-sublime.min.css" />
-<script>hljs.initHighlightingOnLoad();</script>
-<!-- Handle code indentation -->
-<script>
-    [].forEach.call(document.querySelectorAll('pre'), function($code) {
-        var lines = $code.textContent.split('\n');
-
-        if (lines[0] === '') {
-            lines.shift()
-        }
-
-        var matches;
-        var indentation = (matches = /^[\s\t]+/.exec(lines[0])) !== null ? matches[0] : null;
-        if (!!indentation) {
-            lines = lines.map(function(line) {
-                line = line.replace(indentation, '')
-                return line.replace(/\t/g, '    ')
-            });
-
-            $code.textContent = lines.join('\n').trim();
-        }
-    });
-</script>
-<!-- Botch styles -->
-<style>
-    .hljs code { 
-        font-family : monospace;
-        font-size: 1em; 
-    }
-    .hljs-meta {
-        color: #f92672;
-    }
-</style>
