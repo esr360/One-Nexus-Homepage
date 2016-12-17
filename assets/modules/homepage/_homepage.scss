@@ -262,15 +262,6 @@
             }
         }
 
-        @include component('footer') {
-            min-height: 500px;
-            background-color: #080D2B;
-            background-image: url('#{$asset-path}/images/space-alpha.png');
-            background-position: 0px -5vw;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
     }
 
 }
