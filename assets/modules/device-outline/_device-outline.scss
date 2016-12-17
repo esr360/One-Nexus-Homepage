@@ -1,0 +1,54 @@
+/// Device Outline
+///
+/// @author [@esr360](http://twitter.com/esr360)
+/// @access public
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+/// @outputs all device outline styles
+///
+/// @example
+///     @include device-outline((
+///         'title-bg'    : blue,
+///         'title-color' : white
+///     ));
+@mixin device-outline($custom: ()) {
+
+    //*************************************************************
+    // Configuration
+    //*************************************************************
+
+    $spacestation: config((
+        'output-json' : true,
+        'name'        : 'deviceOutline'
+    ), $custom);
+
+    //*************************************************************
+    // Module
+    //*************************************************************
+
+    @include module {
+
+        position: relative;
+        padding-top: 50%;
+
+        @include component {
+            position: absolute;
+            bottom: 0;
+        }
+
+        @include component('phone') {
+            width: 15%;
+        }
+        @include component('tablet') {
+            right: 0;
+            width: 25%;
+        }
+        @include component('laptop') {
+            width: 75%;
+            left: 8%;
+        }
+
+    }
+
+}

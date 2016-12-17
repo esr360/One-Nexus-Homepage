@@ -120,31 +120,118 @@
         @include component('section3') {
             background: #ffffff;
             box-shadow: 1px 1px 5px rgba(black, 0.1);
-            padding: 6em core('margin');
+            padding: 6.5em core('margin') 6em;
             position: relative;
             top: -10em;
             margin-bottom: -3em;
+            overflow: hidden;
             &:before {
                 content: '';
                 position: absolute;
                 left: 0;
-                top: -7px;
-                height: 7px;
+                top: 0;
+                height: 0.5em;
                 width: 100%;
                 background: gradient('brand');
+            }
+            @include component('graphic') {
+                position: absolute;
+                bottom: 0;
+                left: -25vw;
+                transform: scaleX(-1);
+                width: 90%;
+                min-width: 800px;
+                height: 18vw;
+                &:after {
+                    content: '';
+                    height: 200px;
+                    width: 200px;
+                    background-color: #ffffff;
+                    transform: rotate(45deg) translate(-48%, 42%);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+            @include component('box') {
+                overflow: hidden;
+                background: color('brand', 'brand-1');
+                @include component('graphic') {
+                    position: absolute;
+                    left: 0;
+                    bottom: -2vw;
+                    width: 50%;
+                }
+            }
+            @include component('download') {
+                padding: 3em 2em;
+                position: relative;
+            }
+            @include component('desktop') {
+                width: 70%;
+                margin: auto;
+                margin-top: 6em;
+                position: relative;
+                z-index: 2;
+                iframe {
+                    position: absolute;
+                    top: 4%;
+                    left: 3.9%;
+                    width: 92.2%;
+                    height: 58.2%;
+                    border: none;
+                }
+                img {
+                    position: relative;
+                }
+            }
+            @include component('webTool') {
+                height: 0;
+                padding-top: 50%;
+                img {
+                    @include vertical-center(absolute);
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
+                .html5-logo {
+                    height: 75%;
+                }
+                .sass-logo {
+                    height: 65%;
+                }
+                .jquery-logo {
+                    height: 30%;
+                }
             }
         }
 
         @include component('section4') {
             padding-bottom: 6em;
             position: relative;
+            overflow: hidden;
         }
 
         @include component('section5') {
             position: relative;
-            padding: 8em 0;
+            padding: 8em 0 14em;
             background: white;
             box-shadow: 0px 0px 5px rgba(black, 0.1);
+            overflow: hidden;
+
+            &:after {
+                content: '';
+                background-image: url('#{$asset-path}/images/world-map.png');
+                background-size: cover;
+                position: absolute;
+                bottom: -10%;
+                width: 60%;
+                left: 0;
+                right: 0;
+                margin: auto;
+                height: 20%;
+                opacity: 0.2;
+            }
             
             @include component('graphic') {
                 position: absolute;
@@ -154,6 +241,34 @@
                 bottom: -15vw;
                 transform: scaleX(-1);
             }
+
+            .livicon-evo {
+                margin: auto;
+            }
+        }
+
+        @include component('section6') {
+            padding: 6em 0;
+            background-image: url('#{$asset-path}/images/polygon-dark.jpg');
+            background-size: cover;
+            color: color('greyscale', 'white');
+            @include bg-overlay(rgba(color('brand', 'brand-1'), 0.5));
+            @include overwrite('list', $is: 'arrow') {
+                > li {
+                    &:before {
+                        color: color('brand', 'brand-4');
+                    }
+                }
+            }
+        }
+
+        @include component('footer') {
+            min-height: 500px;
+            background-color: #080D2B;
+            background-image: url('#{$asset-path}/images/space-alpha.png');
+            background-position: 0px -5vw;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
     }

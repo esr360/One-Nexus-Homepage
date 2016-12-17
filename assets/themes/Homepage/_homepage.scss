@@ -9,7 +9,11 @@
     /// Skeleton
     ///************************************************************
 
-    @include palettes;
+	@include palettes((
+		'brand': (
+			'brand-4': #ea4c88
+		)
+	));
 
     @include typography((
         'colors':(
@@ -55,11 +59,21 @@
 		@include modifier('grey-5') {
             color: color('greyscale', 'grey-5');
 		}
+		@include modifier('brand-4') {
+            color: color('brand', 'brand-4');
+		}
 	};
 
 	@include images;
 
 	@include lists {
+		@include modifier('arrow') {
+			> li {
+				&:before {
+					height: 1.7em;
+				}
+			}
+		}
 		@include modifier('interactive') {
 			margin-bottom: -0.5em;
 			> li {
@@ -81,7 +95,6 @@
 				}
 				&:before {
 					left: 1em;
-					height: 1.7em;
 					transition: core('transition');
 					color: #505CB9;
 				}
@@ -97,11 +110,13 @@
 	@include tooltips;
 
 	@include wells((
-		'radius' : 0,
-		'CSS': (
-			'box-shadow': 1px 1px 5px rgba(black, 0.1)
-		)
-	));
+		'radius': 0,
+		'dark-background': rgba(black, 0.1)
+	)) {
+		@include modifier('box') {
+			box-shadow: 1px 1px 5px rgba(black, 0.1)
+		}
+	};
 
 	@include widgets;
 
@@ -155,6 +170,7 @@
 		}
 	};
 
+	@include device-outline;
 	@include spacestation;
 	@include homepage;
 

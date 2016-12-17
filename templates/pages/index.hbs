@@ -64,8 +64,8 @@ Prism: 1.6.0
 
         <div class="homepage_section2">
 
-            <div class="well-deep container homepage_section2_banner">
-                <h4 class="heading-size-4-brand-1 object-small">Free & Open-Source - Hosted on Github</h4>
+            <div class="well-deep-box container homepage_section2_banner">
+                <h4 class="heading-size-4-brand-1 object-small font-2">Free & Open-Source - Hosted on Github</h4>
                 <i class="fa fa-github-alt"></i>
                 <p class="object-small">One-Nexus is open-source, built using open-source tools. All bugs, issues and feature requests are <a href="#">handled on Github</a>.</p>
             </div>
@@ -128,16 +128,55 @@ Prism: 1.6.0
 
         <div class="homepage_section3 container">
 
-            <div class="heading_group text-center">
+            <div class="heading_group text-center object-large">
                 <h3 class="heading-light-size-8-grey-5 font-2">Quick & Easy To Use</h3>
-                <p>Get up and running in just a few minutes - One-Nexus is simple to set up!</p>
+                <p>Getting started can be as simple as including a single <code>.js</code> and <code>.css</code> file on your page</p>
+            </div>
+
+            <div class="homepage_section3_box alert-box text-right">
+                <img src="{{assets}}assets/images/mountain.svg" class="homepage_section3_box_graphic" />
+                <div class="homepage_section3_download">
+                    <a href="#" class="button-border-white-size-4"><i class="fa fa-download"></i>&nbsp; Download</a>
+                    <span class="button_group_item">or</span>
+                    <a href="#" class="button-border-white-size-4"><i class="fa fa-github-alt"></i>&nbsp; View on Github</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span-4">
+                    <div class="well-dark-thumb homepage_section3_webTool">
+                        <img src="{{assets}}assets/images/html5-logo.svg" class="html5-logo" alt="HTML5" />
+                    </div>
+                    <p>One-Nexus requires only plain old HTML5, leaving you to handle templates however you want - just load the required assets.</p>
+                </div>
+                <div class="span-4">
+                    <div class="well-dark-thumb homepage_section3_webTool">
+                        <img src="{{assets}}assets/images/sass-logo.svg" class="sass-logo" alt="Sass" />
+                    </div>
+                    <p>Styles are compiled from <code>.scss</code> files - use whatever method of compiling you are comfortable with (requires Sass 3.4+).</p>
+                </div>
+                <div class="span-4">
+                    <div class="well-dark-thumb homepage_section3_webTool">
+                        <img src="{{assets}}assets/images/jquery-logo.svg" class="jquery-logo" alt="j-Query" />
+                    </div>
+                    <p>Most plugins for One-Nexus require jQuery. The demo templates which you can build from come with it included via CDN.</p>
+                </div>
+            </div>
+
+            <div class="homepage_section3_desktop">
+                <iframe src="{{assets}}basic-html.html"></iframe>
+                <img src="{{assets}}assets/images/desktop-screen.png" class="" />
+            </div>
+            
+            <div class="homepage_section3_graphic">
+                <img src="{{assets}}assets/images/spacestation/layer8.svg" />
             </div>
 
         </div>
 
         <div class="homepage_section4">
 
-            <img src="{{assets}}assets/images/mountain.svg" class="homepage_section5_graphic" />
+            <img src="{{assets}}assets/images/mountain.svg" data-stellar-ratio="0.8" class="homepage_section5_graphic" />
 
             <div class="container">
 
@@ -347,14 +386,177 @@ Prism: 1.6.0
         <div class="homepage_section5">
 
             <div class="container">
-                <div class="heading_group text-center">
+                <div class="heading_group text-center object-large">
                     <h3 class="heading-light-size-8-grey-5 font-2">More Features...</h3>
                     <p>See the below pseudo exampe to see just what's possible with One-Nexus</p>
+                </div>
+
+                <div class="row-flow row-breathe text-center">
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: comments.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Working Twitter Feed</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: dashboard.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Optimised Performance</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: cloud-download.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Optimised Performance</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: gears.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Optimised Performance</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: location-alt.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: print-image.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: responsive.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: loader-7.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: smartphone.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: unlock.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: paper-plane.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
+                    <div class="span-3">
+                        <div class="livicon-evo" data-options="
+                            name: magic.svg;
+                            eventOn: parent;
+                            size: 130px; 
+                            style: original;
+                            tryToSharpen: true;
+                            drawOnViewport: true
+                        "></div>
+                        <h4 class="heading-grey-5-light-size-3">Google Map</h4>
+                    </div>
                 </div>
             </div>
         
         </div>
 
+        <div class="homepage_section6" data-stellar-background-ratio="0.8">
+
+            <div class="container">
+                <div class="row">
+                    <div class="span-6 va-middle">
+                        <h4 class="heading-size-5-heavy object-small font-2">Integrates Into Any Workflow</h4>
+                        <h4 class="heading-size-4-brand-4-light object-small">Built For Experts & Experts of All Levels</h4>
+                        <p>One-Nexus can be used with tools you already love and are familiar with. Getting started can be as simple as importing a single <code class="alt">.js</code> and <code class="alt">.css</code> file</p>
+                        <ul class="list-arrow object-small">
+                            <li>If using Sass, you only need to watch and compile a single <code class="alt">.scss</code> file</li>
+                            <li>Comes with resuable Handlebars templates which can be utilised</li>
+                            <li>Comes with adaptable Gruntfile to build the One-Nexus assets</li>
+                        </ul>
+                    </div>
+                    <div class="span-6 va-middle">
+                        <div class="deviceOutline">
+                            <img class="deviceOutline_phone" src="{{assets}}assets/images/iphone-outline.svg" alt="">
+                            <img class="deviceOutline_tablet" src="{{assets}}assets/images/tablet-outline.svg" alt="">
+                            <img class="deviceOutline_laptop" src="{{assets}}assets/images/laptop-outline.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 </div>
+
+<div class="homepage_footer"></div>
