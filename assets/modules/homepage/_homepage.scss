@@ -262,6 +262,10 @@
             }
         }
 
+        @include component('section7') {
+            padding: 6em 0;
+        }
+
     }
 
 }
