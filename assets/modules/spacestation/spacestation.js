@@ -19,7 +19,7 @@
                 scrollSpeed: [100, 800],
                 conditions: $.browser().isIE || $.browser().isEdge
             },
-            fadeOnScroll: '.spacestation_content, .spacestation_layer-planets'
+            fadeOnScroll: '.spacestation_content, .spacestation_layer-planets, .spacestation_layer-stars1'
         }, custom);
 
         // Cache the spacestation object

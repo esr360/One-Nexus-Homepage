@@ -18,7 +18,8 @@
     @include typography((
         'colors':(
             'link': color('brand', 'brand-2'),
-			'link-hover': #39ffdc
+			'link-hover': color('brand', 'brand-4')
+			//'link-hover': #39ffdc
         )
     ));
 
@@ -109,12 +110,36 @@
 	@include thumbnails;
 	@include tooltips;
 
-	@include wells((
-		'radius': 0,
-		'dark-background': rgba(black, 0.1)
-	)) {
+	@include wells(('radius': 0)) {
 		@include modifier('box') {
-			box-shadow: 1px 1px 5px rgba(black, 0.1)
+			box-shadow: 1px 1px 5px rgba(black, 0.1);
+		}
+		@include modifier('opaque') {
+			background-color: rgba(black, 0.1);
+		}
+		@include modifier('cta') {
+			padding-bottom: 3em;
+			p, ul {
+				opacity: 0.75;
+			}
+			li:before {
+				color: rgba(black, 0.75);
+			}
+		}
+		@include component('cta') {
+			position: absolute;
+			text-align: center;
+			background-color: rgba(black, 0.4);
+			color: inherit;
+			padding: 0.8em;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			transition: core('transition');
+			&:hover {
+				background-color: color('brand', 'brand-3');
+				color: white;
+			}
 		}
 	};
 
