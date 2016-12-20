@@ -41,7 +41,7 @@
 			'primary'  : ('round', 'size-4', 'brand-1'),
 			'secondary': ('sharp', 'size-4', 'brand-2')
 		),
-        'font-family'  : typography('typefaces', 'secondary')
+        'font-family': typography('typefaces', 'secondary')
 	)) {
 		@include component('group') {
 			@include component('item') {
@@ -57,11 +57,11 @@
 		@include modifier('brand-1') {
 			color: #505cb9;
 		}
-		@include modifier('grey-5') {
-            color: color('greyscale', 'grey-5');
-		}
 		@include modifier('brand-4') {
             color: color('brand', 'brand-4');
+		}
+		@include modifier('grey-5') {
+            color: color('greyscale', 'grey-5');
 		}
 	};
 
@@ -110,7 +110,10 @@
 	@include thumbnails;
 	@include tooltips;
 
-	@include wells(('radius': 0)) {
+	@include wells((
+		'radius': 0m 'dark',
+		'border': none
+	)) {
 		@include modifier('box') {
 			box-shadow: 1px 1px 5px rgba(black, 0.1);
 		}
@@ -118,7 +121,7 @@
 			background-color: rgba(black, 0.1);
 		}
 		@include modifier('cta') {
-			padding-bottom: 3em;
+			padding-bottom: 3.3em;
 			p, ul {
 				opacity: 0.75;
 			}
@@ -131,7 +134,7 @@
 			text-align: center;
 			background-color: rgba(black, 0.4);
 			color: inherit;
-			padding: 0.8em;
+			padding: 1em;
 			width: 100%;
 			bottom: 0;
 			left: 0;

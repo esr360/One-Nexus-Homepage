@@ -107,6 +107,7 @@
 
             @include modifier('stars1') {
                 background-image: url('#{$image-path}/layer1.svg');
+                background-attachment: fixed;
                 animation: 150s scroll infinite linear;
             }
 

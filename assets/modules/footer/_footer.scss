@@ -1,0 +1,77 @@
+/// Footer
+///
+/// @author [@esr360](http://twitter.com/esr360)
+/// @access public
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+/// @outputs all footer styles
+///
+/// @example
+///     @include footer();
+@mixin footer($custom: ()) {
+
+    //*************************************************************
+    // Configuration
+    //*************************************************************
+
+    $spacestation: config((
+        'name'       : 'footer'
+    ), $custom);
+
+    //*************************************************************
+    // Module
+    //*************************************************************
+
+    @include module {
+        position: relative;
+        margin-top: calc(5vw + 3em);
+        z-index: 2;
+        padding: 6em 0;
+        background: #062129;
+        &:before {
+            content: '';
+            background-color: inherit;
+            position: absolute;
+            top: -5vw;
+            width: 105vw;
+            height: 12vw;
+            transform: rotate(-5.5deg);
+        }
+
+        @include component('graphic') {
+            position: absolute;
+            filter: invert(100%);
+            opacity: 0.5;
+            @include modifier('tablet') {
+                width: 20%;
+                top: -11vw;
+                right: 0;
+                transform: rotate(84deg);
+            }
+            @include modifier('phone') {
+                width: 9.8%;
+                top: -5vw;
+                right: 25%;
+                transform: rotate(-6deg);
+            }
+            @include modifier('miniTablet') {
+                width: 20%;
+                top: 15.4vw;
+                right: 12%;
+                transform: rotate(-6deg);
+            }
+        }
+
+        @include component('box') {
+            background-color: color('brand', 'brand-2');
+            color: color('greyscale', 'white');
+            box-shadow: 2px 2px 5px rgba(black, 0.1);
+            padding: 2em;
+            position: absolute;
+            top: -13em;
+            left: 0;
+        }
+    }
+
+}
