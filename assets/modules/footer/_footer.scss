@@ -16,6 +16,7 @@
     //*************************************************************
 
     $spacestation: config((
+        'output-json': true,
         'name'       : 'footer'
     ), $custom);
 

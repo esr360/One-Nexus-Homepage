@@ -25,6 +25,7 @@ $to-JSON: false;
 // Modules
 //*****************************************************************
 
+@import 'modules/brand-blocks/brand-blocks';
 @import 'modules/device-outline/device-outline';
 @import 'modules/spacestation/spacestation';
 @import 'modules/homepage/homepage';
@@ -35,6 +36,72 @@ $to-JSON: false;
 //*****************************************************************
 
 @import 'themes/Homepage/homepage';
+
+///
+
+@mixin foo($custom: ()) {
+
+    @include module('foo') {
+        content: '1';
+        @include modifier('bar') {
+            content: '2';
+            @include overwrite-component('bar') {
+                content: '3';
+                @include modifier('baz') {
+                    content: '3.1'
+                }
+            }
+            @include component('bar') {
+                content: '4';
+                @include modifier('baz') {
+                    content: '4.1'
+                }
+            }
+        }
+        @include component('bar') {
+            content: '5';
+        }
+    }
+
+}
+
+@mixin bar($custom: ()) {
+
+    @include module('bar') {
+        content: '6';
+        @include overwrite('foo') {
+            content: '7';
+        }
+        @include module('foo') {
+            content: '8';
+        }
+        @include overwrite('foo', $is: 'bar') {
+            content: '[class*="bar-"] [class*="foo-"][class*="-bar"]';
+            @include component('baz') {
+                content: '[class*="bar-"] [class*="foo-"][class*="-bar"] [class*="foo_baz"]';
+                @include module('qux') {
+                    @include component('alpha') {
+                        content: '[class*="bar-"] [class*="foo-"][class*="-bar"] [class*="foo_baz"] [class*="qux-"] [class*="qux-alpha-"]'; 
+                    }
+                }
+            }
+        }
+        @include module('foo') {
+            @include modifier('bar') {
+                content: '[class*="bar-"] [class*="foo-"][class*="-bar"]';
+                @include component('baz') {
+                    content: '[class*="bar-"] [class*="foo-"][class*="-bar"] [class*="foo_baz"]';
+                }
+            }
+        }
+    }
+
+}
+
+@include foo();
+@include bar();
+
+///
 
 // Output all configuration data to JSON
 @include json-encode($_modules);

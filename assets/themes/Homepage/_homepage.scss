@@ -111,7 +111,7 @@
 	@include tooltips;
 
 	@include wells((
-		'radius': 0m 'dark',
+		'radius': 0,
 		'border': none
 	)) {
 		@include modifier('box') {
@@ -120,14 +120,16 @@
 		@include modifier('opaque') {
 			background-color: rgba(black, 0.1);
 		}
-		@include modifier('cta') {
-			padding-bottom: 3.3em;
+		@include modifier('dark') {
 			p, ul {
 				opacity: 0.75;
 			}
 			li:before {
 				color: rgba(black, 0.75);
 			}
+		}
+		@include modifier('cta') {
+			padding-bottom: 3.3em;
 		}
 		@include component('cta') {
 			position: absolute;
@@ -198,6 +200,7 @@
 		}
 	};
 
+	@include brand-blocks;
 	@include device-outline;
 	@include spacestation;
 	@include homepage;

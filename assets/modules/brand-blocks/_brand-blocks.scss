@@ -1,0 +1,46 @@
+/// Brand Blocks
+///
+/// @author [@esr360](http://twitter.com/esr360)
+/// @access public
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+/// @outputs all brand-blocks styles
+///
+/// @example
+///     @include brand-blocks();
+@mixin brand-blocks($custom: ()) {
+
+    //*************************************************************
+    // Configuration
+    //*************************************************************
+
+    $spacestation: config((
+        'name'        : 'brandBlock'
+    ), $custom);
+
+    //*************************************************************
+    // Module
+    //*************************************************************
+
+    @include module {
+
+        padding: 2em;
+
+        @for $i from 1 through length(palette('brand')) {
+            $color: nth(nth(palette('brand'), $i), 2);
+            @include modifier('brand#{$i}') {
+                background-color: $color;
+            }
+        }
+
+        .livicon-evo-holder {
+            margin: auto;
+        }
+
+        a { color: inherit }
+        p { opacity: 0.9   }
+
+    }
+
+}
