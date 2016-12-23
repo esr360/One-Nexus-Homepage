@@ -39,66 +39,39 @@ $to-JSON: false;
 
 ///
 
-@mixin foo($custom: ()) {
-
-    @include module('foo') {
-        content: '1';
-        @include modifier('bar') {
-            content: '2';
-            @include overwrite-component('bar') {
-                content: '3';
-                @include modifier('baz') {
-                    content: '3.1'
-                }
-            }
-            @include component('bar') {
-                content: '4';
-                @include modifier('baz') {
-                    content: '4.1'
-                }
-            }
-        }
-        @include component('bar') {
-            content: '5';
-        }
-    }
-
-}
-
 @mixin bar($custom: ()) {
 
     @include module('bar') {
-        content: '6';
-        @include overwrite('foo') {
-            content: '7';
-        }
+        content: 1;
+        content: '.bar, [class*="bar-"]';
         @include module('foo') {
-            content: '8';
-        }
-        @include overwrite('foo', $is: 'bar') {
-            content: '[class*="bar-"] [class*="foo-"][class*="-bar"]';
-            @include component('baz') {
-                content: '[class*="bar-"] [class*="foo-"][class*="-bar"] [class*="foo_baz"]';
-                @include module('qux') {
-                    @include component('alpha') {
-                        content: '[class*="bar-"] [class*="foo-"][class*="-bar"] [class*="foo_baz"] [class*="qux-"] [class*="qux-alpha-"]'; 
-                    }
-                }
-            }
-        }
-        @include module('foo') {
+            content: 2;
+            content: '.bar .foo, .bar [class*="foo-"], [class*="bar-"] .foo, [class*="bar-"] [class*="foo-"]';
             @include modifier('bar') {
+                content: 3;
                 content: '[class*="bar-"] [class*="foo-"][class*="-bar"]';
                 @include component('baz') {
+                    content: 4;
                     content: '[class*="bar-"] [class*="foo-"][class*="-bar"] [class*="foo_baz"]';
                 }
             }
         }
+        @include modifier('test') {
+            content: 5;
+            content: '[class*="bar-"][class*="-test"]';
+            @include component('zeta') {
+                content: 6;
+                content: '[class*="bar-"][class*="-test"] [class*="bar_zeta-"]';
+            }
+        }
+        @include component('zeta') {
+            content: 7;
+            content: '.bar_zeta, [class*="bar_zeta"]';
+        }
     }
 
 }
 
-@include foo();
 @include bar();
 
 ///
