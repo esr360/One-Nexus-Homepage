@@ -188,11 +188,13 @@
                 height: 0;
                 padding-top: 27.5%;
             }
-            @include overwrite('button', $is: 'border') {
-                &:hover {
-                    background-color: color('greyscale', 'white');
-                    border-color: color('greyscale', 'white');
-                    color: color('brand', 'brand-1');
+            @include module('button') {
+                @include modifier('border') {
+                    &:hover {
+                        background-color: color('greyscale', 'white');
+                        border-color: color('greyscale', 'white');
+                        color: color('brand', 'brand-1');
+                    }
                 }
             }
         }
@@ -244,10 +246,12 @@
             background-size: cover;
             color: color('greyscale', 'white');
             position: relative;
-            @include overwrite('list', $is: 'arrow') {
-                > li {
-                    &:before {
-                        color: color('brand', 'brand-4');
+            @include module('list') {
+                @include modifier('arrow') {
+                    > li {
+                        &:before {
+                            color: color('brand', 'brand-4');
+                        }
                     }
                 }
             }

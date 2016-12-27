@@ -37,52 +37,5 @@ $to-JSON: false;
 
 @import 'themes/Homepage/homepage';
 
-///
-
-@mixin bar($custom: ()) {
-
-    @include module('bar') {
-        content: 1;
-        content: '.bar, [class*="bar-"]';
-        @include module(('foo', 'goo'), 'chain') {
-            content: 2;
-            content: '.bar .foo, .bar [class*="foo-"], [class*="bar-"] .foo, [class*="bar-"] [class*="foo-"]';
-            @include modifier('bash') {
-                content: 3;
-                content: '[class*="bar-"] [class*="foo-"][class*="-bar"]';
-                @include component('baz') {
-                    content: 4;
-                    content: '[class*="bar-"] [class*="foo-"][class*="-bash"] [class*="foo_baz"]';
-                }
-            }
-            @include component('bish') {
-                content: 4;
-                content: '[class*="bar-"] [class*="foo_bish-"]';
-            }
-        }
-        @include modifier('test') {
-            content: 5;
-            content: '[class*="bar-"][class*="-test"]';
-            @include component('zeta') {
-                content: 6;
-                content: '[class*="bar-"][class*="-test"] [class*="bar_zeta-"]';
-                @include component('kappa') {
-                    content: 8;
-                    content: '[class*="bar-"][class*="-test"] [class*="bar_zeta_kappa-"]';
-                }
-            }
-        }
-        @include component('zeta') {
-            content: 7;
-            content: '.bar_zeta, [class*="bar_zeta"]';
-        }
-    }
-
-}
-
-@include bar();
-
-///
-
 // Output all configuration data to JSON
 @include json-encode($_modules);
