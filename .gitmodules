@@ -7,3 +7,9 @@
 [submodule "vendor/ScrollJack"]
 	path = vendor/ScrollJack
 	url = https://github.com/esr360/ScrollJack.js.git
+[submodule "vendor\\ScrollTrigger"]
+	path = vendor\\ScrollTrigger
+	url = https://github.com/esr360/ScrollTrigger.git
+[submodule "vendor\\Typed"]
+	path = vendor\\Typed
+	url = https://github.com/mattboldt/typed.js.git
