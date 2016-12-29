@@ -89,6 +89,8 @@ module.exports = function(grunt) {
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js',
+        project.vendor + 'ScrollTrigger/src/ScrollTrigger.js',
+        project.vendor + 'Typed/js/typed.js',
         project.source[0] + 'js/**/*',
         project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'

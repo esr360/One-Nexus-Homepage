@@ -64,4 +64,12 @@ $(document).ready(function() {
 
     $('a[href*="#"]:not([href*="modal"])').smoothScroll();
 
+    $('#typed-workflow').typed({
+        strings: ['$ mkdir One-Nexus && cd One-Nexus \n\n$ git clone https://github.com/esr360/One-Nexus.git \n\n$ npm install \n\n$ grunt theme \n\n . . .'],
+        typeSpeed: 0,
+        loop: true,
+        backDelay: 1500,
+        contentType: 'text'
+    });
+
 });

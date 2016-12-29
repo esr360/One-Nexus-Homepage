@@ -28,31 +28,57 @@
     //*************************************************************
 
     @include module {
-
-        position: relative;
-        padding-top: 44%;
-
-        @include component {
-            position: absolute;
-            bottom: 0;
+        @include modifier('invert') {
+            filter: invert(100%);
         }
-
         @include component('phone') {
-            width: 10%;
+            position: absolute;
+            opacity: 0.5;
+            width: 9.8%;
+            top: 0;
+            right: 30%;
+            transform: rotate(-6deg);
         }
         @include component('tablet') {
-            right: 0;
+            position: absolute;
+            opacity: 0.5;
             width: 20%;
+            top: -6vw;
+            right: 5%;
+            transform: rotate(84deg);
+        }
+        @include component('miniTablet') {
+            position: absolute;
+            opacity: 0.5;
+            width: 20%;
+            top: 20.4vw;
+            right: 17%;
+            transform: rotate(-6deg);
+        }
+        @include component('sidePhone') {
+            position: absolute;
+            opacity: 0.5;
+            width: 9.8%;
+            top: 12.8vw;
+            right: 2%;
+            transform: rotate(84deg);
         }
         @include component('laptop') {
-            width: 55%;
-            left: 35%;
+            position: relative;
+            @include component('content') {
+                position: absolute;
+                height: 83%;
+                width: 76%;
+                left: 0;
+                right: 0;
+                top: 6%;
+                margin: auto;
+                padding: 2em;
+            }
+            small {
+                white-space: pre;
+            }
         }
-        @include component('desktop') {
-            width: 55%;
-            left: 8%;
-        }
-
     }
 
 }

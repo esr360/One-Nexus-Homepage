@@ -120,30 +120,15 @@
 		@include modifier('opaque') {
 			background-color: rgba(black, 0.1);
 		}
+		@include modifier('round') {
+			border-radius: 0.4em;
+		}
 		@include modifier('dark') {
 			p, ul {
 				opacity: 0.75;
 			}
 			li:before {
 				color: rgba(black, 0.75);
-			}
-		}
-		@include modifier('cta') {
-			padding-bottom: 3.3em;
-		}
-		@include component('cta') {
-			position: absolute;
-			text-align: center;
-			background-color: rgba(black, 0.4);
-			color: inherit;
-			padding: 1em;
-			width: 100%;
-			bottom: 0;
-			left: 0;
-			transition: core('transition');
-			&:hover {
-				background-color: color('brand', 'brand-3');
-				color: white;
 			}
 		}
 	};
