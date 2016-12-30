@@ -32,7 +32,13 @@
     ///************************************************************
 
 	@include accordions();
-	@include alert-bars();
+
+	@include alert-bars() {
+		@include modifier('brand-3') {
+			background-color: color('brand', 'brand-3');
+		}
+	};
+
 	@include blockquotes();
 
 	@include buttons((
@@ -98,6 +104,15 @@
 					left: 1em;
 					transition: core('transition');
 					color: #505CB9;
+				}
+			}
+			@include modifier('alt') {
+				> li {
+					color: rgba(white, 0.75);
+					&.active {
+						background: rgba(black, 0.4);
+						color: color('greyscale', 'white');
+					}
 				}
 			}
 		}

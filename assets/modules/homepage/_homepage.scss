@@ -167,6 +167,7 @@
                 position: relative;
                 background-color: #2E3882;
                 padding-bottom: 6em;
+                color: color('greyscale', 'white');
                 &:before {
                     content: '';
                     position: absolute;
@@ -176,7 +177,7 @@
                     background-color: #2E3882;
                     -ms-transform: rotate(-5.5deg);
                     transform: rotate(-5.5deg);
-                    top: -7vw;
+                    top: -6vw;
                     left: -0.5%;
                 }
                 @include module {
@@ -188,6 +189,27 @@
                         width: 50%;
                     }
                 }
+                @include component('panel') {
+                    position: relative;
+                    padding-right: 6.5em;
+                    // github star button
+                    iframe {
+                        position: absolute;
+                        right: 6.5em;
+                        top: 2em;
+                    }
+                }
+            }
+
+            @include modifier('semanticGrids') {
+                background: linear-gradient(#2E3882 0%, #8B4490 100%);
+                padding-top: 2em;
+                padding-bottom: 6em;
+                color: color('greyscale', 'white');
+            }
+
+            @include modifier('themes') {
+                padding: 8em 0;
             }
 
             @include component('header') {
@@ -313,7 +335,6 @@
             box-shadow: 1px 1px 5px rgba(black, 0.1);
             padding: 8em core('margin') 6em;
             position: relative;
-            margin-bottom: -3em;
             overflow: hidden;
             &:before {
                 content: '';
@@ -376,11 +397,11 @@
 
     }
 
+    // make cursor in typed.js 'blink'
     .typed-cursor{
         opacity: 1;
         animation: blink 1s infinite;
     }
-
     @keyframes blink {
         0%   { opacity: 1; }
         50%  { opacity: 0; }
