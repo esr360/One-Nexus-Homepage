@@ -61,7 +61,7 @@ Prism: 1.6.0
         <div class="homepage_section-brand">
 
             <div class="homepage_introBox well-deep-box container">
-                <h4 class="heading-size-4-brand-1 object-small font-2">Free & Open-Source - Hosted on Github</h4>
+                <h4 class="heading-size-4-brand-1 object-small">Free & Open-Source - Hosted on Github</h4>
                 <i class="fa fa-github-alt"></i>
                 <p class="object-small">One-Nexus is open-source, built using open-source tools. All bugs, issues and feature requests are <a href="#">handled on Github</a>.</p>
             </div>
@@ -125,7 +125,7 @@ Prism: 1.6.0
         <div class="homepage_section-overview container">
 
             <div class="heading_group text-center object-large">
-                <h3 class="heading-light-size-8-grey-5 font-2">Quick & Easy To Use</h3>
+                <h3 class="heading-light-size-8-grey-5 font-2">Quick & Easy to Use</h3>
                 <p>Getting started can be as simple as including a single <code>.js</code> and <code>.css</code> file on your page</p>
             </div>
 
@@ -529,7 +529,7 @@ Prism: 1.6.0
             <div class="container">
                 <div class="row">
                     <div class="span-6 va-middle">
-                        <h4 class="heading-size-5-heavy object-small font-2">Integrates Into Any Workflow</h4>
+                        <h4 class="heading-size-5 object-small">Integrates Into Any Workflow</h4>
                         <h4 class="heading-size-4-brand-4-light object-small">Built For Experts & Beginners of All Levels</h4>
                         <p>One-Nexus can be used with tools you already love and are familiar with. Getting started can be as simple as importing a single <code class="alt">.js</code> and <code class="alt">.css</code> file.</p>
                         <ul class="list-arrow">
@@ -566,9 +566,9 @@ Prism: 1.6.0
                     <div class="span-6">
                         <div class="homepage_iphone5c_wrapper">
                             <img
-                                data-trigger="transform: translate(60%, -50%) translateZ(0) scale(0.85)"
-                                data-hover="transform: translate(74%, -50%) translateZ(0) scale(0.85)" 
-                                class="homepage_iphone5c" 
+                                data-trigger="transform: translate(55%, -50%) translateZ(0) scale(0.85)"
+                                data-hover="transform: translate(65%, -50%) translateZ(0) scale(0.85)" 
+                                class="homepage_iphone5c"
                                 src="{{assets}}assets/images/mobile-base-purple.png" 
                             />
                             <img
@@ -691,16 +691,159 @@ Prism: 1.6.0
                 </div>
 
                 <div class="row">
-                    <div style="height: 300px;" class="span-7 well-deep-dark-round"></div>
+                    <div class="homepage_section_panel span-7 well-deep-dark-round">
+                        <h3 class="heading-size-4">Kayzen-GS</h3>
+                        <a 
+                            class="github-button" 
+                            href="https://github.com/esr360/Kayzen-GS" 
+                            data-icon="octicon-star"
+                            data-count-href="/esr360/Kayzen-GS/stargazers" 
+                            data-count-api="/repos/esr360/Kayzen-GS#stargazers_count" 
+                            data-count-aria-label="# stargazers on GitHub" 
+                            aria-label="Star esr360/Kayzen-GS on GitHub"
+                        >Star</a>
+                        <p>Kayzen-GS is a powerful framework for building responsive grid systems. Built using Sass and based off <code class="alt">inline-block</code> columns, Kayzen-GS is a one of a kind framework suitable for any project.</p>
+                        <div class="button_group">
+                            <a href="#" class="button-brand-4-size-3">Get Started</a>
+                            <a href="#" class="button-border-white-size-3">Learn More</a>
+                        </div>
+                    </div>
                 </div>
-    
+
             </div>
 
         </div>
 
+        <div class="homepage_section-semanticGrids-codeSample">
+
+            <img src="{{assets}}assets/images/mountain.svg" data-stellar-ratio="0.8" class="homepage_section_mountain" />
+
+            <div class="container">
+
+                <div class="heading_group object-large text-center">
+                    <h3 class="heading-light-size-8 font-2">Creating Semantic Grids</h3>
+                    <p>See the below pseudo exampe to see just what's possible with One-Nexus/Kayzen-GS</p>
+                </div>
+
+                <div class="row tabs">
+                    <div class="span-8">
+
+                        <div class="tabs_item active">
+
+                            <div class="alert-bar-brand-3">/pages/portfolio/<b>index.html</b></div>
+
+                            <pre><code class="language-markup">
+                                &lt;div class="portfolioItem_wrapper">
+                                    &lt;div class="portfolioItem">
+                                        ...
+                                    &lt;/div>
+                                    &lt;div class="portfolioItem">
+                                        ...
+                                    &lt;/div>
+                                    &lt;div class="portfolioItem">
+                                        ...
+                                    &lt;/div>
+                                    &lt;div class="portfolioItem">
+                                        ...
+                                    &lt;/div>
+                                &lt;/div>
+                            </code></pre>
+
+                        </div>
+
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-brand-3">/modules/<b>_portfolio-items.scss</b></div>
+
+                            <pre class="border"><code class="language-scss">
+                                @include module('portfolioItem') {
+
+                                    // Create the semantic row
+                                    @include component('wrapper') {
+                                        @include row();
+                                    }
+
+                                    // Create the semantic columns
+                                    @include column((
+                                        'width' : (3, 12)
+                                    ));
+
+                                }
+                            </code></pre>
+
+                        </div>
+
+                        <div class="tabs_item">
+
+                            <div class="alert-bar-brand-3">/dist/MyTheme/<b>app.css</b></div>
+
+                            <pre class="border"><code class="language-css">
+                                .portfolioItem,
+                                [class*='portfolioItem-'] {
+                                    display: inline-block;
+                                    vertical-align: top;
+                                    margin-left: 3%;
+                                    width: 22.75%;
+                                }
+                                .portfolioItem_wrapper,
+                                [class*='portfolioItem_wrapper-'] {
+                                    letter-spacing: -1em;
+                                    display: table;
+                                    width: 100%;
+                                }
+                                .opera-only :-o-prefocus,
+                                .portfolioItem_wrapper,
+                                [class*='portfolioItem_wrapper-'] {
+                                    word-spacing: -0.43em;
+                                }
+                                .portfolioItem:first-child,
+                                [class*='portfolioItem-']:first-child {
+                                    margin-left: 0;
+                                }
+                                @media (max-width: 940px) {
+                                    .portfolioItem,
+                                    [class*='portfolioItem-'] {
+                                        display: block;
+                                        left: auto;
+                                        margin-left: 0;
+                                        width: 100%;
+                                    }
+                                }
+                            </code></pre>
+
+                        </div>
+
+                    </div>
+
+                    <div class="span-4">
+                        <ul class="tabs_nav list-arrow-interactive-alt">
+                            <li class="active">HTML Sample</li>
+                            <li>Sass Sample</li>
+                            <li>CSS Output</li>
+                        </ul>
+                        <hr class="hrule-line" />
+                        <a href="#" class="button-block-brand-3">View Full Docs</a>
+                        <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
+                    </div>
+
+                </div><!-- /.tabs -->
+
+            </div>
+
+        </div>
+
+        <div class="homepage_section-themes">
+            <div class="container">
+                <div class="heading_group text-center object-large">
+                    <h3 class="heading-light-size-8-grey-5 font-2">The Power of Themes</h3>
+                    <p>Change the entire look and feel of your website by creating different themes</p>
+                </div>
+            </div>
+        </div>
+
         <div class="homepage_section8 container">
             <div class="heading_group text-center object-large">
-                <h3 class="heading-light-size-8-grey-5 font-2">Quick & Easy To Use</h3>
+                <h3 class="heading-light-size-8-grey-5 font-2">Quick & Easy to Use</h3>
                 <p>Getting started can be as simple as including a single <code>.js</code> and <code>.css</code> file on your page</p>
             </div>
         </div>
