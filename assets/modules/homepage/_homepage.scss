@@ -96,20 +96,6 @@
                     width: 100%;
                     background: gradient('brand');
                 }
-                /*
-                &:after {
-                    content: '';
-                    position: absolute;
-                    transform: scaleX(-1);
-                    background-image: url('#{$asset-path}/images/greenland.svg');
-                    background-size: 100%;
-                    bottom: -4vw;
-                    left: -50%;
-                    height: 0;
-                    padding-top: 38%;
-                    width: 100%;
-                }
-                */
             }
 
             @include modifier('cards') {
@@ -121,8 +107,20 @@
                 );
                 color: color('greyscale', 'white');
                 padding-top: 10em;
-                padding-bottom: 6em;
+                padding-bottom: 16em;
                 margin-bottom: 2em;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    height: 12vw;
+                    width: 102vw;
+                    background-color: color('greyscale', 'grey-1');
+                    -ms-transform: rotate(-5.5deg);
+                    transform: rotate(-5.5deg);
+                    bottom: -7vw;
+                    left: -0.5%;
+                }
             }
 
             @include modifier('codeSample') {
