@@ -212,6 +212,12 @@
                         top: 2em;
                     }
                 }
+                @include component('stardust3') {
+                    position: absolute;
+                    z-index: 3;
+                    pointer-events: none;
+                    top: -10%;
+                }
             }
 
             @include modifier('semanticGrids') {
@@ -321,6 +327,7 @@
             }
             img {
                 position: relative;
+                pointer-events: none;
             }
         }
 
