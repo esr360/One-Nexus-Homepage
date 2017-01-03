@@ -203,209 +203,272 @@ Prism: 1.6.0
 
                 <div class="heading_group object-large text-center">
                     <h3 class="heading-light-size-8-grey-5 font-2">Creating a Module</h3>
-                    <p>See the below pseudo exampe to see just what's possible with One-Nexus</p>
+                    <p>See the below pseudo examples to see just what's possible with One-Nexus</p>
                 </div>
 
-                <div class="row tabs">
-                    <div class="span-8">
+                <div class="tabs">
 
-                        <div class="tabs_item active">
+                    <ul class="tabs_nav-full object-center text-center">
+                        <li class="tabs_nav_item">Utility</li>
+                        <li class="tabs_nav_item active">Element</li>
+                        <li class="tabs_nav_item">Object</li>
+                    </ul>
 
-                            <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
+                    <div class="row tabs tabs_item">
+                        <div class="span-8">
 
-                            <pre class="border"><code class="language-scss">
-                                @mixin header($custom: ()) {
+                            <div class="tabs_item active">
 
-                                    // Configuration
-                                    $header: config((
-                                        'name'    : 'appHeader',
-                                        'sticky'  : false, // this value will be used in the JS module
-                                        'offset'  : 0, // this value will be used in the JS module
-                                        'bg-color': #444444
-                                    ), $custom) !global;
+                                <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
 
-                                    // Module
-                                    @include module() {
-                                        position: absolute;
-                                        top: this('offset');
-                                        background: this('bg-color');
-
-                                        @include modifier('fixed') {
-                                            position: fixed;
-                                            top: 0;
-                                        }
+                                <pre class="border"><code class="language-scss">
+                                    @mixin header($custom: ()) {
+                                        
                                     }
-                                    
-                                }
-                            </code></pre>
+                                </code></pre>
+
+                            </div><!--/ .tabs_item -->
 
                         </div>
 
-                        <div class="tabs_item">
+                        <div class="span-4">
+                            <ul class="tabs_nav list-arrow-interactive">
+                                <li class="active">Sass module</li>
+                            </ul>
+                            <hr class="hrule-line" />
+                            <a href="#" class="button-block-brand-3">View Full Docs</a>
+                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
+                        </div>
+                    </div><!--/ .tabs_item -->
 
-                            <div class="alert-bar-info">/modules/objects/header/<b>header.js</b></div>
+                    <div class="row tabs tabs_item active">
+                        <div class="span-8">
 
-                            <pre class="border"><code class="language-js">
-                                $.fn.header = function(custom) {
-                                    
-                                    var $module = 'appHeader';
-                                    
-                                    // Configuration
-                                    var options = $.extend({
-                                        // these default values are fetched from the Sass module
-                                        // using the custom _option() function
-                                        sticky : _option($module, 'sticky'),
-                                        offset : _option($module, 'offset')
-                                    }, custom);
-                                        
-                                    var header = $(this);
+                            <div class="tabs_item active">
 
-                                    if (options.sticky) {
-                                        $(window).on('load scroll', function(e) {
-                                            var scroll = $(window).scrollTop();
+                                <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
 
-                                            if (scroll > options.offset) {
-                                                header.addClass($module + '-fixed');
-                                            } else {
-                                                header.removeClass($module + '-fixed');
+                                <pre class="border"><code class="language-scss">
+                                    @mixin header($custom: ()) {
+
+                                        // Configuration
+                                        $header: config((
+                                            'name'    : 'appHeader',
+                                            'sticky'  : false, // this value will be used in the JS module
+                                            'offset'  : 0, // this value will be used in the JS module
+                                            'bg-color': #444444
+                                        ), $custom) !global;
+
+                                        // Module
+                                        @include module() {
+                                            position: absolute;
+                                            top: this('offset');
+                                            background: this('bg-color');
+
+                                            @include modifier('fixed') {
+                                                position: fixed;
+                                                top: 0;
                                             }
-                                        });
-                                    }
+                                        }
                                         
-                                }
-                            </code></pre>
+                                    }
+                                </code></pre>
 
-                        </div>
+                            </div>
 
-                        <div class="tabs_item">
+                            <div class="tabs_item">
 
-                            <div class="alert-bar-info">/<b>app.scss</b></div>
+                                <div class="alert-bar-info">/modules/objects/header/<b>header.js</b></div>
 
-                            <pre class="border"><code class="language-scss">
-                                // Config
-                                ...
-                                $theme : 'MyTheme';
-                                // Vendor Files
-                                ...
-                                // Tools
-                                ...
-                                // Utilities
-                                ...
-                                // Elements
-                                ...
-                                // Objects
-                                @import 'modules/objects/header/header';
-                                ...
-                                // Themes
-                                @import 'themes/MyTheme/MyTheme';
-                                ...
-                            </code></pre>
+                                <pre class="border"><code class="language-js">
+                                    $.fn.header = function(custom) {
+                                        
+                                        var $module = 'appHeader';
+                                        
+                                        // Configuration
+                                        var options = $.extend({
+                                            // these default values are fetched from the Sass module
+                                            // using the custom _option() function
+                                            sticky : _option($module, 'sticky'),
+                                            offset : _option($module, 'offset')
+                                        }, custom);
+                                            
+                                        var header = $(this);
 
-                        </div>
+                                        if (options.sticky) {
+                                            $(window).on('load scroll', function(e) {
+                                                var scroll = $(window).scrollTop();
 
-                        <div class="tabs_item">
+                                                if (scroll > options.offset) {
+                                                    header.addClass($module + '-fixed');
+                                                } else {
+                                                    header.removeClass($module + '-fixed');
+                                                }
+                                            });
+                                        }
+                                            
+                                    }
+                                </code></pre>
 
-                            <div class="alert-bar-info">/themes/MyTheme/<b>_MyTheme.scss</b></div>
+                            </div>
 
-                            <pre class="border"><code class="language-scss">
-                                @if $theme == 'MyTheme' {
+                            <div class="tabs_item">
+
+                                <div class="alert-bar-info">/<b>app.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    // Config
+                                    ...
+                                    $theme : 'MyTheme';
+                                    // Vendor Files
+                                    ...
+                                    // Tools
+                                    ...
                                     // Utilities
                                     ...
                                     // Elements
                                     ...
                                     // Objects
-                                    @include header((
-                                        'sticky'  : true, // JS module initially looks at this value
-                                        'offset'  : 50px,
-                                        'bg-color': black
-                                    ));
+                                    @import 'modules/objects/header/header';
                                     ...
-                                }
-                            </code></pre>
-
-                        </div>
-
-                        <div class="tabs_item">
-
-                            <div class="alert-bar-info">/themes/MyTheme/<b>MyTheme.js</b></div>
-
-                            <pre class="border"><code class="language-javascript">
-                                $(document).ready(function() {
-                                    // Utilities
+                                    // Themes
+                                    @import 'themes/MyTheme/MyTheme';
                                     ...
-                                    // Elements
-                                    ...
-                                    // Objects
-                                    $(_appHeader).header({ // _appHeader is an automatically generated global variable
-                                        // passing a value here overrides the value set in the Sass module
-                                        sticky: false
+                                </code></pre>
+
+                            </div>
+
+                            <div class="tabs_item">
+
+                                <div class="alert-bar-info">/themes/MyTheme/<b>_MyTheme.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    @if $theme == 'MyTheme' {
+                                        // Utilities
+                                        ...
+                                        // Elements
+                                        ...
+                                        // Objects
+                                        @include header((
+                                            'sticky'  : true, // JS module initially looks at this value
+                                            'offset'  : 50px,
+                                            'bg-color': black
+                                        ));
+                                        ...
+                                    }
+                                </code></pre>
+
+                            </div>
+
+                            <div class="tabs_item">
+
+                                <div class="alert-bar-info">/themes/MyTheme/<b>MyTheme.js</b></div>
+
+                                <pre class="border"><code class="language-javascript">
+                                    $(document).ready(function() {
+                                        // Utilities
+                                        ...
+                                        // Elements
+                                        ...
+                                        // Objects
+                                        $(_appHeader).header({ // _appHeader is an automatically generated global variable
+                                            // passing a value here overrides the value set in the Sass module
+                                            sticky: false
+                                        });
+                                        ...
                                     });
+                                </code></pre>
+
+                            </div>
+
+                            <div class="tabs_item">
+
+                                <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
+
+                                <pre class="border"><code class="language-markup">
+                                    &lt;!-- If 'sticky' is enabled, header will become fixed
+                                    when the top reaches top of the viewport: -->
+                                    &lt;header class="appHeader">
+                                        ...
+                                    &lt;/header>
+
+                                    &lt;!-- Or for a permanently fixed header: -->
+                                    &lt;header class="appHeader-fixed">
+                                        ...
+                                    &lt;/header>
+                                </code></pre> 
+
+                            </div>
+
+                            <div class="tabs_item">
+
+                                <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
+
+                                <pre class="border"><code class="language-css">
                                     ...
-                                });
-                            </code></pre>
+
+                                    .appHeader, 
+                                    [class*="appHeader-"] {
+                                        position: absolute;
+                                        top: 50px;
+                                        background: black;
+                                    }
+                                    [class*="appHeader-"][class*="-fixed"] {
+                                        position: fixed;
+                                        top: 0;
+                                    }
+
+                                    ...
+                                </code></pre> 
+
+                            </div>
 
                         </div>
 
-                        <div class="tabs_item">
+                        <div class="span-4">
+                            <ul class="tabs_nav list-arrow-interactive">
+                                <li class="active">Sass module</li>
+                                <li>JS module</li>
+                                <li>Import Sass module</li>
+                                <li>Include Sass module</li>
+                                <li>Include JS module</li>
+                                <li>HTML usage</li>
+                                <li>CSS Output</li>
+                            </ul>
+                            <hr class="hrule-line" />
+                            <a href="#" class="button-block-brand-3">View Full Docs</a>
+                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
+                        </div>
+                    </div><!--/ .tabs_item -->
 
-                            <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
+                    <div class="row tabs tabs_item">
+                        <div class="span-8">
 
-                            <pre class="border"><code class="language-markup">
-                                &lt;!-- If 'sticky' is enabled, header will become fixed
-                                when the top reaches top of the viewport: -->
-                                &lt;header class="appHeader">
-                                    ...
-                                &lt;/header>
+                            <div class="tabs_item active">
 
-                                &lt;!-- Or for a permanently fixed header: -->
-                                &lt;header class="appHeader-fixed">
-                                    ...
-                                &lt;/header>
-                            </code></pre> 
+                                <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    @mixin header($custom: ()) {
+                                        
+                                    }
+                                </code></pre>
+
+                            </div><!--/ .tabs_item -->
 
                         </div>
 
-                        <div class="tabs_item">
-
-                            <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
-
-                            <pre class="border"><code class="language-css">
-                                ...
-
-                                .appHeader, 
-                                [class*="appHeader-"] {
-                                    position: absolute;
-                                    top: 50px;
-                                    background: black;
-                                }
-                                [class*="appHeader-"][class*="-fixed"] {
-                                    position: fixed;
-                                    top: 0;
-                                }
-
-                                ...
-                            </code></pre> 
-
+                        <div class="span-4">
+                            <ul class="tabs_nav list-arrow-interactive">
+                                <li class="active">Sass module</li>
+                            </ul>
+                            <hr class="hrule-line" />
+                            <a href="#" class="button-block-brand-3">View Full Docs</a>
+                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
                         </div>
+                    </div><!--/ .tabs_item -->
 
-                    </div>
-
-                    <div class="span-4">
-                        <ul class="tabs_nav list-arrow-interactive">
-                            <li class="active">Sass module</li>
-                            <li>JS module</li>
-                            <li>Import Sass module</li>
-                            <li>Include Sass module</li>
-                            <li>Include JS module</li>
-                            <li>HTML usage</li>
-                            <li>CSS Output</li>
-                        </ul>
-                        <hr class="hrule-line" />
-                        <a href="#" class="button-block-brand-3">View Full Docs</a>
-                        <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
-                    </div>
-
-                </div><!-- /.tabs -->
+                </div>
 
             </div>
         </div>
