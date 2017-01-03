@@ -9,17 +9,17 @@
     /// Skeleton
     ///************************************************************
 
-	@include palettes((
-		'brand': (
-			'brand-4': #ea4c88
-		)
-	));
+    @include palettes((
+        'brand': (
+            'brand-4': #ea4c88
+        )
+    ));
 
     @include typography((
         'colors':(
             'link': color('brand', 'brand-2'),
-			'link-hover': color('brand', 'brand-4')
-			//'link-hover': #39ffdc
+            'link-hover': color('brand', 'brand-4')
+            //'link-hover': #39ffdc
         )
     ));
 
@@ -31,154 +31,154 @@
     /// Elements
     ///************************************************************
 
-	@include accordions();
+    @include accordions();
 
-	@include alert-bars() {
-		@include modifier('brand-3') {
-			background-color: color('brand', 'brand-3');
-		}
-	};
+    @include alert-bars() {
+        @include modifier('brand-3') {
+            background-color: color('brand', 'brand-3');
+        }
+    };
 
-	@include blockquotes();
+    @include blockquotes();
 
-	@include buttons((
-		'active-background': color('brand', 'brand-3'),
-		'combine':(
-			'primary'  : ('round', 'size-4', 'brand-1'),
-			'secondary': ('sharp', 'size-4', 'brand-2')
-		),
+    @include buttons((
+        'active-background': color('brand', 'brand-3'),
+        'combine':(
+            'primary'  : ('round', 'size-4', 'brand-1'),
+            'secondary': ('sharp', 'size-4', 'brand-2')
+        ),
         'font-family': typography('typefaces', 'secondary')
-	)) {
-		@include component('group') {
-			@include component('item') {
-				padding: 0 0.5em;
-			}
-		}
-	};
+    )) {
+        @include component('group') {
+            @include component('item') {
+                padding: 0 0.5em;
+            }
+        }
+    };
 
-	@include carousels;
-	@include forms;
+    @include carousels;
+    @include forms;
 
-	@include headings(('color': color('greyscale', 'grey-5'))) {
-		@include modifier('brand-1') {
-			color: #505cb9;
-		}
-		@include modifier('brand-4') {
+    @include headings(('color': color('greyscale', 'grey-5'))) {
+        @include modifier('brand-1') {
+            color: #505cb9;
+        }
+        @include modifier('brand-4') {
             color: color('brand', 'brand-4');
-		}
-		@include modifier('grey-5') {
+        }
+        @include modifier('grey-5') {
             color: color('greyscale', 'grey-5');
-		}
-	};
+        }
+    };
 
-	@include images;
+    @include images;
 
-	@include lists {
-		@include modifier('arrow') {
-			> li {
-				&:before {
-					height: 1.7em;
-				}
-			}
-		}
-		@include modifier('interactive') {
-			margin-bottom: -0.5em;
-			> li {
-				padding: 0.5em 0.5em 0.5em 2.5em;
-				cursor: pointer;
-				transition: core('transition');
-				&.active {
-					background: color('greyscale', 'white');
-					box-shadow: 0px 1px 3px rgba(black, 0.1);
-					color: color('brand', 'brand-3');
-					&:before {
-						color: color('brand', 'brand-3');
-					}
-				}
-				&:hover {
-					&:before {
-						color: color('brand', 'brand-3');
-					}
-				}
-				&:before {
-					left: 1em;
-					transition: core('transition');
-					color: #505CB9;
-				}
-			}
-			@include modifier('alt') {
-				> li {
-					color: rgba(white, 0.75);
-					&.active {
-						background: rgba(black, 0.4);
-						color: color('greyscale', 'white');
-					}
-				}
-			}
-		}
-	};
+    @include lists {
+        @include modifier('arrow') {
+            > li {
+                &:before {
+                    height: 1.7em;
+                }
+            }
+        }
+        @include modifier('interactive') {
+            margin-bottom: -0.5em;
+            > li {
+                padding: 0.5em 0.5em 0.5em 2.5em;
+                cursor: pointer;
+                transition: core('transition');
+                &.active {
+                    background: color('greyscale', 'white');
+                    box-shadow: 0px 1px 3px rgba(black, 0.1);
+                    color: color('brand', 'brand-3');
+                    &:before {
+                        color: color('brand', 'brand-3');
+                    }
+                }
+                &:hover {
+                    &:before {
+                        color: color('brand', 'brand-3');
+                    }
+                }
+                &:before {
+                    left: 1em;
+                    transition: core('transition');
+                    color: #505CB9;
+                }
+            }
+            @include modifier('alt') {
+                > li {
+                    color: rgba(white, 0.75);
+                    &.active {
+                        background: rgba(black, 0.4);
+                        color: color('greyscale', 'white');
+                    }
+                }
+            }
+        }
+    };
 
-	@include modals;
-	@include progress-bars;
-	@include tables;
-	@include tabs;
-	@include thumbnails;
-	@include tooltips;
+    @include modals;
+    @include progress-bars;
+    @include tables;
+    @include tabs;
+    @include thumbnails;
+    @include tooltips;
 
-	@include wells((
-		'radius': 0,
-		'border': none
-	)) {
-		@include modifier('box') {
-			box-shadow: 1px 1px 5px rgba(black, 0.1);
-		}
-		@include modifier('opaque') {
-			background-color: rgba(black, 0.1);
-		}
-		@include modifier('round') {
-			border-radius: 0.4em;
-		}
-		@include modifier('dark') {
-			p, ul {
-				opacity: 0.75;
-			}
-			li:before {
-				color: rgba(black, 0.75);
-			}
-		}
-	};
+    @include wells((
+        'radius': 0,
+        'border': none
+    )) {
+        @include modifier('box') {
+            box-shadow: 1px 1px 5px rgba(black, 0.1);
+        }
+        @include modifier('opaque') {
+            background-color: rgba(black, 0.1);
+        }
+        @include modifier('round') {
+            border-radius: 0.4em;
+        }
+        @include modifier('dark') {
+            p, ul {
+                opacity: 0.75;
+            }
+            li:before {
+                color: rgba(black, 0.75);
+            }
+        }
+    };
 
-	@include widgets;
+    @include widgets;
 
     ///************************************************************
     /// Objects
     ///************************************************************
 
-	@include breadcrumb;
-	@include footer;
-	@include google-map;
+    @include breadcrumb;
+    @include footer;
+    @include google-map;
 
-	@include header(('background': transparent)) {
-		@include modifier('hidden') {
-			display: none;
-		}
+    @include header(('background': transparent)) {
+        @include modifier('hidden') {
+            display: none;
+        }
         @include modifier('fixed') {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 12;
         }
-	};
+    };
 
-	@include logo;
-	@include navigation;
-	@include dropdown;
-	@include side-nav;
-	@include flyout-nav;
-	@include scroll-top;
-	@include search;
-	@include site-overlay;
-	@include twitter-feed;
+    @include logo;
+    @include navigation;
+    @include dropdown;
+    @include side-nav;
+    @include flyout-nav;
+    @include scroll-top;
+    @include search;
+    @include site-overlay;
+    @include twitter-feed;
 
     ///************************************************************
     /// Sections
@@ -186,31 +186,31 @@
 
     @include sections;
 
-	@include billboard((
-		'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
-	)) {
-		background-attachment: fixed;
-		@include component('wrapper') {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			height: 100%;
-			transform: none;
-			top: 0;
-		}
-	};
+    @include billboard((
+        'background' : url(#{$asset-path}/images/spacestation/spacestation.svg)
+    )) {
+        background-attachment: fixed;
+        @include component('wrapper') {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            transform: none;
+            top: 0;
+        }
+    };
 
-	@include brand-blocks;
-	@include device-outline;
-	@include spacestation;
-	@include homepage;
+    @include brand-blocks;
+    @include device-outline;
+    @include spacestation;
+    @include homepage;
 
     ///************************************************************
     /// Misc
     ///************************************************************
 
-	.object-large {
-	    @include object(core('margin')*2);
-	}
+    .object-large {
+        @include object(core('margin')*2);
+    }
 
 }
