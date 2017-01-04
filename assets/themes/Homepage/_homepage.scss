@@ -213,4 +213,8 @@
         @include object(core('margin')*2);
     }
 
+	.fa {
+		letter-spacing: inherit;
+	}
+
 }
