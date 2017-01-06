@@ -37,5 +37,19 @@ $to-JSON: false;
 
 @import 'themes/Homepage/homepage';
 
+///
+@include module('testObject') {
+
+    background-color: color('brand', 'brand-1');
+    border: 1px solid color('brand', 'brand-3');
+
+    @include modifier('invalid') {
+        background-color: color('validation', 'invalid');
+    }
+
+}
+
+///
+
 // Output all configuration data to JSON
 @include json-encode($_modules);

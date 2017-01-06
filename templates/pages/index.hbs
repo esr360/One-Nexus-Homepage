@@ -208,44 +208,158 @@ Prism: 1.6.0
 
                 <div class="tabs">
 
-                    <ul class="tabs_nav-full object-center text-center">
+                    <ul class="tabs_nav-full-topLine object-center text-center">
                         <li class="tabs_nav_item">Utility</li>
                         <li class="tabs_nav_item active">Element</li>
                         <li class="tabs_nav_item">Object</li>
                     </ul>
 
                     <div class="row tabs tabs_item">
+
                         <div class="span-8">
-
                             <div class="tabs_item active">
-
-                                <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
+                                <div class="alert-bar-info">/modules/utilities/<b>_palettes.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
-                                    @mixin header($custom: ()) {
-                                        
+                                    @mixin palettes($custom: ()) {
+                                        $palettes: config((
+                                            'brand':(
+                                                'brand-1' : #2E3882,
+                                                'brand-2' : #06d2ff,
+                                                'brand-3' : #04CEC0
+                                            ),
+                                            'alert':(
+                                                'error'   : #D9434E,
+                                                'help'    : #F5BA42,
+                                                'info'    : #4B8CDC,
+                                                'success' : #3BB85D
+                                            ),
+                                            'validation':(
+                                                'valid'   : #00B16A,
+                                                'invalid' : #D91E18	
+                                            )
+                                        ), $custom) !global;
+                                    }
+
+                                    // Function to get desired color from specific palette
+                                    @function color($palette, $color) {
+                                        @return map-get(map-get($palettes, $palette), $color);
                                     }
                                 </code></pre>
-
                             </div><!--/ .tabs_item -->
 
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/<b>app.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    // Config
+                                    ...
+                                    $theme : 'MyTheme';
+
+                                    // Vendor Files
+                                    ...
+
+                                    // Tools
+                                    ...
+
+                                    // Utilities
+                                    @import 'modules/utilities/palettes';
+                                    ...
+
+                                    // Elements
+                                    ...
+
+                                    // Objects
+                                    ...
+
+                                    // Themes
+                                    @import 'themes/MyTheme/MyTheme';
+                                    ...
+                                </code></pre>
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/themes/MyTheme/<b>_MyTheme.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    @if $theme == 'MyTheme' {
+                                        // Utilities
+                                        @include palettes((
+                                            'brand':(
+                                                'brand-1': pink,
+                                                'brand-4': #ea4c88
+                                            ),
+                                            'validation':(
+                                                'invalid': rgba(255, 0, 0, 1)
+                                            )
+                                        ));
+                                        ...
+
+                                        // Elements
+                                        ...
+
+                                        // Objects
+                                        ...
+                                    }
+                                </code></pre>
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/modules/objects/<b>_testObject.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    @include module('testObject') {
+
+                                        background-color: color('brand', 'brand-1');
+                                        border: 1px solid color('brand', 'brand-3');
+
+                                        @include modifier('invalid') {
+                                            background-color: color('validation', 'invalid');
+                                        }
+
+                                    }
+                                </code></pre>
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
+
+                                <pre class="border"><code class="language-css">
+                                    /* ... */
+
+                                    .testObject,
+                                    [class*='testObject-'] {
+                                        background-color: pink;
+                                        border: 1px solid #04CEC0;
+                                    }
+                                    [class*='testObject-'][class*='-invalid'] {
+                                        background-color: rgba(255, 0, 0, 1);
+                                    }
+
+                                    /* ... */
+                                </code></pre>
+                            </div>
                         </div>
 
                         <div class="span-4">
                             <ul class="tabs_nav list-arrow-interactive">
                                 <li class="active">Sass module</li>
+                                <li>Import Sass module</li>
+                                <li>Include Sass module</li>
+                                <li>Usage</li>
+                                <li>CSS Output</li>
                             </ul>
                             <hr class="hrule-line" />
                             <a href="#" class="button-block-brand-3">View Full Docs</a>
                             <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
                         </div>
+
                     </div><!--/ .tabs_item -->
 
                     <div class="row tabs tabs_item active">
                         <div class="span-8">
 
                             <div class="tabs_item active">
-
                                 <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
@@ -273,11 +387,9 @@ Prism: 1.6.0
                                         
                                     }
                                 </code></pre>
-
                             </div>
 
                             <div class="tabs_item">
-
                                 <div class="alert-bar-info">/modules/objects/header/<b>header.js</b></div>
 
                                 <pre class="border"><code class="language-js">
@@ -309,33 +421,36 @@ Prism: 1.6.0
                                             
                                     }
                                 </code></pre>
-
                             </div>
 
                             <div class="tabs_item">
-
                                 <div class="alert-bar-info">/<b>app.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
                                     // Config
                                     ...
                                     $theme : 'MyTheme';
+
                                     // Vendor Files
                                     ...
+
                                     // Tools
                                     ...
+
                                     // Utilities
                                     ...
+
                                     // Elements
                                     ...
+
                                     // Objects
                                     @import 'modules/objects/header/header';
                                     ...
+
                                     // Themes
                                     @import 'themes/MyTheme/MyTheme';
                                     ...
                                 </code></pre>
-
                             </div>
 
                             <div class="tabs_item">
@@ -346,8 +461,10 @@ Prism: 1.6.0
                                     @if $theme == 'MyTheme' {
                                         // Utilities
                                         ...
+
                                         // Elements
                                         ...
+
                                         // Objects
                                         @include header((
                                             'sticky'  : true, // JS module initially looks at this value
@@ -368,8 +485,10 @@ Prism: 1.6.0
                                     $(document).ready(function() {
                                         // Utilities
                                         ...
+
                                         // Elements
                                         ...
+
                                         // Objects
                                         $(_appHeader).header({ // _appHeader is an automatically generated global variable
                                             // passing a value here overrides the value set in the Sass module
@@ -405,7 +524,7 @@ Prism: 1.6.0
                                 <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
 
                                 <pre class="border"><code class="language-css">
-                                    ...
+                                    /* ... */
 
                                     .appHeader, 
                                     [class*="appHeader-"] {
@@ -418,7 +537,7 @@ Prism: 1.6.0
                                         top: 0;
                                     }
 
-                                    ...
+                                    /* ... */
                                 </code></pre> 
 
                             </div>
