@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    // this must come before carousel is initialized
+    $('.homepage_modules').on('initialized.owl.carousel', function(event) {
+        $('#UiComponentsForeground').stellar('refresh');
+    });
+
     //*************************************************************
     // Elements
     //*************************************************************
@@ -64,6 +69,7 @@ $(document).ready(function() {
 
     $('a[href*="#"]:not([href*="modal"])').smoothScroll();
 
+    // animated text for .homepage_banner-alpha
     $('#typed-workflow').typed({
         strings: ['$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ grunt theme \n\n . . .'],
         typeSpeed: 0,

@@ -164,6 +164,8 @@ Prism: 1.6.0
         </div>
 
         <div class="homepage_section-cards">
+            
+            <img id="UiComponentsForeground" src="{{assets}}assets/images/foreground.svg" data-stellar-ratio="0.9" class="homepage_section_foreground" />
 
             <div class="container">
 
@@ -172,25 +174,47 @@ Prism: 1.6.0
                     <p>One Nexus comes with 39 premade modules with thousdands of unique combinations</p>
                 </div>
 
-                <div class="row homepage_modules text-center">
-                    <div class="span-3 well-opaque-deep">
+                <div class="homepage_modules text-center carousel" data-owl-options='{"items": 4, "margin": 30}'>
+                    <div class="well-opaque-deep">
                         <i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i>
                         <h4 class="heading">Accordions</h4>
                     </div>
-                    <div class="span-3 well-opaque-deep">
+                    <div class="well-opaque-deep">
                         <i class="fa fa-exclamation-triangle fa-3x"></i>
                         <h4 class="heading">Alert Bars</h4>
                     </div>
-                    <div class="span-3 well-opaque-deep">
+                    <div class="well-opaque-deep">
                         <i class="fa fa-quote-left fa-3x" aria-hidden="true"></i>
                         <h4 class="heading">Blockquotes</h4>
                     </div>
-                    <div class="span-3 well-opaque-deep">
+                    <div class="well-opaque-deep">
+                        <i class="fa fa-keyboard-o fa-3x"></i>
+                        <h4 class="heading">Buttons</h4>
+                    </div>
+                    <div class="well-opaque-deep">
                         <i class="fa fa-keyboard-o fa-3x"></i>
                         <h4 class="heading">Buttons</h4>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="container homepage_section_box_wrapper">
+                <div class="row">
+                    <div class="homepage_section_box span-4">
+                        <h3 class="heading-size-3">Built With Synergy</h3>
+                        <a 
+                            class="github-button" 
+                            href="https://github.com/esr360/Synergy" 
+                            data-icon="octicon-star"
+                            data-count-href="/esr360/Synergy/stargazers" 
+                            data-count-api="/repos/esr360/Synergy#stargazers_count" 
+                            data-count-aria-label="# stargazers on GitHub" 
+                            aria-label="Star esr360/Synergy on GitHub"
+                        >Star</a>
+                        <p>Each One-Nexus component is a configurable module built using <a href="">Synergy</a>.</p>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -360,6 +384,178 @@ Prism: 1.6.0
                         <div class="span-8">
 
                             <div class="tabs_item active">
+
+                                <div class="alert-bar-info">/modules/elements/buttons/<b>_buttons.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    @mixin buttons($custom: ()) {
+
+                                        // Configuration
+                                        $buttons: config((
+                                            'name'             : 'button',
+                                            'color'            : #FFFFFF,
+                                            'background'       : #444444,
+                                            'padding'          : 1em,
+                                            'colors'           : map-get($palettes, 'brand'),
+                                            'sizes': (
+                                                'small'        : 0.8em,
+                                                'large'        : 1.25em
+                                            )
+                                        ), $custom);
+                                        
+                                        // Module
+                                        @include module {
+                                            display: inline-block;
+                                            color: this('color');
+                                            background: this('background');
+                                            padding: this('padding');
+
+                                            // Colors
+                                            @each $key, $value in this('colors') {
+                                                @include modifier($key) {
+                                                    background-color: $value;
+                                                }
+                                            }
+
+                                            // Sizes
+                                            @each $key, $value in this('sizes') {
+                                                @include modifier($key) {
+                                                    font-size: $value;
+                                                }
+                                            }
+                                        }
+                                    }
+                                </code></pre>
+
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/<b>app.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    // Config
+                                    ...
+                                    $theme : 'MyTheme';
+
+                                    // Vendor Files
+                                    ...
+
+                                    // Tools
+                                    ...
+
+                                    // Utilities
+                                    @import 'modules/utilities/palettes';
+                                    ...
+
+                                    // Elements
+                                    @import 'modules/elements/buttons/buttons';
+                                    ...
+
+                                    // Objects
+                                    ...
+
+                                    // Themes
+                                    @import 'themes/MyTheme/MyTheme';
+                                    ...
+                                </code></pre>
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/themes/MyTheme/<b>_MyTheme.scss</b></div>
+
+                                <pre class="border"><code class="language-scss">
+                                    @if $theme == 'MyTheme' {
+                                        // Utilities
+                                        @include palettes((
+                                            'brand':(
+                                                'brand-1': pink,
+                                                'myBrand': #2093db
+                                            ),
+                                        ));
+                                        ...
+
+                                        // Elements
+                                        @include buttons((
+                                            'padding'    : 0.75em 1.25em,
+                                            'sizes': (
+                                                'xlarge' : 1.5em
+                                            )
+                                        ));
+                                        ...
+
+                                        // Objects
+                                        ...
+                                    }
+                                </code></pre>
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
+
+                                <pre class="border"><code class="language-css">
+                                    .button,
+                                    [class*='button-'] {
+                                        display: inline-block;
+                                        color: #FFFFFF;
+                                        background: #444444;
+                                        padding: 0.75em 1.25em;
+                                    }
+                                    [class*='button-'][class*='-brand-1'] {
+                                        background-color: pink;
+                                    }
+                                    [class*='button-'][class*='-brand-2'] {
+                                        background-color: #06D2FF;
+                                    }
+                                    [class*='button-'][class*='-brand-3'] {
+                                        background-color: #04CEC0;
+                                    }
+                                    [class*='button-'][class*='-myBrand'] {
+                                        background-color: #2093DB;
+                                    }
+                                    [class*='button-'][class*='-small'] {
+                                        font-size: 0.8em;
+                                    }
+                                    [class*='button-'][class*='-large'] {
+                                        font-size: 1.25em;
+                                    }
+                                    [class*='button-'][class*='-xlarge'] {
+                                        font-size: 1.5em;
+                                    }
+                                </code></pre> 
+                            </div><!--/ .tabs_item -->
+
+                            <div class="tabs_item">
+                                <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
+
+                                <pre class="border"><code class="language-markup">
+                                    &lt;button class="button">Button&lt;/button>
+                                    &lt;button class="button-myBrand">Button&lt;/button>
+                                    &lt;button class="button-xlarge">Button&lt;/button>
+                                    &lt;button class="button-myBrand-small">Button&lt;/button>
+                                    &lt;button class="button-large-brand-3">Button&lt;/button>
+                                </code></pre> 
+                            </div><!--/ .tabs_item -->
+
+                        </div>
+
+                        <div class="span-4">
+                            <ul class="tabs_nav list-arrow-interactive">
+                                <li class="active">Sass module</li>
+                                <li>Import Sass module</li>
+                                <li>Include Sass module</li>
+                                <li>CSS Output</li>
+                                <li>HTML usage</li>
+                            </ul>
+                            <hr class="hrule-line" />
+                            <a href="#" class="button-block-brand-3">View Full Docs</a>
+                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
+                        </div>
+                    </div><!--/ .tabs_item -->
+
+                    <div class="row tabs tabs_item">
+                        <div class="span-8">
+
+                            <div class="tabs_item active">
                                 <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
@@ -502,6 +698,25 @@ Prism: 1.6.0
 
                             <div class="tabs_item">
 
+                                <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
+
+                                <pre class="border"><code class="language-css">
+                                    .appHeader, 
+                                    [class*="appHeader-"] {
+                                        position: absolute;
+                                        top: 50px;
+                                        background: black;
+                                    }
+                                    [class*="appHeader-"][class*="-fixed"] {
+                                        position: fixed;
+                                        top: 0;
+                                    }
+                                </code></pre> 
+
+                            </div>
+
+                            <div class="tabs_item">
+
                                 <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
 
                                 <pre class="border"><code class="language-markup">
@@ -519,29 +734,6 @@ Prism: 1.6.0
 
                             </div>
 
-                            <div class="tabs_item">
-
-                                <div class="alert-bar-info">/dist/MyTheme/<b>MyTheme.css</b></div>
-
-                                <pre class="border"><code class="language-css">
-                                    /* ... */
-
-                                    .appHeader, 
-                                    [class*="appHeader-"] {
-                                        position: absolute;
-                                        top: 50px;
-                                        background: black;
-                                    }
-                                    [class*="appHeader-"][class*="-fixed"] {
-                                        position: fixed;
-                                        top: 0;
-                                    }
-
-                                    /* ... */
-                                </code></pre> 
-
-                            </div>
-
                         </div>
 
                         <div class="span-4">
@@ -551,35 +743,8 @@ Prism: 1.6.0
                                 <li>Import Sass module</li>
                                 <li>Include Sass module</li>
                                 <li>Include JS module</li>
-                                <li>HTML usage</li>
                                 <li>CSS Output</li>
-                            </ul>
-                            <hr class="hrule-line" />
-                            <a href="#" class="button-block-brand-3">View Full Docs</a>
-                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="#">View modules</a></small></p>
-                        </div>
-                    </div><!--/ .tabs_item -->
-
-                    <div class="row tabs tabs_item">
-                        <div class="span-8">
-
-                            <div class="tabs_item active">
-
-                                <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
-
-                                <pre class="border"><code class="language-scss">
-                                    @mixin header($custom: ()) {
-                                        
-                                    }
-                                </code></pre>
-
-                            </div><!--/ .tabs_item -->
-
-                        </div>
-
-                        <div class="span-4">
-                            <ul class="tabs_nav list-arrow-interactive">
-                                <li class="active">Sass module</li>
+                                <li>HTML usage</li>
                             </ul>
                             <hr class="hrule-line" />
                             <a href="#" class="button-block-brand-3">View Full Docs</a>
