@@ -181,6 +181,17 @@
         @include modifier('round') {
             border-radius: 0.4em;
         }
+        @include modifier('hoverCard') {
+            transition: core('transition');
+            display: block;
+            color: color('greyscale', 'white');
+            &:hover {
+                background-color: color('greyscale', 'grey-1');
+                box-shadow: 1px 1px 4px 1px rgba(black, 0.1);
+                transform: scale(1.1);
+                color: color('brand', 'brand-4');
+            }
+        }
         @include modifier('dark') {
             p, ul {
                 opacity: 0.75;
@@ -259,5 +270,16 @@
 	.fa {
 		letter-spacing: inherit;
 	}
+
+    // hack to allow elements to scale when hovered
+    #UiComponentsContainer {
+        overflow: hidden;
+        max-width: calc(#{option($grid, 'options', 'medium-width')} + (30px * 2));
+        padding-bottom: 2em;
+        margin-bottom: -2em;
+    }
+    #UiComponents .owl-stage-outer {
+        overflow: visible;
+    }
 
 }

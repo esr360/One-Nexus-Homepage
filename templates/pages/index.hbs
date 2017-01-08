@@ -30,7 +30,7 @@ Prism: 1.6.0
         <img src="{{assets}}assets/images/spacestation/layer3.svg" data-stellar-ratio="0.05" class="spacestation_layer-planets" />
         <img src="{{assets}}assets/images/spacestation/layer6.svg" class="spacestation_layer-rocket" />
         <img src="{{assets}}assets/images/spacestation/layer4.svg" data-stellar-ratio="0.1" class="spacestation_layer-sun" />
-        <img src="{{assets}}assets/images/spacestation/layer5.svg" data-stellar-ratio="0.2" class="spacestation_layer-mountain" />
+        <img src="{{assets}}assets/images/spacestation/layer5.svg" data-stellar-ratio="0.15" class="spacestation_layer-mountain" />
         <img src="{{assets}}assets/images/spacestation/layer7.svg" data-stellar-ratio="0.25" class="spacestation_layer-beacon" />
         <img src="{{assets}}assets/images/spacestation/layer8.svg" data-stellar-ratio="0.3" class="spacestation_layer-greenland" />
         <img src="{{assets}}assets/images/spacestation/layer9.svg" data-stellar-ratio="0.35" class="spacestation_layer-stardust1" />
@@ -167,36 +167,48 @@ Prism: 1.6.0
             
             <img id="UiComponentsForeground" src="{{assets}}assets/images/foreground.svg" data-stellar-ratio="0.9" class="homepage_section_foreground" />
 
-            <div class="container">
+            <div id="UiComponentsContainer" class="container">
 
                 <div class="heading_group object-large text-center">
                     <h3 class="heading-light-size-8 font-2">UI Components</h3>
                     <p>One Nexus comes with 39 premade modules with thousdands of unique combinations</p>
                 </div>
 
-                <div class="homepage_modules text-center carousel" data-owl-options='{"items": 4, "margin": 30}'>
-                    <div class="well-opaque-deep">
+                <div id="UiComponentsPlaceholder" class="row homepage_modules text-center">
+                    <div class="span-4 well-opaque-deep">
+                        <i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i>
+                        <h4 class="heading">View All Components</h4>
+                    </div>
+                </div>
+
+                <div id="UiComponents" class="homepage_modules text-center owl-carousel hidden">
+                    <a class="well-opaque-deep-hoverCard" href="#">
                         <i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i>
                         <h4 class="heading">Accordions</h4>
-                    </div>
-                    <div class="well-opaque-deep">
+                    </a>
+                    <div class="well-opaque-deep-hoverCard">
                         <i class="fa fa-exclamation-triangle fa-3x"></i>
                         <h4 class="heading">Alert Bars</h4>
                     </div>
-                    <div class="well-opaque-deep">
+                    <div class="well-opaque-deep-hoverCard">
                         <i class="fa fa-quote-left fa-3x" aria-hidden="true"></i>
                         <h4 class="heading">Blockquotes</h4>
                     </div>
-                    <div class="well-opaque-deep">
+                    <div class="well-opaque-deep-hoverCard">
                         <i class="fa fa-keyboard-o fa-3x"></i>
                         <h4 class="heading">Buttons</h4>
                     </div>
-                    <div class="well-opaque-deep">
+                    <div class="well-opaque-deep-hoverCard">
                         <i class="fa fa-keyboard-o fa-3x"></i>
                         <h4 class="heading">Buttons</h4>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="homepage_section_carouselNav">
+                <div id="UiComponentsPrev" class="homepage_section_carouselNav_item-prev fa fa-angle-left"></div>
+                <div id="UiComponentsNext" class="homepage_section_carouselNav_item-next fa fa-angle-right"></div>
             </div>
 
             <div class="container homepage_section_box_wrapper">
@@ -227,7 +239,7 @@ Prism: 1.6.0
 
                 <div class="heading_group object-large text-center">
                     <h3 class="heading-light-size-8-grey-5 font-2">Creating a Module</h3>
-                    <p>See the below pseudo examples to see just what's possible with One-Nexus</p>
+                    <p>See the below pseudo examples to see just what's possible with One-Nexus/Synergy</p>
                 </div>
 
                 <div class="tabs">
@@ -1024,7 +1036,7 @@ Prism: 1.6.0
 
         <div class="homepage_section-kayzengs">
 
-            <img src="{{assets}}assets/images/spacestation/layer13.svg" data-stellar-ratio="1.5" class="homepage_section_stardust3" />
+            <img src="{{assets}}assets/images/spacestation/layer13.svg" data-stellar-ratio="1.25" class="homepage_section_stardust3" />
 
             <div class="container">
     

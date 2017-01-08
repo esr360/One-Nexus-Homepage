@@ -219,7 +219,7 @@
                     position: absolute;
                     z-index: 3;
                     pointer-events: none;
-                    top: -10%;
+                    top: -1%;
                 }
             }
 
@@ -274,9 +274,40 @@
 
             @include component('foreground') {
                 position: absolute;
+                width: 100%;
                 z-index: -1;
-                bottom: -6vw;
+                bottom: -5vw;
                 transform: translateZ(0);
+            }
+
+            @include component('carouselNav') {
+                @include component('item') {
+                    height: 2em;
+                    width: 2em;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    text-align: center;
+                    transition: core('transition');
+                    cursor: pointer;
+                    position: absolute;
+                    top: 40%;
+                    &.fa {
+                        line-height: 1.8;
+                        font-size: 1.5em;
+                    }
+                    &:hover {
+                        background-color: color('greyscale', 'white');
+                        color: color('brand', 'brand-2');
+                        border-color: color('greyscale', 'white');
+                    }
+                    @include modifier('prev') {
+                        left: 5%;
+                    }
+                    @include modifier('next') {
+                        right: 5%;
+                        letter-spacing: -0.15em;
+                    }
+                }
             }
 
         }
