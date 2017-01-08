@@ -483,6 +483,40 @@
             }
         }
 
+        @include component('layout') {
+            @include modifier('pink') {
+                filter: hue-rotate(50deg);
+            }
+            @include modifier('red') {
+                filter: hue-rotate(69deg);
+            }
+            @include modifier('orange') {
+                filter: hue-rotate(89deg);
+            }
+            @include modifier('green') {
+                filter: hue-rotate(166deg);
+            }
+            @include modifier('ocean') {
+                filter: hue-rotate(233deg);
+            }
+            @include modifier('blue') {
+                filter: hue-rotate(270deg);
+            }
+            @include modifier('royal') {
+                filter: hue-rotate(300deg);
+            }
+            @include modifier('purple') {
+                filter: hue-rotate(335deg);
+            }
+        }
+
+    }
+
+    @include module('container') {
+        @include modifier('full') {
+            max-width: calc(100% - (#{option($grid, 'options', 'gutter')} * 2));
+            width: calc(100% - (#{option($grid, 'options', 'gutter')} * 2));
+        }
     }
 
     // make cursor in typed.js 'blink'
