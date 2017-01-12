@@ -40,33 +40,13 @@
             transform: rotate(-5.5deg);
         }
 
-        @include component('graphic') {
+        @include module('deviceOutline') {
             position: absolute;
-            filter: invert(100%);
-            opacity: 0.5;
-            @include modifier('tablet') {
-                width: 20%;
-                top: -11vw;
-                right: 0;
-                transform: rotate(84deg);
-            }
-            @include modifier('phone') {
-                width: 9.8%;
-                top: -5vw;
-                right: 25%;
-                transform: rotate(-6deg);
-            }
-            @include modifier('miniTablet') {
-                width: 20%;
-                top: 15.4vw;
-                right: 12%;
-                transform: rotate(-6deg);
-            }
-            @include modifier('sidePhone') {
-                width: 9.8%;
-                top: 7.8vw;
-                right: -3%;
-                transform: rotate(84deg);
+            width: 100vw;
+            height: 100%;
+            top: -5vw;
+            @media (max-width: breakpoint('break-3')) {
+               display: none;
             }
         }
 
