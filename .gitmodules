@@ -13,6 +13,3 @@
 [submodule "vendor/Typed"]
 	path = vendor/Typed
 	url = https://github.com/mattboldt/typed.js.git
-[submodule "vendor\\Canvas-Particle-Network"]
-	path = vendor\\Canvas-Particle-Network
-	url = https://github.com/JulianLaval/canvas-particle-network.git
