@@ -43,6 +43,17 @@
             UiComponents.trigger('next.owl.carousel');
         });
 
+        var particleCanvasOptions = {
+            particleColor: '#fff',
+            background: 'transparent',
+            interactive: false,
+            speed: 'slow',
+            density: 'high'
+        };
+        var particleCanvas = new ParticleNetwork(
+            document.getElementById('particle-canvas'), particleCanvasOptions
+        );
+
     }
 
 }(jQuery));

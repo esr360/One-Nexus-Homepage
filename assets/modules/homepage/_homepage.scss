@@ -238,6 +238,8 @@
             }
 
             @include modifier('signoff') {
+                position: relative;
+                overflow: hidden;
                 background-color: color('brand', 'brand-4');
                 background: linear-gradient(#a73746 0%, color('brand', 'brand-4') 100%);
                 color: color('greyscale', 'white');
@@ -497,6 +499,8 @@
         }
 
         @include component('layout') {
+            transition: core('transition');
+            transform: translateZ(0);
             @include modifier('pink') {
                 filter: hue-rotate(50deg);
             }
@@ -520,6 +524,9 @@
             }
             @include modifier('purple') {
                 filter: hue-rotate(335deg);
+            }
+            &:hover {
+                transform: scale(1.1);
             }
         }
 
