@@ -139,28 +139,28 @@
                     transform: scaleX(-1);
                 }
             }
-
-            @include modifier('features') {
+            @include modifier('dotMap') {
                 position: relative;
-                padding: 8em 0 14em;
-                background: white;
-                box-shadow: 0px 0px 5px rgba(black, 0.1);
                 overflow: hidden;
-
                 &:after {
                     content: '';
                     background-image: url('#{$asset-path}/images/world-map.png');
                     background-size: cover;
                     position: absolute;
-                    bottom: -10%;
-                    width: 60%;
+                    bottom: -6em;
+                    width: 71em;
                     left: 0;
                     right: 0;
                     margin: auto;
-                    height: 20%;
+                    height: 13em;
                     opacity: 0.2;
                 }
+            }
 
+            @include modifier('features') {
+                padding: 8em 0 14em;
+                background: white;
+                box-shadow: 0px 0px 5px rgba(black, 0.1);
                 .livicon-evo {
                     margin: auto;
                 }
@@ -234,7 +234,44 @@
             }
 
             @include modifier('themes') {
-                padding: 8em 0;
+                padding: 8em 0 14em;
+            }
+
+            @include modifier('signoff') {
+                position: relative;
+                overflow: hidden;
+                background-color: color('brand', 'brand-4');
+                background: linear-gradient(#a73746 0%, color('brand', 'brand-4') 100%);
+                color: color('greyscale', 'white');
+                padding-top: 8em;
+                padding-bottom: 13em;
+            }
+
+            @include modifier('social') {
+                background: #ffffff;
+                box-shadow: 1px 1px 5px rgba(black, 0.1);
+                margin-top: -6em;
+                margin-bottom: 14em;
+                padding: 6em core('margin');
+                position: relative;
+                overflow: hidden;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 0.5em;
+                    width: 100%;
+                    background: linear-gradient(
+                        135deg, 
+                        #D02961 0%, 
+                        #8b4490 40%, 
+                        color('brand', 'brand-1') 100%
+                    )
+                }
+                .fa-heart {
+                    color: color('brand', 'brand-4');
+                }
             }
 
             @include component('header') {
@@ -418,28 +455,6 @@
             }
         }
 
-        @include component('section8') {
-            background: #ffffff;
-            box-shadow: 1px 1px 5px rgba(black, 0.1);
-            padding: 8em core('margin') 6em;
-            position: relative;
-            overflow: hidden;
-            &:before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 0.5em;
-                width: 100%;
-                background: linear-gradient(
-                    135deg, 
-                    #D02961 0%, 
-                    #8b4490 40%, 
-                    color('brand', 'brand-1') 100%
-                )
-            }
-        }
-
         @include component('iphone5c') {
             @include vertical-center(absolute);
             width: 60%;
@@ -484,6 +499,8 @@
         }
 
         @include component('layout') {
+            transition: core('transition');
+            transform: translateZ(0);
             @include modifier('pink') {
                 filter: hue-rotate(50deg);
             }
@@ -507,6 +524,9 @@
             }
             @include modifier('purple') {
                 filter: hue-rotate(335deg);
+            }
+            &:hover {
+                transform: scale(1.1);
             }
         }
 

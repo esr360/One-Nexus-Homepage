@@ -85,6 +85,7 @@ module.exports = function(grunt) {
      */
     var _scripts = [
         OneNexus.scripts,
+        project.vendor + 'Canvas-Particle-Network/particle-network.js',
         project.vendor + 'scrollJack/ScrollJack.js',
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
