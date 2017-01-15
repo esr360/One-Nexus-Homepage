@@ -33,7 +33,7 @@
             );
         }
 
-        if (options.fadeOnScroll) {
+        if (options.fadeOnScroll && _breakpoint('min-width', 'break-3')) {
             $(window).on('scroll', function() {
                 var scrollTop = $(this).scrollTop();
                 $(options.fadeOnScroll).css({

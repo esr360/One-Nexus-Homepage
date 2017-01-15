@@ -7,7 +7,6 @@ header:
     - dark
 scripts:
     - assets/scripts/jquery.stellar.js
-parallax: true
 Prism: 1.6.0
 ---
 
@@ -1315,21 +1314,67 @@ Prism: 1.6.0
         </div>
 
         <footer class="footer">
+
             <div class="deviceOutline-invert">
                 <img class="deviceOutline_tablet" src="{{assets}}assets/images/tablet-outline.svg" alt="">
                 <img class="deviceOutline_phone" src="{{assets}}assets/images/phone-outline.svg" alt="">
                 <img class="deviceOutline_miniTablet" src="{{assets}}assets/images/tablet-mini-outline.svg" alt="">
                 <img class="deviceOutline_sidePhone" src="{{assets}}assets/images/phone-outline.svg" alt="">
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="footer_box span-4">
-                        <h4 class="heading-size-3">Lorem Ipsum Dolor</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum et sapien ac elementum. Aliquam quis nisl interdum, faucibus nibh laoreet.</p>
+
+            <div class="footer_wrapper container">
+                <div class="row object-large">
+                    <div class="homepage_section_box-alt span-4">
+                        <h4 class="heading-size-3">Other Projects</h4>
+                        <a 
+                            class="github-button"
+                            href="https://github.com/esr360"
+                            data-count-href="/esr360/followers"
+                            data-count-api="/users/esr360#followers"
+                            data-count-aria-label="# followers on GitHub"
+                            aria-label="Follow @esr360 on GitHub"
+                        >Follow @esr360</a>
+                        <p>Checkout our other open-source projects on Github for more cool, experimental and boundry-pushing front-end tools.</p>
                     </div>
-                    <div class="span-8">foo</div>
+                    <div class="span-8 va-bottom footer_projects">
+                        <div class="owl-carousel" id="footerGithubProjects">
+                            <section>
+                                <h4 class="footer_heading object-small heading-size-3">Kayzen - Free Theme Built Using One-Nexus</h4>
+                                <p class="object-small">Kayzen is a premium theme builder built in PHP using One-Nexus.</p>
+                                <div class="button_group">
+                                    <a class="button-size-2-border-white" href="#">Read More</a>
+                                    <a class="button-size-2-brand-2" href="#">Download</a>
+                                </div>
+                            </section>
+                            <section>
+                                <h4 class="footer_heading object-small heading-size-3">Kayzen - Free Theme Built Using One-Nexus</h4>
+                                <p class="object-small">Kayzen is a premium theme builder built in PHP using One-Nexus.</p>
+                                <div class="button_group">
+                                    <a class="button-size-2-border-white" href="#">Read More</a>
+                                    <a class="button-size-2-brand-2" href="#">Download</a>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="footer_projects_carouselNav">
+                            <button class="footer_projects_carouselNav_prev button-circle-icon-size-2-border">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button class="footer_projects_carouselNav_next button-circle-icon-size-2-border">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="footer_bar">
+                <div class="container text-center">
+                    <small>
+                        Made with <i class="fa fa-heart"></i> in the UK by <a href="#">Edmund Reed</a> © <script>document.write(new Date().getFullYear())</script>
+                    </small>
+                </div>
+            </div>
+
         </footer>
 
     </div>

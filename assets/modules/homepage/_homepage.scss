@@ -52,7 +52,7 @@
                     position: absolute;
                     z-index: -1;
                     height: 100%;
-                    width: 102vw;
+                    width: 110vw;
                     background-color: #2E3882;
                     transform: rotate(-5.5deg);
                     top: -6vw;
@@ -241,7 +241,7 @@
                 position: relative;
                 overflow: hidden;
                 background-color: color('brand', 'brand-4');
-                background: linear-gradient(#a73746 0%, color('brand', 'brand-4') 100%);
+                background: linear-gradient(#5d3d88 0%, color('brand', 'brand-4') 100%);
                 color: color('greyscale', 'white');
                 padding-top: 8em;
                 padding-bottom: 13em;
@@ -300,6 +300,9 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
+                }
+                @include modifier('alt') {
+                    background-color: color('brand', 'brand-2');
                 }
                 // github star button
                 iframe {
@@ -501,32 +504,57 @@
         @include component('layout') {
             transition: core('transition');
             transform: translateZ(0);
+            &:hover {
+                transform: scale(1.1);
+                filter: hue-rotate(50deg);
+            }
             @include modifier('pink') {
                 filter: hue-rotate(50deg);
+                &:hover {
+                    filter: hue-rotate(150deg);
+                }
             }
             @include modifier('red') {
                 filter: hue-rotate(69deg);
+                &:hover {
+                    filter: hue-rotate(169deg);
+                }
             }
             @include modifier('orange') {
                 filter: hue-rotate(89deg);
+                &:hover {
+                    filter: hue-rotate(189deg);
+                }
             }
             @include modifier('green') {
                 filter: hue-rotate(166deg);
+                &:hover {
+                    filter: hue-rotate(269deg);
+                }
             }
             @include modifier('ocean') {
                 filter: hue-rotate(233deg);
+                &:hover {
+                    filter: hue-rotate(333deg);
+                }
             }
             @include modifier('blue') {
                 filter: hue-rotate(270deg);
+                &:hover {
+                    filter: hue-rotate(370deg);
+                }
             }
             @include modifier('royal') {
                 filter: hue-rotate(300deg);
+                &:hover {
+                    filter: hue-rotate(400deg);
+                }
             }
             @include modifier('purple') {
                 filter: hue-rotate(335deg);
-            }
-            &:hover {
-                transform: scale(1.1);
+                &:hover {
+                    filter: hue-rotate(435deg);
+                }
             }
         }
 

@@ -14,6 +14,13 @@
         // Options
         var options = $.extend({}, custom);
 
+        // Parallax
+        if (_breakpoint('min-width', 'break-3')) {
+            $.stellar({
+                responsive: true
+            });
+        }
+
         // animated text for .homepage_banner-alpha
         $('#typed-workflow').typed({
             strings: ['$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ grunt theme \n\n . . .'],

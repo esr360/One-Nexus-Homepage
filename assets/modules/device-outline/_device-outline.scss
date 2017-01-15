@@ -31,33 +31,32 @@
         @include modifier('invert') {
             filter: invert(100%);
         }
-        @include component('phone') {
+        @include component {
             position: absolute;
-            opacity: 0.5;
+        }
+        @include component('phone') {
+            opacity: 0.4;
             width: 9.8%;
             top: 0;
             right: 30%;
             transform: rotate(-6deg);
         }
         @include component('tablet') {
-            position: absolute;
-            opacity: 0.5;
+            opacity: 0.4;
             width: 20%;
             top: -6vw;
             right: 5%;
             transform: rotate(84deg);
         }
         @include component('miniTablet') {
-            position: absolute;
-            opacity: 0.5;
+            opacity: 0.4;
             width: 20%;
             top: 20.4vw;
             right: 17%;
             transform: rotate(-6deg);
         }
         @include component('sidePhone') {
-            position: absolute;
-            opacity: 0.5;
+            opacity: 0.4;
             width: 9.8%;
             top: 12.8vw;
             right: 2%;
