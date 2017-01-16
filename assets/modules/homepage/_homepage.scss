@@ -74,15 +74,19 @@
 
             @include modifier('brand') {
                 background-color: #080d2b;
-                padding: 10em 0 18em;
+                padding-top: 10em;
+                padding-bottom: 15em;
                 color: white;
                 position: relative;
+                @media (min-width: breakpoint('break-3')) {
+                    padding-bottom: 18em;
+                }
             }
 
             @include modifier('overview') {
                 background: #ffffff;
                 box-shadow: 1px 1px 5px rgba(black, 0.1);
-                padding: 6.5em core('margin') 6em;
+                padding: 4em core('margin');
                 position: relative;
                 top: -10em;
                 margin-bottom: -10em;
@@ -96,6 +100,9 @@
                     width: 100%;
                     background: gradient('brand');
                 }
+                @media (min-width: breakpoint('break-3')) {
+                    padding: 6.5em core('margin');
+                }
             }
 
             @include modifier('cards') {
@@ -108,9 +115,8 @@
                 );
                 color: color('greyscale', 'white');
                 box-shadow: inset 0px 1px 3px 1px rgba(black, 0.1);
-                padding-top: 10em;
-                padding-bottom: 16em;
-                margin-bottom: 3em;
+                padding-top: 8em;
+                padding-bottom: 13em;
                 &:before {
                     content: '';
                     position: absolute;
@@ -123,6 +129,11 @@
                     bottom: -7vw;
                     left: -0.5%;
                     box-shadow: -1px -1px 3px rgba(black, 0.1);
+                }
+                @media (min-width: breakpoint('break-3')) {
+                    padding-top: 10em;
+                    padding-bottom: 16em;
+                    margin-bottom: 3em;
                 }
             }
 
@@ -158,16 +169,19 @@
             }
 
             @include modifier('features') {
-                padding: 8em 0 14em;
+                padding: 4em 0 11em;
                 background: white;
                 box-shadow: 0px 0px 5px rgba(black, 0.1);
                 .livicon-evo {
                     margin: auto;
                 }
+                @media (min-width: breakpoint('break-3')) {
+                    padding: 8em 0 14em;
+                }
             }
 
             @include modifier('responsive') {
-                padding: 8em 0 16em;
+                padding: 4em 0 8em;
                 position: relative;
                 .kgs-star {
                     position: absolute;
@@ -175,14 +189,20 @@
                     right: 2em;
                 }
                 @include component('wrapper') {
-                    margin-top: 9em;
+                    margin-top: 3em;
+                }
+                @media (min-width: breakpoint('break-3')) {
+                    padding: 8em 0 16em;
+                    @include component('wrapper') {
+                        margin-top: 9em;
+                    }
                 }
             }
 
             @include modifier('kayzengs') {
                 position: relative;
                 background-color: #2E3882;
-                padding-bottom: 6em;
+                padding-bottom: 2em;
                 color: color('greyscale', 'white');
                 &:before {
                     content: '';
@@ -196,6 +216,9 @@
                     top: -6vw;
                     left: -0.5%;
                 }
+                @media (min-width: breakpoint('break-3')) {
+                    padding-bottom: 6em;
+                }
                 @include module {
                     @include component('gridSystem') {
                         position: absolute;
@@ -207,12 +230,14 @@
                 }
                 @include component('panel') {
                     position: relative;
-                    padding-right: 6.5em;
                     // github star button
                     iframe {
                         position: absolute;
                         right: 6.5em;
                         top: 2em;
+                    }
+                    @media (min-width: breakpoint('break-3')) {
+                        padding-right: 6.5em;
                     }
                 }
                 @include component('stardust3') {
@@ -234,7 +259,10 @@
             }
 
             @include modifier('themes') {
-                padding: 8em 0 14em;
+                padding: 4em 0 10em;
+                @media (min-width: breakpoint('break-3')) {
+                    padding: 8em 0 14em;
+                }
             }
 
             @include modifier('signoff') {
@@ -243,16 +271,20 @@
                 background-color: color('brand', 'brand-4');
                 background: linear-gradient(#5d3d88 0%, color('brand', 'brand-4') 100%);
                 color: color('greyscale', 'white');
-                padding-top: 8em;
-                padding-bottom: 13em;
+                padding-top: 6em;
+                padding-bottom: 11em;
+                @media (min-width: breakpoint('break-3')) {
+                    padding-top: 8em;
+                    padding-bottom: 13em;
+                }
             }
 
             @include modifier('social') {
                 background: #ffffff;
                 box-shadow: 1px 1px 5px rgba(black, 0.1);
                 margin-top: -6em;
-                margin-bottom: 14em;
-                padding: 6em core('margin');
+                margin-bottom: 10em;
+                padding: 4em core('margin');
                 position: relative;
                 overflow: hidden;
                 &:before {
@@ -268,6 +300,10 @@
                         #8b4490 40%, 
                         color('brand', 'brand-1') 100%
                     )
+                }
+                @media (min-width: breakpoint('break-3')) {
+                    margin-bottom: 14em;
+                    padding: 6em core('margin');
                 }
                 .fa-heart {
                     color: color('brand', 'brand-4');
@@ -378,6 +414,7 @@
             background: color('brand', 'brand-1');
             position: relative;
             color: white;
+            text-align: center;
             &:before {
                 content: '';
                 position: absolute;
@@ -387,6 +424,7 @@
                 width: 50%;
                 height: 0;
                 padding-top: 27.5%;
+                pointer-events: none;
             }
             @include module('button') {
                 @include modifier('border') {
@@ -396,6 +434,9 @@
                         color: color('brand', 'brand-1');
                     }
                 }
+            }
+            @media (min-width: breakpoint('break-2')) {
+                text-align: right;
             }
         }
 
@@ -441,7 +482,7 @@
 
         @include component('banner') {
             @include bg-overlay(rgba(black, 0.4));
-            padding: 8em 0;
+            padding: 5em 0;
             background-image: url('#{$asset-path}/images/polygon-brand-dark.jpg');
             background-size: cover;
             background-attachment: fixed;
@@ -455,6 +496,9 @@
                         }
                     }
                 }
+            }
+            @media (min-width: breakpoint('break-3')) {
+                padding: 8em 0;
             }
         }
 
