@@ -616,7 +616,7 @@ Prism: 1.6.0
                                         var header = $(this);
 
                                         if (options.sticky) {
-                                            $(window).on('load scroll', function(e) {
+                                            $(window).on('load scroll', function() {
                                                 var scroll = $(window).scrollTop();
 
                                                 if (scroll > options.offset) {
