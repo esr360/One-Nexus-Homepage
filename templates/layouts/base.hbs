@@ -1,6 +1,10 @@
 ---
 layout: core.hbs
-wide: false 
+wide: false
+styles:
+    - <%=assets%>assets/styles/app
+scripts:
+    - <%=assets%>assets/scripts/app
 header:
     modifiers:
     - absolute
@@ -12,6 +16,7 @@ container:
     - section
 breadcrumb: true
 ---
+
 {{> header}}
 
 {{#if billboard}}

@@ -3,6 +3,10 @@ title: One Nexus
 bodyClass: ''
 contentID: 'site-content'
 modulesID: 'modulesConfigJSON'
+styles:
+    - <%=assets%>assets/themes/<%=theme%>/app
+scripts:
+    - <%=assets%>assets/themes/<%=theme%>/app
 jQuery: 2.2.4
 OwlCarousel: 2.2.0
 FontAwesome: 4.7.0
@@ -19,10 +23,14 @@ FontAwesome: 4.7.0
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {{#is environment "dev"}}
-            <link href="{{assets}}assets/themes/{{theme}}/app.css" rel="stylesheet">
+            {{#each styles}}
+               <link href="{{.}}.css" rel="stylesheet">
+            {{/each}}
         {{/is}}
         {{#is environment "prod"}}
-            <link href="{{assets}}assets/themes/{{theme}}/app.min.css" rel="stylesheet">
+            {{#each styles}}
+               <link href="{{.}}.min.css" rel="stylesheet">
+            {{/each}}
         {{/is}}
     </head>
 
@@ -89,9 +97,16 @@ FontAwesome: 4.7.0
         </style>
     {{/if}}
 
-    {{#each scripts}}
-        <script src="{{../assets}}{{.}}"></script>
-    {{/each}}
+    {{#is environment "dev"}}
+        {{#each scripts}}
+            <script src="{{.}}.js"></script>
+        {{/each}}
+    {{/is}}
+    {{#is environment "prod"}}
+        {{#each scripts}}
+            <script src="{{.}}.min.js"></script>
+        {{/each}}
+    {{/is}}
 
     {{#if parallax}}
         <script>
@@ -100,11 +115,4 @@ FontAwesome: 4.7.0
             });
         </script>
     {{/if}}
-
-    {{#is environment "dev"}}
-        <script src="{{assets}}assets/themes/{{theme}}/app.js"></script>
-    {{/is}}
-    {{#is environment "prod"}}
-        <script src="{{assets}}assets/themes/{{theme}}/app.min.js"></script>
-    {{/is}}
 </html>

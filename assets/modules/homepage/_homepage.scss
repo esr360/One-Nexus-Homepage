@@ -283,7 +283,7 @@
                 background: #ffffff;
                 box-shadow: 1px 1px 5px rgba(black, 0.1);
                 margin-top: -6em;
-                margin-bottom: 10em;
+                margin-bottom: 8em;
                 padding: 4em core('margin');
                 position: relative;
                 overflow: hidden;
@@ -357,6 +357,12 @@
             }
 
             @include component('carouselNav') {
+                @media (max-width: breakpoint('break-4')) {
+                    position: relative;
+                    text-align: center;
+                    margin-top: core('margin');
+                    z-index: 2;
+                }
                 @include component('item') {
                     height: 2em;
                     width: 2em;
@@ -365,8 +371,10 @@
                     text-align: center;
                     transition: core('transition');
                     cursor: pointer;
-                    position: absolute;
                     top: 40%;
+                    @media (min-width: breakpoint('break-4')) {
+                        position: absolute;
+                    }
                     &.fa {
                         line-height: 1.8;
                         font-size: 1.5em;

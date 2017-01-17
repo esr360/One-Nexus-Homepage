@@ -212,7 +212,10 @@
     @include footer;
     @include google-map;
 
-    @include header(('background': transparent)) {
+    @include header((
+        'font-size' : 0.9em,
+        'height'    : 75px
+    )) {
         @include modifier('hidden') {
             display: none;
         }
@@ -224,7 +227,9 @@
         }
     };
 
-    @include logo;
+    @include logo((
+        'image-height' : 30px
+    ));
     @include navigation;
     @include dropdown;
     @include side-nav;
