@@ -57,10 +57,11 @@
 
         @include component('wrapper') {
             position: relative;
-            margin-bottom: -4em;
-            top: -5em;
+            margin-bottom: -3em;
+            top: -3em;
             @media (min-width: breakpoint('break-3')) {
-                top: -7em;
+                margin-bottom: -6em;
+                top: -6em;
             }
         }
 

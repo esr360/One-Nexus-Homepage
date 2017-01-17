@@ -76,7 +76,11 @@ module.exports = function(grunt) {
             'One-Nexus/vendor/Synergy/dist/synergy.js',
             'One-Nexus/assets/tools/**/*.js',
             'One-Nexus/assets/modules/**/*.js'
-        ]
+        ],
+        dist:{
+            css: 'One-Nexus/dist/assets/themes/One-Nexus/app.css',
+            js: 'One-Nexus/dist/assets/themes/One-Nexus/app.js'
+        }
     }
 
     /**
@@ -102,6 +106,7 @@ module.exports = function(grunt) {
      * @var {object} _globalScripts
      */
     var _globalScripts = [
+        OneNexus.dist.js,
         project.vendor + 'Stellar/jquery.stellar.js'
     ];
 
@@ -109,7 +114,9 @@ module.exports = function(grunt) {
      * Set all optional styles to be used by the project
      * @var {object} _globalStyles
      */
-    var _globalStyles = [];
+    var _globalStyles = [
+        OneNexus.dist.css
+    ];
 
     /**
      * The name of your project's source asset
@@ -422,7 +429,7 @@ module.exports = function(grunt) {
          */
         assemble: {
             options: {
-                layout: 'core.hbs',
+                layout: 'base.hbs',
                 layoutdir: project.source[1].templates + 'layouts/',
                 partials: project.source[1].templates + 'partials/**/*.hbs',
                 helpers: [project.source[1].templates + 'helpers/**/*.js']
