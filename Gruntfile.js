@@ -609,7 +609,9 @@ module.exports = function(grunt) {
             'replace:sassTheme',
             'copy:dist',
             'copy:images',
+            'concat:OneNexus',
             'concat:dist',
+            'sass:OneNexus',
             'sass:' + environment,
             'postcss',
             'csscomb',
@@ -632,7 +634,6 @@ module.exports = function(grunt) {
     // Default Grunt task
     grunt.registerTask('default', [
         'theme:' + theme,
-        'OneNexus',
         'browserSync',
         'watch'
     ]);
@@ -666,12 +667,6 @@ module.exports = function(grunt) {
     grunt.registerTask('docs', [
         'sassdoc',
         'jsdoc'
-    ]);
-
-    // Compile One-Nexus
-    grunt.registerTask('OneNexus', [
-        'sass:OneNexus',
-        'concat:OneNexus'
     ]);
 
 };
