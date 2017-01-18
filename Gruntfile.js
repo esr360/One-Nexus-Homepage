@@ -72,15 +72,12 @@ module.exports = function(grunt) {
      * @var {object} OneNexus
      */
     var OneNexus = {
+        assets: 'One-Nexus/assets/',
         scripts:[
             'One-Nexus/vendor/Synergy/dist/synergy.js',
             'One-Nexus/assets/tools/**/*.js',
             'One-Nexus/assets/modules/**/*.js'
-        ],
-        dist:{
-            css: 'One-Nexus/dist/assets/themes/One-Nexus/app.css',
-            js: 'One-Nexus/dist/assets/themes/One-Nexus/app.js'
-        }
+        ]
     }
 
     /**
@@ -106,7 +103,6 @@ module.exports = function(grunt) {
      * @var {object} _globalScripts
      */
     var _globalScripts = [
-        OneNexus.dist.js,
         project.vendor + 'Stellar/jquery.stellar.js'
     ];
 
@@ -114,9 +110,7 @@ module.exports = function(grunt) {
      * Set all optional styles to be used by the project
      * @var {object} _globalStyles
      */
-    var _globalStyles = [
-        OneNexus.dist.css
-    ];
+    var _globalStyles = [];
 
     /**
      * The name of your project's source asset
@@ -248,6 +242,15 @@ module.exports = function(grunt) {
                     [project.dist[1].themes[1].theme + dist + '.min.css']: 
                     project.source[0] + src + '.scss'
                 }
+            },
+            OneNexus: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    [project.dist[1].styles + 'one-nexus.css']: 
+                    OneNexus.assets + src + '.scss'
+                }
             }
         },
 
@@ -326,6 +329,10 @@ module.exports = function(grunt) {
             dist: {
                 src: _scripts,
                 dest: project.dist[1].themes[1].theme + dist + '.js',
+            },
+            OneNexus: {
+                src: OneNexus.scripts,
+                dest: project.dist[1].scripts + 'one-nexus.js'
             }
         },
 
@@ -489,7 +496,7 @@ module.exports = function(grunt) {
             scripts: {
                 files: _scripts,
                 tasks: [
-                    'concat',
+                    'concat:dist',
                     'jshint',
                     'jsdoc',
                     'notify:scripts'
@@ -507,6 +514,20 @@ module.exports = function(grunt) {
                 tasks: [
                     'assemble',
                     'notify:templates'
+                ]
+            },
+            OneNexus_scripts: {
+                files: OneNexus.scripts,
+                tasks: [
+                    'concat:OneNexus',
+                    'notify:scripts'
+                ]
+            },
+            OneNexus_styles: {
+                files: OneNexus.assets + '**/*.scss',
+                tasks: [
+                    'sass:OneNexus',
+                    'notify:css'
                 ]
             }
         },
@@ -588,7 +609,7 @@ module.exports = function(grunt) {
             'replace:sassTheme',
             'copy:dist',
             'copy:images',
-            'concat',
+            'concat:dist',
             'sass:' + environment,
             'postcss',
             'csscomb',
@@ -611,6 +632,7 @@ module.exports = function(grunt) {
     // Default Grunt task
     grunt.registerTask('default', [
         'theme:' + theme,
+        'OneNexus',
         'browserSync',
         'watch'
     ]);
@@ -644,6 +666,12 @@ module.exports = function(grunt) {
     grunt.registerTask('docs', [
         'sassdoc',
         'jsdoc'
+    ]);
+
+    // Compile One-Nexus
+    grunt.registerTask('OneNexus', [
+        'sass:OneNexus',
+        'concat:OneNexus'
     ]);
 
 };
