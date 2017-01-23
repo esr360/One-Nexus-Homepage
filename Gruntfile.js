@@ -45,7 +45,7 @@ module.exports = function(grunt) {
             themes:[   'dist/assets/themes/', {
                 theme: 'dist/assets/themes/<%=theme%>/'
             }],
-            templates: 'dist/',
+            templates: 'dist/'
         }],
         source:[       'assets/', {
             images:    'assets/images/',
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
             themes:[   'assets/themes/', {
                 theme: 'assets/themes/<%=theme%>/'
             }],
-            templates: 'templates/',
+            templates: 'templates/'
         }],
         vendor:        'vendor/',
         docs:[         'docs/', {
@@ -76,7 +76,8 @@ module.exports = function(grunt) {
         scripts:[
             'One-Nexus/vendor/Synergy/dist/synergy.js',
             'One-Nexus/assets/tools/**/*.js',
-            'One-Nexus/assets/modules/**/*.js'
+            'One-Nexus/assets/modules/**/*.js',
+            'One-Nexus/assets/themes/One-Nexus/one-nexus.js'
         ]
     }
 
@@ -242,6 +243,18 @@ module.exports = function(grunt) {
                     [project.dist[1].themes[1].theme + dist + '.min.css']: 
                     project.source[0] + src + '.scss'
                 }
+            },
+            demo: {
+                options: {
+                    sourcemap: 'none'
+                },
+                files: [{
+                    expand: true,
+                    cwd: project.source[0] + 'scss',
+                    src: ['**/*.scss'],
+                    dest: project.dist[1].styles,
+                    ext: '.css'
+                }]
             },
             OneNexus: {
                 options: {
@@ -457,7 +470,7 @@ module.exports = function(grunt) {
 
         /**
          * Browser Sync
-         * https://github.com/BrowserSync/grunt-browser-sync
+         * @see https://github.com/BrowserSync/grunt-browser-sync
          */
         browserSync: {
             bsFiles: {
@@ -612,6 +625,7 @@ module.exports = function(grunt) {
             'concat:OneNexus',
             'concat:dist',
             'sass:OneNexus',
+            'sass:demo',
             'sass:' + environment,
             'postcss',
             'csscomb',

@@ -25,7 +25,7 @@ billboard:
     </div>
 </div>
 
-<pre><code>&lt;div class="accordion">
+<pre><code class="language-markup">&lt;div class="accordion">
     &lt;div class="accordion_section">
         &lt;div class="accordion_title">Accordion Title&lt;/div>
         &lt;div class="accordion_content">
@@ -44,7 +44,7 @@ billboard:
 
 <p>Load the accordion styles by including the <code>accordions()</code> mixin:</p>
 
-<pre><code>@include accordions();</code></pre>
+<pre><code class="language-scss">@include accordions();</code></pre>
 
 <p>The following options can be passed to the mixin to customize the accordions:</p>
 
@@ -162,7 +162,7 @@ billboard:
 
 <p>The above options can be passed to the mixin like so:</p>
 
-<pre><code>@include accordions((
+<pre><code class="language-scss">@include accordions((
     'section-margin': 1.4em,
     'icon': '\f101',
     'title-bg': #23241f,
@@ -176,16 +176,16 @@ billboard:
 
 <p>The above example produces the following accordion:</p>
 
-<div class="accordionDemo-1">
-    <div class="accordionDemo-1_section">
-        <div class="accordionDemo-1_title">Accordion Title</div>
-        <div class="accordionDemo-1_content">
+<div class="accordionDemo1">
+    <div class="accordionDemo1_section">
+        <div class="accordionDemo1_title">Accordion Title</div>
+        <div class="accordionDemo1_content">
             <p>Lorem ipsum.</p>
         </div>
     </div>
-    <div class="accordionDemo-1_section">
-        <div class="accordionDemo-1_title">Accordion Title</div>
-        <div class="accordionDemo-1_content">
+    <div class="accordionDemo1_section">
+        <div class="accordionDemo1_title">Accordion Title</div>
+        <div class="accordionDemo1_content">
             <p>Lorem ipsum.</p>
         </div>
     </div>
@@ -195,7 +195,7 @@ billboard:
 
 <p>Call the <code>accordion()</code> function on your accordion selector:</p>
 
-<pre><code>$('.foo').accordion();
+<pre><code class="language-js">$('.foo').accordion();
 $(_accordion).accordion();</code></pre>
 
 <p class="alert-bar-info">The default One-Nexus theme uses <a href="https://github.com/esr360/Synergy" target="blank">Synergy's</a> global module selector: <code class="alt">$(_accordion)</code></p>
@@ -231,7 +231,7 @@ $(_accordion).accordion();</code></pre>
 
 <p>The above options can be passed to the function like so:</p>
 
-<pre><code>$(_accordion).accordion({
+<pre><code class="language-js">$(_accordion).accordion({
     activeClass: 'toggled',
     animationSpeed: 500
 });</code></pre>
@@ -255,7 +255,7 @@ $(_accordion).accordion();</code></pre>
     </div>
 </div>
 
-<pre><code class="html">&lt;div class="accordion">
+<pre><code class="language-markup">&lt;div class="accordion">
     &lt;div class="accordion_section active">
         ...
     &lt;/div>
@@ -281,7 +281,7 @@ $(_accordion).accordion();</code></pre>
     </div>
 </div>
 
-<pre><code class="html">&lt;div class="accordion-keepOpen">
+<pre><code class="language-markup">&lt;div class="accordion-keepOpen">
     &lt;div class="accordion_section">
         ...
     &lt;/div>
@@ -292,11 +292,11 @@ $(_accordion).accordion();</code></pre>
 
 <!-- Cloak & dagger UI -->
 
-<link rel="stylesheet" href="/css/accordions.css" />
+<link rel="stylesheet" href="{{assets}}assets/styles/accordions.css" />
 <script>
     (function() {
         var runMyCode = function($) {
-            $('.accordionDemo-1').accordion();
+            $('.accordionDemo1').accordion();
         };
         var timer = function() {
             if (window.jQuery) {

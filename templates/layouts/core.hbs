@@ -1,5 +1,5 @@
 ---
-title: One Nexus
+title: One-Nexus
 bodyClass: ''
 contentID: 'site-content'
 modulesID: 'modulesConfigJSON'
@@ -55,12 +55,16 @@ FontAwesome: 4.7.0
 
     {{#if Prism}}
         <!-- Load syntax highlighter -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/prism.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-css.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-scss.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-javascript.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/components/prism-markup.min.js"></script>
-        <link  href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism}}/themes/prism.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism.version}}/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism.version}}/components/prism-css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism.version}}/components/prism-scss.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism.version}}/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism.version}}/components/prism-markup.min.js"></script>
+        {{#is Prism.theme 'dark'}}
+            <link  href="http://skyux.com/libraries/prism-xonokai.css" rel="stylesheet" />
+        {{else}}
+            <link  href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{Prism.version}}/themes/prism.min.css" rel="stylesheet" />
+        {{/is}}
         <!-- Handle code indentation -->
         <script>      
             $('pre code').each(function(i, block) {
@@ -90,6 +94,9 @@ FontAwesome: 4.7.0
         <style>
             pre[class*="language"] {
                 max-height: 600px;
+            }
+            pre[class*="language"] code {
+                background: inherit;
             }
             pre.border {
                 border-bottom: 6px solid rgba(0,0,0,0.075);

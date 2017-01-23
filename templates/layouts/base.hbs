@@ -7,10 +7,9 @@ scripts:
     - <%=assets%>assets/scripts/one-nexus
 header:
     modifiers:
-    - absolute
-    - sticky
+    - dark
 billboard:
-    heading: Lorem Ipsum Dolor Sit Amet
+    heading: <%=title%>
 container:
     modifiers:
     - section
@@ -28,6 +27,10 @@ breadcrumb: true
     {{#if container}}
         <div class="container{{#each container.modifiers}}-{{.}}{{/each}}{{#if wide}}-large{{/if}}">
     {{/if}}
+
+    {{#each notices}}
+        <p class="alert-bar-{{type}}">{{#if icon}}<i class="fa fa-{{icon}}"></i>&nbsp; {{/if}}{{text}}</p>
+    {{/each}}
 
     {{#if breadcrumb}}
         {{> breadcrumb}}

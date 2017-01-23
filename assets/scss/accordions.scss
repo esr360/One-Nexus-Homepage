@@ -2,10 +2,31 @@
 /// Module Demos
 ///************************************************************
 
-@import '_app';
+$disable-output: true;
+
+@import '../../One-Nexus/vendor/Kayzen-GS/src/kayzen-gs';
+@import '../../One-Nexus/vendor/Sass-Boost/src/sass-boost';
+@import '../../One-Nexus/vendor/Synergy/src/scss/synergy';
+
+@import '../../One-Nexus/assets/tools/scss/font-sizes';
+@import '../../One-Nexus/assets/tools/scss/vertical-center';
+@import '../../One-Nexus/assets/tools/scss/vertical-rhythm';
+
+@import '../../One-Nexus/assets/modules/utilities/color-palette/color-palette';
+@import '../../One-Nexus/assets/modules/utilities/core/core';
+@import '../../One-Nexus/assets/modules/utilities/grid/grid';
+@import '../../One-Nexus/assets/modules/utilities/typography/typography';
+
+@import '../../One-Nexus/assets/modules/elements/accordions/accordions';
+
+@include palettes;
+@include grid;
+@include typography;
+@include core;
 
 @include accordions((
-    'name': 'accordionDemo-1',
+    'disable-output': false,
+    'name': 'accordionDemo1',
     'icon': '\f101',
     'section-margin': 1.4em,
     'title-bg': #23241f,
