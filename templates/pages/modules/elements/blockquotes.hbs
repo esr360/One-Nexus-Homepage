@@ -10,11 +10,11 @@ billboard:
 
 <h3 class="heading-size-5-light">Quick Look</h3>
 
-<blockquote class="blockquote">
+<blockquote class="blockquote-icon">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus, purus a varius mattis, ligula dui imperdiet nisi, quis tincidunt sem tortor nec diam. Suspendisse id nunc pharetra, pulvinar nisl id, maximus nisl.
 </blockquote>
     
-<pre><code class="html">&lt;blockquote class="blockquote">
+<pre><code class="language-markup">&lt;blockquote class="blockquote-icon">
     ...
 &lt;/blockquote></code></pre>
 
@@ -22,7 +22,7 @@ billboard:
 
 <p>Load the alert bar styles by including the <code>blockquotes()</code> mixin:</p>
 
-<pre><code>@include blockquotes();</code></pre>
+<pre><code class="language-scss">@include blockquotes();</code></pre>
 
 <p>The following options can be passed to the mixin to customize the alert bars:</p>
 
@@ -95,7 +95,7 @@ billboard:
 
 <p>The above options can be passed to the mixin like so:</p>
 
-<pre><code>@include blockquotes((
+<pre><code class="language-scss">@include blockquotes((
     'quotes': '\f10d''\f10e''\f053''\f054',
     'icon':(
         'font-family': FontAwesome,
@@ -106,13 +106,13 @@ billboard:
     )
 ));</code></pre>
 
-<p>The above example produces the following blockquote:</p>
+<p>The above example produces the following blockquote (with the <code>icon</code> modifier assumed):</p>
 
-<blockquote class="blockquoteDemo-1">
+<blockquote class="blockquoteDemo-1-icon">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus, purus a varius mattis, ligula dui imperdiet nisi, quis tincidunt sem tortor nec diam. Suspendisse id nunc pharetra, pulvinar nisl id, maximus nisl.
 </blockquote>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor elit, porta ut orci eget, suscipit dictum mauris. Etiam volutpat, quam vitae iaculis hendrerit, lectus leo consequat tellus, ut pretium nunc ante eget urna. Vivamus at lobortis dolor. <span class="blockquoteDemo-1-pull-left">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.</span>Maecenas id finibus diam. Mauris ut accumsan sapien. Aliquam fringilla justo orci, dapibus consequat quam commodo vitae. Cras sit amet nisi velit. Nullam eleifend erat nunc, non congue urna aliquam ac. Aenean ac lectus lacus. Integer sit amet est sed purus fermentum consequat. Integer consectetur nibh arcu, vel sodales ex imperdiet eu. Nulla fermentum, justo eu iaculis consectetur, turpis risus sagittis metus, in placerat nibh ante cursus augue. Nunc luctus facilisis molestie. Sed quis porttitor mauris. Sed in quam eu mauris ultricies scelerisque vel vitae lacus. Praesent eu vehicula orci.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor elit, porta ut orci eget, suscipit dictum mauris. Etiam volutpat, quam vitae iaculis hendrerit, lectus leo consequat tellus, ut pretium nunc ante eget urna. Vivamus at lobortis dolor. <span class="blockquoteDemo-1-pull-left-icon">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.</span>Maecenas id finibus diam. Mauris ut accumsan sapien. Aliquam fringilla justo orci, dapibus consequat quam commodo vitae. Cras sit amet nisi velit. Nullam eleifend erat nunc, non congue urna aliquam ac. Aenean ac lectus lacus. Integer sit amet est sed purus fermentum consequat. Integer consectetur nibh arcu, vel sodales ex imperdiet eu. Nulla fermentum, justo eu iaculis consectetur, turpis risus sagittis metus, in placerat nibh ante cursus augue. Nunc luctus facilisis molestie. Sed quis porttitor mauris. Sed in quam eu mauris ultricies scelerisque vel vitae lacus. Praesent eu vehicula orci.</p>
 
 <p class="alert-bar-info">The above example uses FontAwesome icons for the quotes using their <a href="http://astronautweb.co/snippet/font-awesome/" target="blank">content values</a></p>
 
@@ -122,22 +122,22 @@ billboard:
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor elit, porta ut orci eget, suscipit dictum mauris. Etiam volutpat, quam vitae iaculis hendrerit, lectus leo consequat tellus, ut pretium nunc ante eget urna. Vivamus at lobortis dolor. Maecenas id finibus diam. Mauris ut accumsan sapien. Aliquam fringilla justo orci, dapibus consequat quam commodo vitae. <span class="blockquote-pull-left">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.</span> Cras sit amet nisi velit. Nullam eleifend erat nunc, non congue urna aliquam ac. Aenean ac lectus lacus. Integer sit amet est sed purus fermentum consequat. Integer consectetur nibh arcu, vel sodales ex imperdiet eu. Nulla fermentum, justo eu iaculis consectetur, turpis risus sagittis metus, in placerat nibh ante cursus augue. Nunc luctus facilisis molestie. Sed quis porttitor mauris. Sed in quam eu mauris ultricies scelerisque vel vitae lacus. Praesent eu vehicula orci.</p>
 
-<pre><code class="html">&lt;p>...&lt;span class="blockquote-pull-left">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.&lt;/span>...&lt;/p></code></pre>
+<pre><code class="language-markup">&lt;p>...&lt;span class="blockquote-pull-left">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.&lt;/span>...&lt;/p></code></pre>
 
 <h4 class="heading-size-3">Pull-Quote (right)</h4>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor elit, porta ut orci eget, suscipit dictum mauris. Etiam volutpat, quam vitae iaculis hendrerit, lectus leo consequat tellus, ut pretium nunc ante eget urna. Vivamus at lobortis dolor. <span class="blockquote-pull-right">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.</span>Maecenas id finibus diam. Mauris ut accumsan sapien. Aliquam fringilla justo orci, dapibus consequat quam commodo vitae. Cras sit amet nisi velit. Nullam eleifend erat nunc, non congue urna aliquam ac. Aenean ac lectus lacus. Integer sit amet est sed purus fermentum consequat. Integer consectetur nibh arcu, vel sodales ex imperdiet eu. Nulla fermentum, justo eu iaculis consectetur, turpis risus sagittis metus, in placerat nibh ante cursus augue. Nunc luctus facilisis molestie. Sed quis porttitor mauris. Sed in quam eu mauris ultricies scelerisque vel vitae lacus. Praesent eu vehicula orci.</p>
 
-<pre><code class="html">&lt;p>...&lt;span class="blockquote-pull-right">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.&lt;/span>...&lt;/p></code></pre>
+<pre><code class="language-markup">&lt;p>...&lt;span class="blockquote-pull-right">Nam ligula eros, luctus vitae semper ut, mollis quis nunc.&lt;/span>...&lt;/p></code></pre>
 
 <h4 class="heading-size-3">Callout</h4>
 
 <blockquote class="blockquote-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor elit, porta ut orci eget, suscipit dictum mauris.</blockquote>
 
-<pre><code class="html">&lt;blockquote class="blockquote-callout">
+<pre><code class="language-markup">&lt;blockquote class="blockquote-callout">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor elit, porta ut orci eget, suscipit dictum mauris.
 &lt;/blockquote></code></pre>
 
 <!-- Cloak & dagger UI -->
 
-<link rel="stylesheet" href="/css/blockquotes.css" />
+<link rel="stylesheet" href="{{assets}}assets/styles/blockquotes.css" />

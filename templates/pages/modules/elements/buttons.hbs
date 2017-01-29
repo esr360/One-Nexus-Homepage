@@ -17,7 +17,7 @@ billboard:
 <input type="submit" class="button-round-success" value="Button" />
 <a href="#" class="button-oval-dribbble"><i class="fa fa-dribbble"></i> Button</a>
 
-<pre><code class="html">&lt;button class="button">Button&lt;/button>
+<pre><code class="language-markup">&lt;button class="button">Button&lt;/button>
 &lt;div class="button-brand-2">Button&lt;/div>
 &lt;a href="#" class="button-round-brand-3">Button&lt;/a>
 &lt;span class="button-round-brand-3-border">Button&lt;/span>
@@ -28,7 +28,7 @@ billboard:
 
 <p>Load the button styles by including the <code>buttons()</code> mixin:</p>
 
-<pre><code>@include buttons();</code></pre>
+<pre><code class="language-scss">@include buttons();</code></pre>
 
 <p>The following options can be passed to the mixin to customize the buttons:</p>
 
@@ -146,7 +146,7 @@ billboard:
 
 <p>The above options can be passed to the mixin like so:</p>
 
-<pre><code>@include buttons((
+<pre><code class="language-scss">@include buttons((
     'background': blue,
     'group-spacing': 10px,
     'sizes':(
@@ -159,7 +159,7 @@ billboard:
 
 <p>This option accepts a list of palettes defined in the <a href="../utilities/color-palette.html">Color Palette</a> module.</p>
 
-<pre><code>@include buttons((
+<pre><code class="language-scss">@include buttons((
     'palettes': ('brand', 'greyscale', 'alert', 'social')
 ));</code></pre>
 
@@ -167,10 +167,10 @@ billboard:
 
 <p>If you only want to create modifiers for specific colors in a certain palette, you can pass the keys like so:</p>
 
-<pre><code>@include buttons((
+<pre><code class="language-scss">@include buttons((
     'palettes': (
-        'brand', 
-        ('greyscale': ('grey-1', 'grey-3', 'grey-4')), 
+        'brand', // entire 'brand' palette
+        ('greyscale': ('grey-1', 'grey-3', 'grey-4')), // only specific colors from 'greyscale' palette
         'alert', 
         ('social': ('facebook', 'twitter')
     )
@@ -178,7 +178,7 @@ billboard:
 
 <p>You can also pass new colors as a regular map:</p>
 
-<pre><code>@include buttons((
+<pre><code class="language-scss">@include buttons((
     'palettes': (
         'brand', 'greyscale', 'alert', 'social', 
         ('foo': blue, 'bar': #FF5733)
@@ -187,7 +187,7 @@ billboard:
 
 <p>Using your new values like so:</p>
 
-<pre><code class="html">&lt;button class="button-foo">Button&lt;/button>
+<pre><code class="language-markup">&lt;button class="button-foo">Button&lt;/button>
 &lt;button class="button-foo-round">Button&lt;/button>
 &lt;button class="button-bar">Button&lt;/button>
 &lt;button class="button-bar-border">Button&lt;/button></code></pre>
@@ -220,7 +220,7 @@ billboard:
 <p><button class="button-size-4">Size 4 Button</button></p>
 <p><button class="button-size-5">Size 5 Button</button></p>
 
-<pre><code class="html">&lt;button class="button-size-7">Size 7 Button&lt;/button></code></pre>
+<pre><code class="language-markup">&lt;button class="button-size-7">Size 7 Button&lt;/button></code></pre>
 
 <h4 class="heading-size-4">Colors</h4>
 
@@ -236,7 +236,7 @@ billboard:
 <button class="button-brand-2">Brand 2 Button</button>
 <button class="button-brand-3">Brand 3 Button</button>
 
-<pre><code class="html">&lt;button class="button-brand-3">Brand 3 Button&lt;/button></code></pre>
+<pre><code class="language-markup">&lt;button class="button-brand-3">Brand 3 Button&lt;/button></code></pre>
 
 <h4 class="heading-size-2-uppercase">Greyscale</h4>
 
@@ -260,7 +260,7 @@ billboard:
 <button class="button-grey-6">Grey 6 Button</button>
 <button class="button-black">Black Button</button>
 
-<pre><code class="html">&lt;button class="button-grey-3">Grey 3 Button&lt;/button></code></pre>
+<pre><code class="language-markup">&lt;button class="button-grey-3">Grey 3 Button&lt;/button></code></pre>
 
 <h4 class="heading-size-2-uppercase">Alert</h4>
 
@@ -276,7 +276,7 @@ billboard:
 <button class="button-help">Help Button</button>
 <button class="button-info">Info Button</button>
 
-<pre><code class="html">&lt;button class="button-success">Success Button&lt;/button></code></pre>
+<pre><code class="language-markup">&lt;button class="button-success">Success Button&lt;/button></code></pre>
 
 <h4 class="heading-size-2-uppercase">Social</h4>
 
@@ -322,7 +322,7 @@ billboard:
     <button class="button-stumbleupon span-3">Stumbleupon Button</button>
 </div>
 
-<pre><code class="html">&lt;button class="button-dribbble">Dribbble Button&lt;/button></code></pre>
+<pre><code class="language-markup">&lt;button class="button-dribbble">Dribbble Button&lt;/button></code></pre>
 
 <h4 class="heading-size-4">Modifiers</h4>
 
@@ -343,63 +343,63 @@ billboard:
         <button class="button-block">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-block">Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-block">Button&lt;/button></code></pre>
     </div>
     
     <div class="span-4 va-middle well">
         <button class="button-border">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-border">Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-border">Button&lt;/button></code></pre>
     </div>
     
     <div class="span-4 va-middle well">
         <button class="button-disabled">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-disabled">Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-disabled">Button&lt;/button></code></pre>
     </div>
     
     <div class="span-4 va-middle well">
         <button class="button-round">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-round">Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-round">Button&lt;/button></code></pre>
     </div>
 
     <div class="span-4 va-middle well">
         <button class="button-oval">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-oval">Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-oval">Button&lt;/button></code></pre>
     </div>
 
     <div class="span-4 va-middle well">
         <button class="button-sharp">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-sharp">Button&lt;/button>&lt;!-- ensure button corners are never rounded --></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-sharp">Button&lt;/button>&lt;!-- ensure button corners are never rounded --></code></pre>
     </div>
     
     <div class="span-4 va-middle well">
         <button class="button"><i class="fa fa-download"></i> Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button">&lt;i class="fa fa-download">&lt;/i> Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button">&lt;i class="fa fa-download">&lt;/i> Button&lt;/button></code></pre>
     </div>
     
     <div class="span-4 va-middle well">
         <button class="button-icon"><i class="fa fa-download"></i></button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-icon">&lt;i class="fa fa-download">&lt;/i>&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-icon">&lt;i class="fa fa-download">&lt;/i>&lt;/button></code></pre>
     </div>
     
     <div class="span-4 va-middle well">
         <button class="button-active">Button</button>
     </div>
     <div class="span-8 va-middle">
-        <pre><code class="html">&lt;button class="button-active">Button&lt;/button></code></pre>
+        <pre><code class="language-markup">&lt;button class="button-active">Button&lt;/button></code></pre>
     </div>
 
 </div>
@@ -410,7 +410,7 @@ billboard:
 <button class="button-icon-oval-border-youtube"><i class="fa fa-youtube"></i></button>
 <button class="button-border-disabled-active">Button</button>
 
-<pre><code class="html">&lt;button class="button-icon-oval-rss-size-6">&lt;i class="fa fa-rss">&lt;/i>&lt;/button>
+<pre><code class="language-markup">&lt;button class="button-icon-oval-rss-size-6">&lt;i class="fa fa-rss">&lt;/i>&lt;/button>
 &lt;button class="button-icon-oval-border-youtube">&lt;i class="fa fa-youtube">&lt;/i>&lt;/button>
 &lt;button class="button-border-disabled-active">Button&lt;/button></code></pre>
 
@@ -418,19 +418,19 @@ billboard:
     <h3 class="heading-size-3 font-2"><i class="alert_icon fa fa-info-circle"></i>Tip: Combine commonly reused modifiers</h3>
     <p>If you are commonly reusing the same combination of modifiers multiple times, you can combine them into a new modifier:</p>
 
-<pre><code>@include buttons((
+<pre><code class="language-scss">@include buttons((
     'combine':(
         'primary' : ('round', 'size-4', 'brand-1'),
         'social'  : ('icon', 'oval', 'size-6')
     )
 ));</code></pre>
 
-<pre><code class="html">&lt;button class="button-primary">Primary Action&lt;/button>
+<pre><code class="language-markup">&lt;button class="button-primary">Primary Action&lt;/button>
 &lt;button class="button-social-rss">&lt;i class="fa fa-rss">&lt;/i>&lt;/button></code></pre>
 
 <p>Which is the equivilent of:</p>
 
-<pre><code class="html">&lt;button class="button-round-size-4-brand-1">Primary Action&lt;/button>
+<pre><code class="language-markup">&lt;button class="button-round-size-4-brand-1">Primary Action&lt;/button>
 &lt;button class="button-icon-oval-size-6-rss">&lt;i class="fa fa-rss">&lt;/i>&lt;/button></code></pre>
 </div>
 
@@ -444,7 +444,7 @@ billboard:
     <button class="button">Button</button>
 </p>
 
-<pre><code class="html">&lt;div class="button_group">
+<pre><code class="language-markup">&lt;div class="button_group">
     &lt;button class="button">Button&lt;/button>
     &lt;button class="button">Button&lt;/button>
     &lt;button class="button">Button&lt;/button>
@@ -458,7 +458,7 @@ billboard:
     <button class="button">Button</button>
 </p>
 
-<pre><code class="html">&lt;div class="button_group-pills">
+<pre><code class="language-markup">&lt;div class="button_group-pills">
     &lt;button class="button">Button&lt;/button>
     &lt;button class="button">Button&lt;/button>
     &lt;button class="button">Button&lt;/button>
@@ -472,7 +472,7 @@ billboard:
     <button class="button">Button</button>
 </p>
 
-<pre><code class="html">&lt;div class="button_group-pills-round">
+<pre><code class="language-markup">&lt;div class="button_group-pills-round">
     &lt;button class="button">Button&lt;/button>
     &lt;button class="button">Button&lt;/button>
     &lt;button class="button">Button&lt;/button>
@@ -480,4 +480,4 @@ billboard:
 
 <!-- Cloak & dagger UI -->
 
-<link rel="stylesheet" href="/css/buttons.css" />
+<link rel="stylesheet" href="{{assets}}assets/styles/buttons.css" />

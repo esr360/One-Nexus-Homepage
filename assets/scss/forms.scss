@@ -2,22 +2,11 @@
 /// Module Demos
 ///************************************************************
 
+$theme: 'demo';
 $disable-output: true;
+$to-JSON: false;
 
-@import '../../One-Nexus/vendor/Kayzen-GS/src/kayzen-gs';
-@import '../../One-Nexus/vendor/Sass-Boost/src/sass-boost';
-@import '../../One-Nexus/vendor/Synergy/src/scss/synergy';
-
-@import '../../One-Nexus/assets/tools/scss/font-sizes';
-@import '../../One-Nexus/assets/tools/scss/vertical-center';
-@import '../../One-Nexus/assets/tools/scss/vertical-rhythm';
-
-@import '../../One-Nexus/assets/modules/utilities/color-palette/color-palette';
-@import '../../One-Nexus/assets/modules/utilities/core/core';
-@import '../../One-Nexus/assets/modules/utilities/grid/grid';
-@import '../../One-Nexus/assets/modules/utilities/typography/typography';
-
-@import '../../One-Nexus/assets/modules/elements/forms/forms';
+@import '../../One-Nexus/assets/app';
 
 @include palettes;
 @include grid;
