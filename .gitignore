@@ -1,7 +1,7 @@
+.DS_Store
 .vscode
 .settings
 .sass-cache
-.DS_Store
 node_modules
 dist
 docs
