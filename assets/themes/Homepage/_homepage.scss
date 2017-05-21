@@ -211,6 +211,8 @@
     @include breadcrumb;
     @include footer;
     @include google-map;
+    @include brand-blocks;
+    @include device-outline;
 
     @include header((
         'font-size' : 0.9em,
@@ -259,8 +261,6 @@
         }
     };
 
-    @include brand-blocks;
-    @include device-outline;
     @include spacestation;
     @include homepage;
 

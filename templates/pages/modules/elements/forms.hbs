@@ -27,7 +27,7 @@ billboard:
             <button type="submit" class="button">Submit</button>
         </form>
 
-<pre><code class="html">&lt;form class="form">
+<pre><code class="language-markup">&lt;form class="form">
     &lt;div class="form_group">
         &lt;label class="form_label">Your Name&lt;/label>
         &lt;input type="text" class="form_input" placeholder="E.g. John Doe">
@@ -57,7 +57,7 @@ billboard:
             <button type="submit" class="button">Submit</button>
         </form>
 
-<pre><code class="html">&lt;form class="form">
+<pre><code class="language-markup">&lt;form class="form">
     &lt;div class="form_group-validate">
         &lt;input required type="text" class="form_input" placeholder="E.g. John Doe">
         &lt;label class="form_label">Your Name&lt;/label>
@@ -76,7 +76,7 @@ billboard:
 
 <p>Load the form styles by including the <code>forms()</code> mixin:</p>
 
-<pre><code>@include forms();</code></pre>
+<pre><code class="language-scss">@include forms();</code></pre>
 
 <p>The following options can be passed to the mixin to customize the forms:</p>
 
@@ -124,7 +124,7 @@ billboard:
 
 <p>The above options can be passed to the mixin like so:</p>
 
-<pre><code>@include forms((
+<pre><code class="language-scss">@include forms((
     'input-color': color('brand', 'brand-3'),
     'input-border': 1px solid color('brand', 'brand-3')
 ));</code></pre>
@@ -132,20 +132,20 @@ billboard:
 <p>The above example produces the following form:</p>
 
 <div class="row">
-    <form class="formDemo-1 span-6">
-        <div class="formDemo-1_group">
-            <label class="formDemo-1_label">Your Name</label>
-            <input type="text" class="formDemo-1_input" placeholder="E.g. John Doe">
+    <form class="formDemo1 span-6">
+        <div class="formDemo1_group">
+            <label class="formDemo1_label">Your Name</label>
+            <input type="text" class="formDemo1_input" placeholder="E.g. John Doe">
         </div>
-        <div class="formDemo-1_group">
-            <label class="formDemo-1_label">Your Message</label>
-            <textarea class="formDemo-1_input" placeholder="Enter your message..."></textarea>
+        <div class="formDemo1_group">
+            <label class="formDemo1_label">Your Message</label>
+            <textarea class="formDemo1_input" placeholder="Enter your message..."></textarea>
         </div>
         <button type="submit" class="button-brand-3">Submit</button>
     </form>
 </div>
 
-<pre><code class="html">&lt;form class="form">
+<pre><code class="language-markup">&lt;form class="form">
     &lt;div class="form_group">
         &lt;label class="form_label">Your Name&lt;/label>
         &lt;input type="text" class="form_input" placeholder="E.g. John Doe">
@@ -171,7 +171,7 @@ billboard:
     </form>
 </div>
 
-<pre><code class="html">&lt;form class="form">
+<pre><code class="language-markup">&lt;form class="form">
     &lt;label class="form_label">Username&lt;/label>
     &lt;div class="form_group-has-icon">
         &lt;input type="text" class="form_input" placeholder="Ex: SkyUX">
@@ -194,7 +194,7 @@ billboard:
     </form>
 </div>
 
-<pre><code class="html">&lt;form class="form">
+<pre><code class="language-markup">&lt;form class="form">
     &lt;div class="form_group-compound-has-icon">
         &lt;input type="text" class="form_input" placeholder="Username">
         &lt;i class="form_icon fa fa-user">&lt;/i>
@@ -207,4 +207,4 @@ billboard:
 
 <!-- Cloak & dagger UI -->
 
-<link rel="stylesheet" href="/css/forms.css" />
+<link rel="stylesheet" href="{{assets}}assets/styles/forms.css" />

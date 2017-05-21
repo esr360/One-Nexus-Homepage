@@ -15,7 +15,7 @@ $to-JSON: false;
 
 @include forms((
     'disable-output': false,
-    'name': 'formDemo-1',
+    'name': 'formDemo1',
     'input-color': color('brand', 'brand-3'),
     'input-border': 1px solid color('brand', 'brand-3')
 ));
