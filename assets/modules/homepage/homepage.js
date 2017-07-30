@@ -1,3 +1,5 @@
+ import * as app from '../../app';
+
  (function ($) {
     /**
      * Homepage
@@ -15,7 +17,7 @@
         var options = $.extend({}, custom);
 
         // Parallax
-        if (_breakpoint('min-width', 'break-3')) {
+        if (window.matchMedia('(min-width: 960px)').matches) {
             $.stellar({
                 responsive: true
             });
@@ -70,7 +72,7 @@
             speed: 'slow',
             density: 'high'
         };
-        var particleCanvas = new ParticleNetwork(
+        var particleCanvas = new app.ParticleNetwork(
             document.getElementById('particle-canvas'), particleCanvasOptions
         );
 

@@ -68,33 +68,13 @@ module.exports = function(grunt) {
     }
 
     /**
-     * One-Nexus assets
-     * @var {object} OneNexus
-     */
-    var OneNexus = {
-        assets: 'One-Nexus/assets/',
-        scripts:[
-            'One-Nexus/vendor/Synergy/dist/synergy.js',
-            'One-Nexus/assets/tools/**/*.js',
-            'One-Nexus/assets/modules/**/*.js',
-            'One-Nexus/assets/themes/One-Nexus/one-nexus.js'
-        ]
-    }
-
-    /**
      * Set the scripts used to create the theme's main js file
      * @var {object} _scripts
      */
     var _scripts = [
-        OneNexus.scripts,
-        project.vendor + 'Canvas-Particle-Network/particle-network.js',
         project.vendor + 'scrollJack/ScrollJack.js',
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js',
         project.vendor + 'ScrollTrigger/src/ScrollTrigger.js',
         project.vendor + 'Typed/js/typed.js',
-        project.source[0] + 'js/**/*',
         project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
     ];
@@ -104,6 +84,9 @@ module.exports = function(grunt) {
      * @var {object} _globalScripts
      */
     var _globalScripts = [
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js',
         project.vendor + 'Stellar/jquery.stellar.js'
     ];
 
@@ -217,52 +200,41 @@ module.exports = function(grunt) {
                         expand: true
                     }
                 ]
+            },
+            modules: {
+                files: [{
+                    cwd: 'One-Nexus/assets/modules',
+                    src: '**/*.json',
+                    dest: project.source[0] + 'modules/',
+                    expand: true
+                }]
             }
         },
 
         /**
          * Sass
-         * @see https://github.com/sindresorhus/grunt-sass
+         * @see https://github.com/sindresorhus/grunt-contrib-sass
          */
         sass: {
             dev: {
                 options: {
-                    style: 'expanded'
+                    style: 'expanded',
+                    require: 'sass-json-vars'
                 },
                 files: {
                     [project.dist[1].themes[1].theme + dist + '.css']: 
-                    project.source[0] + src + '.scss'
+                    project.source[1].themes[1].theme + '<%=theme%>.scss'
                 }
             },
             prod: {
                 options: {
                     style: 'compressed',
+                    require: 'sass-json-vars',
                     sourcemap: 'none'
                 },
                 files: {
                     [project.dist[1].themes[1].theme + dist + '.min.css']: 
-                    project.source[0] + src + '.scss'
-                }
-            },
-            demo: {
-                options: {
-                    sourcemap: 'none'
-                },
-                files: [{
-                    expand: true,
-                    cwd: project.source[0] + 'scss',
-                    src: ['**/*.scss'],
-                    dest: project.dist[1].styles,
-                    ext: '.css'
-                }]
-            },
-            OneNexus: {
-                options: {
-                    style: 'expanded'
-                },
-                files: {
-                    [project.dist[1].styles + 'one-nexus.css']: 
-                    OneNexus.assets + src + '.scss'
+                    project.source[1].themes[1].theme + '<%=theme%>.scss'
                 }
             }
         },
@@ -342,10 +314,20 @@ module.exports = function(grunt) {
             dist: {
                 src: _scripts,
                 dest: project.dist[1].themes[1].theme + dist + '.js',
+            }
+        },
+
+        /**
+         * Browserify
+         * @see https://github.com/jmreidy/grunt-browserify
+         */
+        browserify: {
+            options: {
+                transform: [['babelify', {presets: ['es2015']}]]
             },
-            OneNexus: {
-                src: OneNexus.scripts,
-                dest: project.dist[1].scripts + 'one-nexus.js'
+            dist: {
+                src: _scripts,
+                dest: project.dist[1].themes[1].theme + dist + '.js'
             }
         },
 
@@ -493,9 +475,7 @@ module.exports = function(grunt) {
                 spawn: false,
             },
             scss: {
-                files: [
-                    project.source[0] + '**/*.scss'
-                ],
+                files: [project.source[0] + '**/*.scss'],
                 tasks: [ 
                     'sass:' + env,
                     'postcss:dist',
@@ -507,12 +487,34 @@ module.exports = function(grunt) {
                 ],
             },
             scripts: {
-                files: _scripts,
+                files: [
+                    project.source[0] + src + '.js',
+                    _scripts,
+                    project.source[0] + 'tools/**/*.js',
+                ],
                 tasks: [
-                    'concat:dist',
-                    'jshint',
+                    //'jshint',
                     'jsdoc',
+                    'browserify',
                     'notify:scripts'
+                ]
+            },
+            config: {
+                files: [project.source[0] + '**/*.json'],
+                tasks: [
+                    'sass:' + env,
+                    'postcss:dist',
+                    'csscomb',
+                    //'scsslint',
+                    'mochacli:scss',
+                    'sassdoc',
+                    'notify:css',
+                    //'jshint',
+                    'jsdoc',
+                    'browserify',
+                    'notify:scripts'
+                    //'<%=watch.scss.tasks%>',
+                    //'<%=watch.scripts.tasks%>',
                 ]
             },
             images: {
@@ -529,19 +531,9 @@ module.exports = function(grunt) {
                     'notify:templates'
                 ]
             },
-            OneNexus_scripts: {
-                files: OneNexus.scripts,
-                tasks: [
-                    'concat:OneNexus',
-                    'notify:scripts'
-                ]
-            },
-            OneNexus_styles: {
-                files: OneNexus.assets + '**/*.scss',
-                tasks: [
-                    'sass:OneNexus',
-                    'notify:css'
-                ]
+            grunt: {
+                files: 'Gruntfile.js',
+                tasks: ['theme:' + theme]
             }
         },
 
@@ -590,6 +582,7 @@ module.exports = function(grunt) {
     
     grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -622,10 +615,7 @@ module.exports = function(grunt) {
             'replace:sassTheme',
             'copy:dist',
             'copy:images',
-            'concat:OneNexus',
-            'concat:dist',
-            'sass:OneNexus',
-            'sass:demo',
+            'browserify',
             'sass:' + environment,
             'postcss',
             'csscomb',

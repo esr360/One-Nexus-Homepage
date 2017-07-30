@@ -3,12 +3,6 @@
 // https://github.com/esr360/One-Nexus-Homepage
 //*****************************************************************
 
-$theme : 'Homepage';
-
-// This stops data being output twice, since by default importing
-// One-Nexus app below will output data to JSON as well
-$to-JSON: false;
-
 //*****************************************************************
 // One-Nexus
 //*****************************************************************
@@ -18,6 +12,12 @@ $to-JSON: false;
 //*****************************************************************
 // Vendor
 //*****************************************************************
+
+// Sass librarys
+@import '../node_modules/normalize-scss/sass/normalize';
+@import '../node_modules/Kayzen-GS/dist/kayzen-gs.scss';
+@import '../node_modules/Sass-Boost/dist/sass-boost';
+@import '../node_modules/Synergy/dist/synergy';
 
 @import '../vendor/LivIconsEvo/css/LivIconsEvo.scss';
 
@@ -30,12 +30,3 @@ $to-JSON: false;
 @import 'modules/spacestation/spacestation';
 @import 'modules/homepage/homepage';
 @import 'modules/footer/footer';
-
-//*****************************************************************
-// Themes
-//*****************************************************************
-
-@import 'themes/Homepage/homepage';
-
-// Output all configuration data to JSON
-@include json-encode($_modules);

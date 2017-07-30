@@ -10,9 +10,6 @@
      * @example
      *     $('.header').header({});
      */
-    
-    // Cache the original function
-    $.fn._header = $.fn.header;
 
     $.fn.header = function(custom) {
         
@@ -39,17 +36,14 @@
 
         // Cache the header object
         var header = $(this);
-
-        // Call the original function
-        header._header(options);
     
         $(window).on('load scroll', function(e) {
             if (isHomepage()) {
                 var scroll = $(window).scrollTop();
                 if (scroll > options.stickyOffset) {
-                    $(_appHeader).fadeIn(options.fadeDuration);
+                    header.fadeIn(options.fadeDuration);
                 } else {
-                    $(_appHeader).fadeOut(options.fadeDuration);
+                    header.fadeOut(options.fadeDuration);
                 }
             }
         });

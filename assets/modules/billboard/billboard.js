@@ -11,8 +11,6 @@
      *         parallax: false
      *     });
      */
-    
-    $.fn._billboard = $.fn.billboard;
 
     $.fn.billboard = function(custom) {
         
@@ -22,8 +20,6 @@
         }, custom);
 
         var billboard = $(this);
-
-        billboard._billboard(options);
 
         if (options.parallax) {
             $(window).on('scroll', function() {
