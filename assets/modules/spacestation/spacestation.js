@@ -17,7 +17,8 @@
         var options = $.extend({
             scrollJack: {
                 scrollSpeed: [100, 800],
-                conditions: $.browser().isIE || $.browser().isEdge
+                //conditions: $.browser().isIE || $.browser().isEdge,
+                condifions: false
             },
             fadeOnScroll: '.spacestation_content, .spacestation_layer-planets, .spacestation_layer-stars1'
         }, custom);
@@ -33,7 +34,7 @@
             );
         }
 
-        if (options.fadeOnScroll && _breakpoint('min-width', 'break-3')) {
+        if (options.fadeOnScroll && window.matchMedia('(min-width: 960px)').matches) {
             $(window).on('scroll', function() {
                 var scrollTop = $(this).scrollTop();
                 $(options.fadeOnScroll).css({

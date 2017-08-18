@@ -3,8 +3,6 @@ import config from './config.json';
 
 app.theme = config.app;
 
-console.log(app.OneNexus);
-
 $(document).ready(function() {
 
     $.fn.homepage();
