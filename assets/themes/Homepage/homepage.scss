@@ -12,24 +12,14 @@
 /// Skeleton
 ///************************************************************
 
-@include colors((
-    'brand': (
-        'brand-4': #ea4c88
-    )
-));
-
-@include typography((
-    'colors':(
-        'link': color('brand', 'brand-2'),
-        'link-hover': color('brand', 'brand-4')
-        //'link-hover': #39ffdc
-    )
-));
-
+@include colors();
+@include typography();
 @include grid;
 @include container;
 @include core;
 @include helpers;
+
+@debug $app;
 
 ///************************************************************
 /// Elements
@@ -37,11 +27,7 @@
 
 @include accordions();
 
-@include alert-bars() {
-    @include modifier('brand-3') {
-        background-color: color('brand', 'brand-3');
-    }
-};
+@include alert-bars();
 
 @include blockquotes();
 
@@ -236,9 +222,9 @@
 @include navigation;
 @include dropdown;
 @include side-nav;
+@include overlay;
 @include scroll-top;
 @include search;
-@include site-overlay;
 
 ///************************************************************
 /// Sections

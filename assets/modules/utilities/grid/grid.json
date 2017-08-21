@@ -1,8 +1,0 @@
-{
-    "grid": {
-        "name": "grid",
-        "breakpoints": {
-            "break-5": "1400px"
-        }
-    }
-}

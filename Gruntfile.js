@@ -94,7 +94,9 @@ module.exports = function(grunt) {
      * Set all optional styles to be used by the project
      * @var {object} _globalStyles
      */
-    var _globalStyles = [];
+    var _globalStyles = [
+        project.vendor + 'One-Nexus/dist/assets/themes/One-Nexus/app.css'
+    ];
 
     /**
      * The name of your project's source asset
@@ -161,7 +163,12 @@ module.exports = function(grunt) {
             },
             theme: {
                 src: project.dist[1].themes[1].theme
-            }
+            },
+            modules: [
+                project.source[0] + 'modules/elements/**',
+                project.source[0] + 'modules/objects/**',
+                project.source[0] + 'modules/utilities/**',
+            ]
         },
         
         /**
@@ -477,7 +484,9 @@ module.exports = function(grunt) {
             scss: {
                 files: [project.source[0] + '**/*.scss'],
                 tasks: [ 
+                    'copy:modules',
                     'sass:' + env,
+                    'clean:modules',
                     'postcss:dist',
                     'csscomb',
                     //'scsslint',
@@ -502,7 +511,9 @@ module.exports = function(grunt) {
             config: {
                 files: [project.source[0] + '**/*.json'],
                 tasks: [
+                    'copy:modules',
                     'sass:' + env,
+                    'clean:modules',
                     'postcss:dist',
                     'csscomb',
                     //'scsslint',
@@ -615,12 +626,14 @@ module.exports = function(grunt) {
             'replace:sassTheme',
             'copy:dist',
             'copy:images',
-            'browserify',
-            'sass:' + environment,
-            'postcss',
-            'csscomb',
             'lint',
             'test',
+            'browserify',
+            'copy:modules',
+            'sass:' + environment,
+            'clean:modules',
+            'postcss',
+            'csscomb',
             'assemble',
             'docs'
         ];
