@@ -5,20 +5,13 @@
 /// @group modules
 ///
 /// @param {map} $custom - where custom config will be passed
-/// @outputs all Spacestation styles
-///
-/// @example
-///     @include homepage((
-///         'title-bg'    : blue,
-///         'title-color' : white
-///     ));
 @mixin homepage($custom: ()) {
 
     //*************************************************************
     // Configuration
     //*************************************************************
 
-    $spacestation: config((
+    $homepage: config((
         'name' : 'homepage'
     ), $custom);
 
@@ -113,7 +106,7 @@
                 background: linear-gradient(
                     color('brand', 'brand-3') 0%, #009be4 100%
                 );
-                color: color('greyscale', 'white');
+                color: color('greyscale', white);
                 box-shadow: inset 0px 1px 3px 1px rgba(black, 0.1);
                 padding-top: 8em;
                 padding-bottom: 13em;
@@ -203,7 +196,7 @@
                 position: relative;
                 background-color: #2E3882;
                 padding-bottom: 2em;
-                color: color('greyscale', 'white');
+                color: color('greyscale', white);
                 &:before {
                     content: '';
                     position: absolute;
@@ -252,7 +245,7 @@
                 background: linear-gradient(#2E3882 0%, #8B4490 100%);
                 padding-top: 2em;
                 padding-bottom: 6em;
-                color: color('greyscale', 'white');
+                color: color('greyscale', white);
                 @include component('mountain') {
                     bottom: -15vw;
                 }
@@ -270,7 +263,7 @@
                 overflow: hidden;
                 background-color: color('brand', 'brand-4');
                 background: linear-gradient(#5d3d88 0%, color('brand', 'brand-4') 100%);
-                color: color('greyscale', 'white');
+                color: color('greyscale', white);
                 padding-top: 6em;
                 padding-bottom: 11em;
                 @media (min-width: breakpoint('break-3')) {
@@ -325,7 +318,7 @@
             @include component('box') {
                 position: relative;
                 background-color: color('brand', 'brand-4');
-                color: color('greyscale', 'white');
+                color: color('greyscale', white);
                 box-shadow: 1px 1px 3px rgba(black, 0.1);
                 padding: 2em;
                 a, a:hover {
@@ -380,9 +373,9 @@
                         font-size: 1.5em;
                     }
                     &:hover {
-                        background-color: color('greyscale', 'white');
+                        background-color: color('greyscale', white);
                         color: color('brand', 'brand-2');
-                        border-color: color('greyscale', 'white');
+                        border-color: color('greyscale', white);
                     }
                     @include modifier('prev') {
                         left: 5%;
@@ -437,8 +430,8 @@
             @include module('button') {
                 @include modifier('border') {
                     &:hover {
-                        background-color: color('greyscale', 'white');
-                        border-color: color('greyscale', 'white');
+                        background-color: color('greyscale', white);
+                        border-color: color('greyscale', white);
                         color: color('brand', 'brand-1');
                     }
                 }
@@ -494,7 +487,7 @@
             background-image: url('#{$asset-path}/images/polygon-brand-dark.jpg');
             background-size: cover;
             background-attachment: fixed;
-            color: color('greyscale', 'white');
+            color: color('greyscale', white);
             position: relative;
             @include module('list') {
                 @include modifier('arrow') {

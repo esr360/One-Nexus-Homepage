@@ -19,8 +19,6 @@
 @include core;
 @include helpers;
 
-@debug $app;
-
 ///************************************************************
 /// Elements
 ///************************************************************
@@ -31,25 +29,12 @@
 
 @include blockquotes();
 
-@include buttons((
-    'active-background': color('brand', 'brand-3'),
-    'combine':(
-        'primary'  : ('round', 'size-4', 'brand-1'),
-        'secondary': ('sharp', 'size-4', 'brand-2')
-    ),
-    'font-family': typography('typefaces', 'secondary')
-)) {
-    @include component('group') {
-        @include component('item') {
-            padding: 0 0.5em;
-        }
-    }
-};
+@include buttons();
 
 @include carousels;
 @include forms;
 
-@include headings(('color': color('greyscale', 'grey-5'))) {
+@include headings() {
     @include modifier('brand-1') {
         color: #505cb9;
     }
