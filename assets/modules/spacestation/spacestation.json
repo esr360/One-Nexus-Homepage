@@ -1,0 +1,14 @@
+{
+    "spacestation": {
+        "name": "spacestation",
+        "fadeOnScroll": [
+            "spacestation_content", 
+            "spacestation_planets", 
+            "spacestation_layer-stars1"
+        ],
+        "scrollJack": {
+            "scrollSpeed": [100, 800],
+            "condifions": false
+        } 
+    }
+}

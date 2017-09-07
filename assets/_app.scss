@@ -14,15 +14,19 @@
 //*****************************************************************
 
 // Sass librarys
-
 @import '../vendor/LivIconsEvo/css/LivIconsEvo.scss';
 
 //*****************************************************************
 // Modules
 //*****************************************************************
 
+@import 'modules/billboard/billboard';
 @import 'modules/brand-blocks/brand-blocks';
 @import 'modules/device-outline/device-outline';
 @import 'modules/spacestation/spacestation';
 @import 'modules/homepage/homepage';
+@import 'modules/lists/lists';
 @import 'modules/footer/footer';
+@import 'modules/global/global';
+@import 'modules/tabs/tabs';
+@import 'modules/wells/wells';

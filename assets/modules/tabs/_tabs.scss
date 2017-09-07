@@ -1,0 +1,51 @@
+/// Tabs - to be extended by One-Nexus tabs
+///
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+@mixin _tabs($custom: custom('tabs')) {
+
+    $tabs: config($tabs, $custom);
+
+    @include component('nav') {
+        @include modifier('topLine') {
+            margin-bottom: (core('margin') * 2);
+            display: table;
+            border-collapse: collapse;
+            @include component('item') {
+                position: relative;
+                border: 1px solid color('greyscale', 'grey-2');
+                background-color: rgba(black, 0.05);
+                padding: 1em 1.25em;
+                transition: core('transition');
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 5px;
+                    background-color: #505cb9;
+                    opacity: 0;
+                    transition: core('transition');
+                }
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+                &.active {
+                    background-color: color('greyscale', 'grey-1');
+                    border-bottom-color: transparent;
+                    border-top-color: transparent;
+                    color: color('brand', 'brand-4');
+                    &:after {
+                        opacity: 1;
+                        background-color: color('brand', 'brand-4');
+                    }
+                }
+            }
+        }
+    }
+
+}

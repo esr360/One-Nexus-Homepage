@@ -1,0 +1,63 @@
+/// General Global Styles
+///
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+@mixin global($custom: ()) {
+
+    $global: config((), $custom);
+
+    // code tags
+    code {
+        background: white;
+        border-radius: 0.3em;
+        color: #C7254F;
+        border: 1px solid color('greyscale', 'grey-2');
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        font-style: normal;
+        font-size: font-size('size-2');
+        font-weight: 300;
+        padding: 0.1em 0.3em;
+        &.alt {
+            background: rgba(black, 0.4);
+            border-color: transparent;
+            color: inherit;
+        }
+        pre & {
+            border: none;
+        }
+    }
+
+    .object-large {
+        @include object(core('margin')*2);
+    }
+
+    .fa {
+        letter-spacing: inherit;
+    }
+
+    .animated-particles {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 45%;
+        top: 0;
+        right: 0;
+    }
+    #particle-canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    // hack to allow elements to scale when hovered
+    #UiComponentsContainer {
+        overflow: hidden;
+        max-width: calc(#{option($grid, 'options', 'medium-width')} + (30px * 2));
+        padding-bottom: 2em;
+        margin-bottom: -2em;
+    }
+    #UiComponents .owl-stage-outer {
+        overflow: visible;
+    }
+
+}

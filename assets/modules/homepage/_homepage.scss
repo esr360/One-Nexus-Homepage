@@ -21,8 +21,19 @@
 
     @include module {
 
+        @at-root {
+            body {
+                background-color: #000120;
+            }
+        }
+
         @include component('wrapper') {
-            overflow: hidden;
+            height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            perspective: 1px;
+            perspective-origin: 0 0;
         }
 
         @include component('content') {

@@ -1,30 +1,19 @@
- (function ($) {
-    /**
-     * Spacestation
-    * 
-    * @access public
-    * @author [@esr360](http://twitter.com/esr360)
-    * @param {object} custom - where custom config will be passed
-    * 
-    * @example
-    *     $('.spacestation').spacestation({
-    *         scrollJack: false
-    *     });
-    */
-    $.fn.spacestation = function(custom) {
-        
-        // Options
-        var options = $.extend({
-            scrollJack: {
-                scrollSpeed: [100, 800],
-                //conditions: $.browser().isIE || $.browser().isEdge,
-                condifions: false
-            },
-            fadeOnScroll: '.spacestation_content, .spacestation_layer-planets, .spacestation_layer-stars1'
-        }, custom);
+import * as app from '../../app';
+import defaults from './spacestation.json';
 
-        // Cache the spacestation object
-        var spacestation = $(this);
+/**
+ * Spacestation
+ * 
+ * @access public
+ * 
+ * @param {(String|HTMLElement|NodeList)} els
+ * @param {Object} custom
+ */
+export function spacestation(els = 'spacestation', custom = {}) {
+
+    custom = app.custom('spacestation', custom);
+
+    app.Synergy(els, (spacestation, options) => {
 
         // Hi-jack the scrolling for smooth parallax effect
         if (options.scrollJack.conditions) {
@@ -35,14 +24,21 @@
         }
 
         if (options.fadeOnScroll && window.matchMedia('(min-width: 960px)').matches) {
-            $(window).on('scroll', function() {
+            $('.homepage_wrapper').on('scroll', function() {
                 var scrollTop = $(this).scrollTop();
-                $(options.fadeOnScroll).css({
-                    'opacity': 1 - scrollTop/1250
-                }); 
+
+                options.fadeOnScroll.forEach(entry => {
+                    $('.' + entry).css({
+                        'opacity': 1 - scrollTop/1000
+                    });
+                });
+ 
             });
         }
 
-    }
+    }, defaults, custom, app.evalConfig);
 
-}(jQuery));
+    app.config.spacestation = app.parse(defaults.spacestation, custom);
+
+    return exports;
+}

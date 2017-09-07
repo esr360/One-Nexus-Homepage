@@ -1,12 +1,18 @@
 {
     "app": {
+
         "alert-bars": {
             "-brand-3": {
-                "background-color": ["#COLOR", "brand", "brand-1"]
+                "background-color": ["#COLOR", "brand", "brand-3"]
             }
         },
+
+        "billboard": {
+            "background": "url(../../images/spacestation/spacestation.svg)"
+        },
+
         "buttons": {
-            "active-background": "color(brand, brand-3)",
+            "active-background": ["#COLOR", "brand", "brand-3"],
             "combine": {
                 "primary": ["round", "size-4", "brand-1"],
                 "secondary": ["sharp", "size-4", "brand-2"]
@@ -18,16 +24,41 @@
                 }
             }
         },
+
         "colors": {
             "brand": {
                 "brand-4": "#ea4c88"
             }
         },
+
+        "headings": {
+            "-brand-1": {
+                "color": ["#COLOR", "brand", "brand-1"]
+            },
+            "-brand-4": {
+                "color": ["#COLOR", "brand", "brand-4"]
+            }
+        },
+
+        "header": {
+            "font-size": "0.9em",
+            "height": "75px"
+        },
+
+        "parallax": true,
+
         "typography": {
             "colors": {
-                "link": "color(brand, brand-2)",
-                "link-hover": "#ea4c88"
+                "link": ["#COLOR", "brand", "brand-2"],
+                "link-hover": ["#COLOR", "brand", "brand-4"]
             }
+        },
+
+        "wells": {
+            "content": "dopy",
+            "border-radius": 0,
+            "border": "none"
         }
+
     }
 }

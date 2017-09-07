@@ -1,0 +1,22 @@
+/// Billboard - to be extended by One-Nexus billboard
+///
+/// @group modules
+///
+/// @param {map} $custom - where custom config will be passed
+/// @outputs all device outline styles
+@mixin _billboard($custom: custom('billboard')) {
+
+    $billboard: config($billboard, $custom);
+
+    background-attachment: fixed;
+
+    @include component('wrapper') {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        transform: none;
+        top: 0;
+    }
+
+}

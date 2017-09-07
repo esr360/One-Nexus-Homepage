@@ -18,9 +18,11 @@
 
         // Parallax
         if (window.matchMedia('(min-width: 960px)').matches) {
+            /*
             $.stellar({
                 responsive: true
             });
+            */
         }
 
         // animated text for .homepage_banner-alpha
