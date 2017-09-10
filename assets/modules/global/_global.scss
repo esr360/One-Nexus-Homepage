@@ -28,8 +28,12 @@
         }
     }
 
+    .page-content {
+        background-color: core('background');
+    }
+
     .object-large {
-        @include object(core('margin')*2);
+        @include object(core('margin') * 2);
     }
 
     .fa {

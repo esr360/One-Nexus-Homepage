@@ -1,15 +1,12 @@
 ---
 layout: core.hbs
-wide: false
-styles:
-    - <%=assets%>assets/styles/one-nexus
-scripts:
-    - <%=assets%>assets/scripts/one-nexus
+bodyClass: further-page
 header:
     modifiers:
-    - dark
+    - sticky
 billboard:
-    heading: <%=title%>
+    heading: <h1 class="heading-size-9-heavy">One-Nexus</h1>
+    subHeading: <h3 class="heading-light-size-6">Build something better</h3>
 container:
     modifiers:
     - section
@@ -22,7 +19,7 @@ breadcrumb: true
     {{> billboard}}
 {{/if}}
 
-<main id="{{contentID}}">
+<main class="page-content" id="{{contentID}}">
 
     {{#if container}}
         <div class="container{{#each container.modifiers}}-{{.}}{{/each}}{{#if wide}}-large{{/if}}">

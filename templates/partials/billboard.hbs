@@ -1,11 +1,17 @@
 <div class="billboard{{#each billboard.modifiers}}-{{.}}{{/each}}">
     <div class="billboard_wrapper{{#is layout 'base-wide.hbs'}}-wide{{/is}}">
+
+        <a href="https://github.com/esr360/One-Nexus/wiki" target="blank" class="billboard_cta">
+            View on Github
+        </a>
+
         {{#if billboard.heading}}
-            <h1 class="heading-light-size-7-heavy font-2">{{billboard.heading}}</h1>
+            <div class="heading_group">
+                {{{billboard.heading}}}
+                {{{billboard.subHeading}}}
+            </div>
         {{/if}}
-        {{#if billboard.subHeading}}
-            <p>{{billboard.subHeading}}</p>
-        {{/if}}
+
         {{#if billboard.resource}}
             <div class="billboard_resource">
                 <a href="{{billboard.resource.link}}" target="blank">
@@ -13,5 +19,6 @@
                 </a>
             </div>
         {{/if}}
+
     </div>
 </div>

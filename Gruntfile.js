@@ -73,7 +73,6 @@ module.exports = function(grunt) {
      */
     var _scripts = [
         project.vendor + 'scrollJack/ScrollJack.js',
-        project.vendor + 'ScrollTrigger/src/ScrollTrigger.js',
         project.vendor + 'Typed/js/typed.js',
         project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
@@ -500,6 +499,7 @@ module.exports = function(grunt) {
                     project.source[0] + src + '.js',
                     _scripts,
                     project.source[0] + 'tools/**/*.js',
+                    project.source[0] + 'utilities/**/*.js',
                 ],
                 tasks: [
                     //'jshint',

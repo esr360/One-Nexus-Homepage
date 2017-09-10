@@ -11,6 +11,10 @@
         box-shadow: 1px 1px 5px rgba(black, 0.1);
     }
 
+    @include modifier('deep') {
+        padding: 2em;
+    }
+
     @include modifier('opaque') {
         background-color: rgba(black, 0.1);
     }

@@ -41,6 +41,13 @@
             background-color: color('greyscale', 'grey-1');
             position: relative;
             z-index: 2;
+            transform: translateY(1px);
+        }
+
+        @include component('bottom') {
+            overflow: hidden;
+            position: relative;
+            bottom: -1px;
         }
 
         @include component('section') {
@@ -73,6 +80,7 @@
                     right: 0;
                     bottom: 0;
                     transform: scaleX(-1);
+                    z-index: -1;
                 }
             }
 
@@ -248,7 +256,6 @@
                     position: absolute;
                     z-index: 3;
                     pointer-events: none;
-                    top: -1%;
                 }
             }
 
@@ -497,7 +504,6 @@
             padding: 5em 0;
             background-image: url('#{$asset-path}/images/polygon-brand-dark.jpg');
             background-size: cover;
-            background-attachment: fixed;
             color: color('greyscale', white);
             position: relative;
             @include module('list') {

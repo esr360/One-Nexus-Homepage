@@ -8,7 +8,8 @@
         },
 
         "billboard": {
-            "background": "url(../../images/spacestation/spacestation.svg)"
+            "background": "linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB)",
+            "animated-gradient": true
         },
 
         "buttons": {
@@ -37,12 +38,14 @@
             },
             "-brand-4": {
                 "color": ["#COLOR", "brand", "brand-4"]
+            },
+            "-grey-5": {
+                "color": ["#COLOR", "greyscale", "grey-5"]
             }
         },
 
         "header": {
-            "font-size": "0.9em",
-            "height": "75px"
+            "font-size": "0.9em"
         },
 
         "parallax": true,

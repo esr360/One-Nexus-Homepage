@@ -1,42 +1,39 @@
-(function ($) {
-    /**
-     * Billboard
-     * 
-     * @access public
-     * @author [@esr360](http://twitter.com/esr360)
-     * @param {object} custom - where custom config will be passed
-     * 
-     * @example
-     *     $('.billboard').billboard({
-     *         parallax: false
-     *     });
-     */
+import * as app from '../../app';
+import defaults from './billboard.json';
 
-    $.fn.billboard = function(custom) {
-        
-        // Options
-        var options = $.extend({
-            parallax: true
-        }, custom);
+/**
+ * Billboard
+ * 
+ * @access public
+ * 
+ * @param {(String|HTMLElement|NodeList)} els
+ * @param {Object} custom
+ */
+export function billboard(els = 'billboard', custom = {}) {
 
-        var billboard = $(this);
+    custom = app.custom('billboard', custom);
+
+    app.Synergy(els, (billboard, options) => {
 
         if (options.parallax) {
             $(window).on('scroll', function() {
                 var scrollTop = $(this).scrollTop();
                 var opacity = 1 - scrollTop * 0.003;
 
-                billboard.css({
+                $(billboard).css({
                     'background-position-y': scrollTop/-1.8 + 'px'
                 });
 
-                billboard.find('.billboard_wrapper').css({
-                    'transform': 'translateY(' + scrollTop/2 + 'px)',
+                $(billboard).find('.billboard_wrapper').css({
+                    'transform': 'translateY(' + scrollTop/2.5 + 'px)',
                     'opacity': opacity
                 });
             });
         }
 
-    }
+    }, defaults, custom, app.evalConfig);
 
-}(jQuery));
+    app.config.billboard = app.parse(defaults.billboard, custom);
+
+    return exports;
+}

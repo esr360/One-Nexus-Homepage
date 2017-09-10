@@ -14,15 +14,63 @@
     $.fn.homepage = function(custom) {
         
         // Options
-        var options = $.extend({}, custom);
+        var options = $.extend({
+            parallax: false
+        }, custom);
 
-        // Parallax
-        if (window.matchMedia('(min-width: 960px)').matches) {
-            /*
-            $.stellar({
-                responsive: true
+        //console.log(app.media('min-width', 'break-4'));
+
+        if (options.parallax) {
+            $('.homepage_wrapper').on('scroll', function () {
+
+                const win = $(this);
+                const scroll = win.scrollTop();
+
+                $(function() {
+                    const offset = document.querySelector('.homepage_section_foreground').offsetTop;
+
+                    if (offset < scroll) {
+                        $('.homepage_section_foreground').css({
+                            'bottom': '34%',
+                            'transform': 'translateZ(0) translateY(' + (0.08 * scroll) + 'px)'
+                        });
+                    }
+                });
+
+                $(function() {
+                    const offset = document.querySelector('.homepage_section-codeSample .homepage_section_mountain').offsetTop;
+
+                    if (offset < scroll) {
+                        $('.homepage_section-codeSample .homepage_section_mountain').css({
+                            'bottom': '40%',
+                            'transform': 'scaleX(-1) translateZ(0) translateY(' + (0.12 * scroll) + 'px)'
+                        });
+                    }
+                });
+
+                $(function() {
+                    const offset = document.querySelector('.homepage_section-semanticGrids-codeSample .homepage_section_mountain').offsetTop;
+
+                    if (offset < scroll) {
+                        $('.homepage_section-semanticGrids-codeSample .homepage_section_mountain').css({
+                            'bottom': '115%',
+                            'transform': 'scaleX(-1) translateZ(0) translateY(' + (0.12 * scroll) + 'px)'
+                        });
+                    }
+                });
+
+                $(function() {
+                    const offset = document.querySelector('.homepage_section_stardust3').offsetTop;
+
+                    if (offset < scroll) {
+                        $('.homepage_section_stardust3').css({
+                            'top': '545%',
+                            'transform': 'scaleX(-1) translateZ(0) translateY(' + (-0.2 * scroll) + 'px)'
+                        });
+                    }
+                });
+
             });
-            */
         }
 
         // animated text for .homepage_banner-alpha

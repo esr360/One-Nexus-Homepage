@@ -44,6 +44,8 @@ app.tooltips('tooltips', app.theme.tooltips);
 /// Objects
 ///************************************************************
 
+app.billboard('billboard', app.theme.billboard);
+
 app.googleMap('google-map', app.theme['google-map']);
 
 app.header('header', app.theme.header);
@@ -64,19 +66,15 @@ app.spacestation('spacestation', app.theme.spacestation);
 
 $(document).ready(function() {
 
-    /*
-    $.stellar({
-        responsive: true
-    });
-    */
+    if ($('body').hasClass('index')) {
+        $.fn.homepage();
+    }
 
-    $.fn.homepage();
-    
     //*********************************************************
     // Modules
     //*********************************************************
 
-    $('.billboard, [class*="billboard-"]').billboard();
+    //$('.billboard, [class*="billboard-"]').billboard();
 
     $('.footer, [class*="footer-"]').footer();
 

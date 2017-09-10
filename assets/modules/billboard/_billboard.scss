@@ -1,3 +1,4 @@
+@import '../../modules/spacestation/spacestation.json';
 /// Billboard - to be extended by One-Nexus billboard
 ///
 /// @group modules
@@ -10,6 +11,23 @@
 
     background-attachment: fixed;
 
+    @include option('animated-gradient') {
+        background-size: 400% 400%;
+        animation: gradient 60s ease infinite;
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+    }
+
     @include component('wrapper') {
         display: flex;
         flex-direction: column;
@@ -17,6 +35,21 @@
         height: 100%;
         transform: none;
         top: 0;
+    }
+
+    @include component('cta') {
+        @include vertical-center(absolute);
+        right: 0;
+        padding: 1em 2em;
+        color: white;
+        border: 1px solid;
+        border-bottom-style: solid !important;
+        font-size: font-size('size-5');
+        z-index: 2;
+        &:hover {
+            color: white !important;
+            background: linear-gradient(rgba(white, 0.4), rgba(white, 0))
+        }
     }
 
 }

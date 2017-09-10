@@ -9,10 +9,19 @@ import * as ONE_NEXUS from '../One-Nexus/assets/app';
 // Merge `app` with One-Nexus
 Object.assign(app, ONE_NEXUS);
 
+export { ONE_NEXUS };
+
 // Vendor
 //*****************************************************************
 
 export { default as ParticleNetwork } from 'canvas-particle-network';
+
+// Utilities
+//*****************************************************************
+
+import { scrollTrigger } from './utilities/js/app.scrollTrigger';
+
+export { scrollTrigger };
 
 // Modules
 //*****************************************************************
@@ -29,3 +38,8 @@ export { billboard, footer, homepage, spacestation };
 //*****************************************************************
 
 window.APPUI = window.APPUI || app;
+
+// App-Level Functions
+//*****************************************************************
+
+scrollTrigger();
