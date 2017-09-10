@@ -40,6 +40,7 @@
                     transition: core('transition');
                 }
                 &:hover {
+                    color: core('text-color');
                     &:after {
                         opacity: 1;
                     }

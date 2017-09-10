@@ -16,10 +16,10 @@ export { ONE_NEXUS };
 
 export { default as ParticleNetwork } from 'canvas-particle-network';
 
-// Utilities
+// Tools
 //*****************************************************************
 
-import { scrollTrigger } from './utilities/js/app.scrollTrigger';
+import { scrollTrigger } from './tools/js/app.scrollTrigger';
 
 export { scrollTrigger };
 
