@@ -15,21 +15,23 @@
         
         // Options
         var options = $.extend({
-            parallax: false
+            parallax: true
         }, custom);
 
         //console.log(app.media('min-width', 'break-4'));
 
         if (options.parallax) {
-            $('.homepage_wrapper').on('scroll', function () {
 
-                const win = $(this);
-                const scroll = win.scrollTop();
+            const win = document.querySelector('.homepage_wrapper');
+
+            win.addEventListener('scroll', () => {
+
+                const scroll = win.scrollTop;
 
                 $(function() {
-                    const offset = document.querySelector('.homepage_section_foreground').offsetTop;
+                    const element = document.querySelector('.homepage_section-cards');
 
-                    if (offset < scroll) {
+                    if (app.inViewport({container: win, target: element})) {
                         $('.homepage_section_foreground').css({
                             'bottom': '34%',
                             'transform': 'translateZ(0) translateY(' + (0.08 * scroll) + 'px)'
@@ -38,10 +40,10 @@
                 });
 
                 $(function() {
-                    const offset = document.querySelector('.homepage_section-codeSample .homepage_section_mountain').offsetTop;
+                    const element = document.getElementById('parallax_mountain-1');
 
-                    if (offset < scroll) {
-                        $('.homepage_section-codeSample .homepage_section_mountain').css({
+                    if (app.inViewport({container: win, target: element})) {
+                        $('#parallax_mountain-1').css({
                             'bottom': '40%',
                             'transform': 'scaleX(-1) translateZ(0) translateY(' + (0.12 * scroll) + 'px)'
                         });
@@ -49,10 +51,10 @@
                 });
 
                 $(function() {
-                    const offset = document.querySelector('.homepage_section-semanticGrids-codeSample .homepage_section_mountain').offsetTop;
+                    const element = document.getElementById('parallax_mountain-2');
 
-                    if (offset < scroll) {
-                        $('.homepage_section-semanticGrids-codeSample .homepage_section_mountain').css({
+                    if (app.inViewport({container: win, target: element})) {
+                        $('#parallax_mountain-2').css({
                             'bottom': '115%',
                             'transform': 'scaleX(-1) translateZ(0) translateY(' + (0.12 * scroll) + 'px)'
                         });
@@ -60,11 +62,11 @@
                 });
 
                 $(function() {
-                    const offset = document.querySelector('.homepage_section_stardust3').offsetTop;
+                    const element = document.querySelector('.homepage_section-kayzengs');
 
-                    if (offset < scroll) {
-                        $('.homepage_section_stardust3').css({
-                            'top': '545%',
+                    if (app.inViewport({container: win, target: element})) {
+                        $('#parallax_stardust').css({
+                            'top': '510%',
                             'transform': 'scaleX(-1) translateZ(0) translateY(' + (-0.2 * scroll) + 'px)'
                         });
                     }

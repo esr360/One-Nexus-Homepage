@@ -17,14 +17,14 @@ module.exports = function(grunt) {
      * Set the default theme to compile assets for
      * @var {string} theme
      */
-    var theme = grunt.option('theme') || 'Homepage';
+    var theme = grunt.option('theme') || 'one-nexus';
 
     /**
      * List of all themes used by the project
      * @var {object} themes
      */
     var themes = grunt.option('themes') || [
-        'Homepage'
+        'one-nexus'
     ]
     
     /**

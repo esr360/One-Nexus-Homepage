@@ -10,17 +10,30 @@ import * as app from '../../app';
 export function scrollTrigger(custom) {
 
     const options = Object.assign({
-        window: document.querySelector('.homepage_wrapper')
+        window: document.querySelector('.homepage_wrapper'),
+        trigger: {
+            styles: 'data-trigger',
+            elements: document.querySelectorAll('[data-trigger]'),
+            coverage: 'middle'
+        },
+        reverseTrigger: {
+            styles: 'data-trigger-reverse',
+            elements: document.querySelectorAll('[data-trigger-reverse]'),
+            coverage: 'middle'
+        },
+        hover: {
+            styles: 'data-hover',
+            elements: document.querySelectorAll('[data-hover]')
+        },
+        active: {
+            elements: document.querySelectorAll('.inactive'),
+            coverage: 'bottom'
+        }
     }, custom);
-    
-    var elReveal = document.querySelectorAll('[data-trigger]');
-    var elReverseReveal = document.querySelectorAll('[data-trigger-reverse]');
-    var elHover = document.querySelectorAll('[data-hover]');
-    var elActive = document.querySelectorAll('.inactive');
 
     // [data-trigger]
-    elReveal.forEach(el => {
-        const styles = el.getAttribute('data-trigger');
+    options.trigger.elements.forEach(el => {
+        const styles = el.getAttribute(options.trigger.styles);
     
         options.window.addEventListener('scroll', () => {
             if (app.inViewport({container: options.window, target: el, coverage: 'middle'})) {
@@ -29,8 +42,8 @@ export function scrollTrigger(custom) {
         });
     });
 
-    elReverseReveal.forEach(el => {
-        const styles = el.getAttribute('data-trigger-reverse');
+    options.reverseTrigger.elements.forEach(el => {
+        const styles = el.getAttribute(options.reverseTrigger.styles);
 
         let cachedStyles;
         
@@ -49,8 +62,8 @@ export function scrollTrigger(custom) {
         });
     });
 
-    elHover.forEach(el => {
-        const styles = el.getAttribute('data-hover');
+    options.hover.elements.forEach(el => {
+        const styles = el.getAttribute(options.hover.styles);
 
         let cachedStyles;
 
@@ -67,7 +80,7 @@ export function scrollTrigger(custom) {
         }
     });
     
-    elActive.forEach(el => {
+    options.active.elements.forEach(el => {
         if (app.inViewport({container: options.window, target: el, coverage: 'bottom'})) {
             el.classList.remove('inactive');
             el.classList.add('active');
