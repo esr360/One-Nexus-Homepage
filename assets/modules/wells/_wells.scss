@@ -26,7 +26,7 @@
     @include modifier('hoverCard') {
         transition: core('transition');
         display: block;
-        color: color('greyscale', 'white');
+        color: color('greyscale', white);
         &:hover {
             background-color: color('greyscale', 'grey-1');
             box-shadow: 1px 1px 4px 1px rgba(black, 0.1);

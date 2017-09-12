@@ -15,12 +15,12 @@
         
         // Options
         var options = $.extend({
-            parallax: true
+            parallax: {
+                disable: app.media('max-width', 'break-3', app)
+            }
         }, custom);
 
-        //console.log(app.media('min-width', 'break-4'));
-
-        if (options.parallax) {
+        if (!options.parallax.disable) {
 
             const win = document.querySelector('.homepage_wrapper');
 
@@ -29,9 +29,9 @@
                 const scroll = win.scrollTop;
 
                 $(function() {
-                    const element = document.querySelector('.homepage_section-cards');
+                    const container = document.querySelector('.homepage_section-cards');
 
-                    if (app.inViewport({container: win, target: element})) {
+                    if (app.inViewport({container: win, target: container})) {
                         $('.homepage_section_foreground').css({
                             'bottom': '34%',
                             'transform': 'translateZ(0) translateY(' + (0.08 * scroll) + 'px)'
@@ -40,9 +40,9 @@
                 });
 
                 $(function() {
-                    const element = document.getElementById('parallax_mountain-1');
+                    const container = document.getElementById('parallax_mountain-1');
 
-                    if (app.inViewport({container: win, target: element})) {
+                    if (app.inViewport({container: win, target: container})) {
                         $('#parallax_mountain-1').css({
                             'bottom': '40%',
                             'transform': 'scaleX(-1) translateZ(0) translateY(' + (0.12 * scroll) + 'px)'
@@ -51,9 +51,9 @@
                 });
 
                 $(function() {
-                    const element = document.getElementById('parallax_mountain-2');
+                    const container = document.querySelector('.homepage_section-semanticGrids-codeSample');
 
-                    if (app.inViewport({container: win, target: element})) {
+                    if (app.inViewport({container: win, target: container})) {
                         $('#parallax_mountain-2').css({
                             'bottom': '115%',
                             'transform': 'scaleX(-1) translateZ(0) translateY(' + (0.12 * scroll) + 'px)'
@@ -62,9 +62,9 @@
                 });
 
                 $(function() {
-                    const element = document.querySelector('.homepage_section-kayzengs');
+                    const container = document.querySelector('.homepage_section-kayzengs');
 
-                    if (app.inViewport({container: win, target: element})) {
+                    if (app.inViewport({container: win, target: container})) {
                         $('#parallax_stardust').css({
                             'top': '510%',
                             'transform': 'scaleX(-1) translateZ(0) translateY(' + (-0.2 * scroll) + 'px)'

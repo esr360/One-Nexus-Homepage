@@ -1,25 +1,40 @@
-(function ($) {
+import * as app from '../../app';
+import defaults from './footer.json';
 
-    /**
-     * Footer
-     * 
-     * @access public
-     * @author [@esr360](http://twitter.com/esr360)
-     * @param {object} custom - where custom config will be passed
-     * 
-     * @example
-     *     $('.footer').footer({});
-     */
+/**
+ * Footer
+ * 
+ * @access public
+ * 
+ * @param {(String|HTMLElement|NodeList)} els
+ * @param {Object} custom
+ */
+export function footer(els = 'footer', custom = {}) {
 
-    $.fn.footer = function(custom) {
-        
-        // Options
-        var options = $.extend({
-        }, custom);
+    custom = app.custom('footer', custom);
 
-        // Cache the footer object
-        var footer = $(this);
+    app.Synergy(els, (footer, options) => {
 
-    }
+        options.projectsCarousel = '#footerGithubProjects';
+        options.projectsCarouselNav = '.footer_projects_carouselNav';
 
-}(jQuery));
+        $(options.projectsCarousel).owlCarousel({
+            items: 1,
+            nav: false,
+            dots: false
+        });
+
+        $(options.projectsCarouselNav + '_prev').click(function() {
+            $(options.projectsCarousel).trigger('prev.owl.carousel');
+        });
+
+        $(options.projectsCarouselNav + '_next').click(function() {
+            $(options.projectsCarousel).trigger('next.owl.carousel');
+        });
+
+    }, defaults, custom, app.evalConfig);
+
+    app.config.footer = app.parse(defaults.footer, custom);
+
+    return exports;
+}

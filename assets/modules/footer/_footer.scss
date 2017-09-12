@@ -1,3 +1,4 @@
+@import '../../modules/footer/footer.json';
 /// Footer
 ///
 /// @author [@esr360](http://twitter.com/esr360)
@@ -5,20 +6,10 @@
 /// @group modules
 ///
 /// @param {map} $custom - where custom config will be passed
-/// @outputs all footer styles
-///
-/// @example
-///     @include footer();
-@mixin footer($custom: ()) {
+@mixin footer($custom: custom('footer')) {
 
-    //*************************************************************
     // Configuration
-    //*************************************************************
-
-    $footer: config((
-        'output-json': true,
-        'name'       : 'footer'
-    ), $custom);
+    $footer: config($footer, $custom);
 
     //*************************************************************
     // Module
@@ -52,7 +43,7 @@
         }
 
         @include component('heading') {
-            color: color('greyscale', 'white');
+            color: color('greyscale', white);
         }
 
         @include component('wrapper') {

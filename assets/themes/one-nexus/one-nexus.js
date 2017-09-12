@@ -46,6 +46,8 @@ app.tooltips('tooltips', app.theme.tooltips);
 
 app.billboard('billboard', app.theme.billboard);
 
+app.footer('footer', app.theme.footer);
+
 app.googleMap('google-map', app.theme['google-map']);
 
 app.header('header', app.theme.header);
@@ -69,14 +71,6 @@ $(document).ready(function() {
     if ($('body').hasClass('index')) {
         $.fn.homepage();
     }
-
-    //*********************************************************
-    // Modules
-    //*********************************************************
-
-    //$('.billboard, [class*="billboard-"]').billboard();
-
-    $('.footer, [class*="footer-"]').footer();
 
 });
 

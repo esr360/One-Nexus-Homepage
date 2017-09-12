@@ -7,6 +7,7 @@
 /// @outputs all device outline styles
 @mixin _billboard($custom: custom('billboard')) {
 
+    // Configuration
     $billboard: config($billboard, $custom);
 
     background-attachment: fixed;

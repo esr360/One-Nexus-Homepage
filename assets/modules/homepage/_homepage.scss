@@ -397,10 +397,10 @@
                         border-color: color('greyscale', white);
                     }
                     @include modifier('prev') {
-                        left: 5%;
+                        left: 5vh;
                     }
                     @include modifier('next') {
-                        right: 5%;
+                        right: 5vh;
                         letter-spacing: -0.15em;
                     }
                 }
