@@ -4,22 +4,11 @@
 /// @access public
 /// @group modules
 ///
-/// @param {map} $custom - where custom config will be passed
-/// @outputs all device outline styles
-///
-/// @example
-///     @include device-outline((
-///         'title-bg'    : blue,
-///         'title-color' : white
-///     ));
+/// @param {map} $custom - where custom config will be passeds
 @mixin device-outline($custom: ()) {
 
-    //*************************************************************
     // Configuration
-    //*************************************************************
-
-    $spacestation: config((
-        'output-json' : true,
+    $device-outline: config((
         'name'        : 'deviceOutline'
     ), $custom);
 
@@ -28,12 +17,15 @@
     //*************************************************************
 
     @include module {
+
         @include modifier('invert') {
             filter: invert(100%);
         }
+
         @include component {
             position: absolute;
         }
+
         @include component('phone') {
             opacity: 0.4;
             width: 9.8%;
@@ -41,6 +33,7 @@
             right: 30%;
             transform: rotate(-6deg);
         }
+
         @include component('tablet') {
             opacity: 0.4;
             width: 20%;
@@ -48,6 +41,7 @@
             right: 5%;
             transform: rotate(84deg);
         }
+
         @include component('miniTablet') {
             opacity: 0.4;
             width: 20%;
@@ -55,6 +49,7 @@
             right: 17%;
             transform: rotate(-6deg);
         }
+
         @include component('sidePhone') {
             opacity: 0.4;
             width: 9.8%;
@@ -62,8 +57,10 @@
             right: 2%;
             transform: rotate(84deg);
         }
+
         @include component('laptop') {
             position: relative;
+
             @include component('content') {
                 position: absolute;
                 height: 83%;
@@ -74,6 +71,7 @@
                 margin: auto;
                 padding: 2em;
             }
+
             small {
                 white-space: pre;
             }

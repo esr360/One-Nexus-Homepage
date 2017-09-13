@@ -5,6 +5,7 @@
 /// @param {map} $custom - where custom config will be passed
 @mixin _wells($custom: custom('wells')) {
 
+    // Configuration
     $wells: config($wells, $custom);
 
     @include modifier('box') {

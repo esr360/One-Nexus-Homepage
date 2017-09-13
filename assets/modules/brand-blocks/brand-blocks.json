@@ -1,0 +1,6 @@
+{
+    "brand-blocks": {
+        "name": "brandBlock",
+        "colors": ["#PALETTE", "brand"]
+    }
+}

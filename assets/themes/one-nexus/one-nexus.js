@@ -63,16 +63,10 @@ app.sideNav('side-nav', app.theme['side-nav']);
 app.spacestation('spacestation', app.theme.spacestation);
 
 ///************************************************************
-/// Old Shit
+/// Pages
 ///************************************************************
 
-$(document).ready(function() {
-
-    if ($('body').hasClass('index')) {
-        $.fn.homepage();
-    }
-
-});
+app.homepage({}, app.theme.homepage);
 
 ///************************************************************
 /// Export Options

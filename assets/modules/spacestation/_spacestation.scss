@@ -8,10 +8,7 @@
 /// @param {map} $custom - where custom config will be passed
 @mixin spacestation($custom: custom('spacestation')) {
 
-    //*************************************************************
     // Configuration
-    //*************************************************************
-
     $spacestation: config($spacestation, $custom);
 
     //*************************************************************

@@ -5,6 +5,7 @@
 /// @param {map} $custom - where custom config will be passed
 @mixin global($custom: ()) {
 
+    // Configuration
     $global: config((), $custom);
 
     // code tags

@@ -1,3 +1,4 @@
+@import '../../modules/brand-blocks/brand-blocks.json';
 /// Brand Blocks
 ///
 /// @author [@esr360](http://twitter.com/esr360)
@@ -5,19 +6,10 @@
 /// @group modules
 ///
 /// @param {map} $custom - where custom config will be passed
-/// @outputs all brand-blocks styles
-///
-/// @example
-///     @include brand-blocks();
-@mixin brand-blocks($custom: ()) {
+@mixin brand-blocks($custom: custom('brand-blocks')) {
 
-    //*************************************************************
     // Configuration
-    //*************************************************************
-
-    $spacestation: config((
-        'name' : 'brandBlock'
-    ), $custom);
+    $brand-blocks: config($brand-blocks, $custom);
 
     //*************************************************************
     // Module
@@ -27,8 +19,9 @@
 
         padding: 2em;
 
-        @for $i from 1 through length(palette('brand')) {
-            $color: nth(nth(palette('brand'), $i), 2);
+        @for $i from 1 through length(this('colors')) {
+            $color: nth(nth(this('colors'), $i), 2);
+
             @include modifier('brand#{$i}') {
                 background-color: $color;
             }
@@ -39,7 +32,8 @@
         }
 
         a { color: inherit }
-        p { opacity: 0.9   }
+
+        p { opacity: 0.9 }
 
     }
 

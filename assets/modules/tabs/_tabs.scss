@@ -5,29 +5,35 @@
 /// @param {map} $custom - where custom config will be passed
 @mixin _tabs($custom: custom('tabs')) {
 
+    // Configuration
     $tabs: config($tabs, $custom);
 
     @include component('nav') {
+
         @include modifier('topLine') {
             margin-bottom: (core('margin') * 2);
             display: table;
             border-collapse: collapse;
+
             @include component('item') {
                 position: relative;
                 border: 1px solid color('greyscale', 'grey-2');
                 background-color: rgba(black, 0.05);
                 padding: 1em 1.25em;
                 transition: core('transition');
+
                 @include modifier('active') {
                     background-color: color('greyscale', 'grey-1');
                     border-bottom-color: transparent;
                     border-top-color: transparent;
                     color: color('brand', 'brand-4');
+
                     &:after {
                         opacity: 1;
                         background-color: color('brand', 'brand-4');
                     }
                 }
+
                 &:after {
                     content: '';
                     position: absolute;
@@ -39,8 +45,10 @@
                     opacity: 0;
                     transition: core('transition');
                 }
+
                 &:hover {
                     color: core('text-color');
+
                     &:after {
                         opacity: 1;
                     }

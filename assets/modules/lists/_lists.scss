@@ -6,6 +6,7 @@
 /// @outputs all device outline styles
 @mixin _lists($custom: custom('lists')) {
 
+    // Configuration
     $lists: config($lists, $custom);
 
     @include modifier('arrow') {

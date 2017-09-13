@@ -1,3 +1,4 @@
+@import '../../modules/homepage/homepage.json';
 /// Homepage
 ///
 /// @author [@esr360](http://twitter.com/esr360)
@@ -5,15 +6,10 @@
 /// @group modules
 ///
 /// @param {map} $custom - where custom config will be passed
-@mixin homepage($custom: ()) {
+@mixin homepage($custom: custom('homepage')) {
 
-    //*************************************************************
     // Configuration
-    //*************************************************************
-
-    $homepage: config((
-        'name' : 'homepage'
-    ), $custom);
+    $homepage: config($homepage, $custom);
 
     //*************************************************************
     // Module
