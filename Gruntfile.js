@@ -31,7 +31,7 @@ module.exports = function(grunt) {
      * Set your desired development environment
      * @var {('dev'|'prod')} [dev] env
      */
-    var env = grunt.option('env') || 'dev';
+    var env = grunt.option('env') || 'prod';
 
     /**
      * Map the project's architecture into one Grunt can use
@@ -74,7 +74,6 @@ module.exports = function(grunt) {
     var _scripts = [
         project.vendor + 'scrollJack/ScrollJack.js',
         project.vendor + 'Typed/js/typed.js',
-        project.source[0] + 'modules/**/*.js',
         project.source[1].themes[1].theme + '<%=theme%>.js'
     ];
 
@@ -85,17 +84,14 @@ module.exports = function(grunt) {
     var _globalScripts = [
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
         project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js',
-        project.vendor + 'Stellar/jquery.stellar.js'
+        project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js'
     ];
 
     /**
      * Set all optional styles to be used by the project
      * @var {object} _globalStyles
      */
-    var _globalStyles = [
-        project.vendor + 'One-Nexus/dist/assets/themes/One-Nexus/app.css'
-    ];
+    var _globalStyles = [];
 
     /**
      * The name of your project's source asset
@@ -361,7 +357,7 @@ module.exports = function(grunt) {
             themes: {
                 files: [{ 
                     src: project.dist[1].themes[1].theme + '**/*.js',
-                    dest: project.dist[1].scripts,
+                    dest: project.dist[1].themes[1].theme,
                     expand: true,
                     flatten: true,
                     rename: function(dest, src) { 
