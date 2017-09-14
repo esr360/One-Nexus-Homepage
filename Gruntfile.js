@@ -91,7 +91,9 @@ module.exports = function(grunt) {
      * Set all optional styles to be used by the project
      * @var {object} _globalStyles
      */
-    var _globalStyles = [];
+    var _globalStyles = [
+        'node_modules/flickity/dist/flickity.css'
+    ];
 
     /**
      * The name of your project's source asset
