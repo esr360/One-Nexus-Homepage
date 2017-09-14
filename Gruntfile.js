@@ -8,135 +8,40 @@ module.exports = function(grunt) {
 
     // Allows the passing of multiple flags on the command line
     require('nopt-grunt-fix')(grunt);
-    
+
+    // Import config
+    const CONFIG = require('./build/config')();
+
     /**************************************************************
      * Config
      *************************************************************/
 
-    /**
-     * Set the default theme to compile assets for
-     * @var {string} theme
-     */
-    var theme = grunt.option('theme') || 'one-nexus';
+    const THEME    = grunt.option('theme')         || CONFIG.theme;
+    const THEMES   = grunt.option('themes')        || CONFIG.themes;
+    const ENV      = grunt.option('env')           || CONFIG.env;
+    const PROJECT  = grunt.option('project')       || CONFIG.project;
+    const SRC      = grunt.option('src')           || CONFIG.src;
+    const DIST     = grunt.option('dist')          || CONFIG.dist;
+    const SCRIPTS  = grunt.option('scripts')       || CONFIG.scripts;
+    const $SCRIPTS = grunt.option('globalScripts') || CONFIG.globalScripts;
+    const $STYLES  = grunt.option('globalStyles')  || CONFIG.globalStyles;
 
-    /**
-     * List of all themes used by the project
-     * @var {object} themes
-     */
-    var themes = grunt.option('themes') || [
-        'one-nexus'
-    ]
-    
-    /**
-     * Set your desired development environment
-     * @var {('dev'|'prod')} [dev] env
-     */
-    var env = grunt.option('env') || 'prod';
-
-    /**
-     * Map the project's architecture into one Grunt can use
-     * @var {object} project
-     */
-    var project = {
-        dist:[         'dist/', {
-            images:    'dist/assets/images/',
-            scripts:   'dist/assets/scripts/',
-            styles:    'dist/assets/styles/',
-            themes:[   'dist/assets/themes/', {
-                theme: 'dist/assets/themes/<%=theme%>/'
-            }],
-            templates: 'dist/'
-        }],
-        source:[       'assets/', {
-            images:    'assets/images/',
-            scripts:   'assets/modules/',
-            styles:    'assets/modules/',
-            themes:[   'assets/themes/', {
-                theme: 'assets/themes/<%=theme%>/'
-            }],
-            templates: 'templates/'
-        }],
-        vendor:        'vendor/',
-        docs:[         'docs/', {
-            scripts:   'docs/js/',
-            styles:    'docs/sass/'
-        }],
-        test:[         'test/', {
-            scripts:   'test/js/',
-            styles:    'test/sass/'
-        }]
-    }
-
-    /**
-     * Set the scripts used to create the theme's main js file
-     * @var {object} _scripts
-     */
-    var _scripts = [
-        project.vendor + 'scrollJack/ScrollJack.js',
-        project.vendor + 'Typed/js/typed.js',
-        project.source[1].themes[1].theme + '<%=theme%>.js'
-    ];
-
-    /**
-     * Set all optional scripts to be used by the project
-     * @var {object} _globalScripts
-     */
-    var _globalScripts = [
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.Tools.js',
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.defaults.js',
-        project.vendor + 'LivIconsEvo/js/LivIconsEvo.min.js'
-    ];
-
-    /**
-     * Set all optional styles to be used by the project
-     * @var {object} _globalStyles
-     */
-    var _globalStyles = [
-        'node_modules/flickity/dist/flickity.css'
-    ];
-
-    /**
-     * The name of your project's source asset
-     * @var {string} dist
-     * @example
-     * '/' + src + '.scss'
-     */
-    var src = 'app';
-
-    /**
-     * The name of your project's compiled & distributed asset
-     * @var {string} dist
-     * @example
-     * '/' + dist + '.css'
-     */
-    var dist = 'app';
-    
     /**************************************************************
      * Packages
      *************************************************************/
-        
+
     grunt.initConfig({
 		
         pkg: grunt.file.readJSON('package.json'),
 
         // Pass the theme variable to allow it to be dynamic
-        theme: theme,
+        theme: THEME,
 
         /**
          * Text Replace
-         * @note used to dynamically update theme name in .scss file
          * @see https://github.com/yoniholmes/grunt-text-replace
          */
-        replace: {
-            sassTheme: {
-                src: project.source[0] + dist + '.scss',
-                overwrite: true, 
-                replacements: [{
-                    from: /\$theme(.*?);/g,
-                    to: '$theme : \'<%=theme%>\';'
-                }]
-            }
-        },
+        replace: {},
         
         /**
          * Clean
@@ -144,27 +49,27 @@ module.exports = function(grunt) {
          */
         clean: {
             dist: [
-                project.dist[0] + '*', 
-                '!' + project.dist[1].themes[0] + '**'
+                PROJECT.dist[0] + '*', 
+                '!' + PROJECT.dist[1].themes[0] + '**'
             ],
             scripts: [
-                project.dist[0] + '**/*.js', 
-                '!' + project.dist[0] + '**/*.min.js'
+                PROJECT.dist[0] + '**/*.js', 
+                '!' + PROJECT.dist[0] + '**/*.min.js'
             ],
             styles: [
-                project.dist[0] + '**/*.css', 
-                '!' + project.dist[0] + '**/*.min.css'
+                PROJECT.dist[0] + '**/*.css', 
+                '!' + PROJECT.dist[0] + '**/*.min.css'
             ],
             images: {
-                src: project.dist[1].images
+                src: PROJECT.dist[1].images
             },
             theme: {
-                src: project.dist[1].themes[1].theme
+                src: PROJECT.dist[1].themes[1].theme
             },
             modules: [
-                project.source[0] + 'modules/elements/**',
-                project.source[0] + 'modules/objects/**',
-                project.source[0] + 'modules/utilities/**',
+                PROJECT.source[0] + 'modules/elements/**',
+                PROJECT.source[0] + 'modules/objects/**',
+                PROJECT.source[0] + 'modules/utilities/**',
             ]
         },
         
@@ -176,14 +81,14 @@ module.exports = function(grunt) {
             dist: {
                 files: [
                     {
-                        src: [_globalScripts],
-                        dest: project.dist[1].scripts,
+                        src: [$SCRIPTS],
+                        dest: PROJECT.dist[1].scripts,
                         expand: true,
                         flatten: true
                     },
                     {
-                        src: [_globalStyles],
-                        dest: project.dist[1].styles,
+                        src: [$STYLES],
+                        dest: PROJECT.dist[1].styles,
                         expand: true,
                         flatten: true
                     }
@@ -192,15 +97,15 @@ module.exports = function(grunt) {
             images: {
                 files: [
                     {
-                        cwd: project.source[1].images,
+                        cwd: PROJECT.source[1].images,
                         src: '**/*',
-                        dest: project.dist[1].images,
+                        dest: PROJECT.dist[1].images,
                         expand: true
                     },
                     {
-                        cwd: project.vendor + 'LivIconsEvo/svg',
+                        cwd: PROJECT.vendor + 'LivIconsEvo/svg',
                         src: '**/*.svg',
-                        dest: project.dist[1].images + 'LivIcons/',
+                        dest: PROJECT.dist[1].images + 'LivIcons/',
                         expand: true
                     }
                 ]
@@ -209,7 +114,7 @@ module.exports = function(grunt) {
                 files: [{
                     cwd: 'One-Nexus/assets/modules',
                     src: '**/*.json',
-                    dest: project.source[0] + 'modules/',
+                    dest: PROJECT.source[0] + 'modules/',
                     expand: true
                 }]
             }
@@ -226,8 +131,8 @@ module.exports = function(grunt) {
                     require: 'sass-json-vars'
                 },
                 files: {
-                    [project.dist[1].themes[1].theme + dist + '.css']: 
-                    project.source[1].themes[1].theme + '<%=theme%>.scss'
+                    [PROJECT.dist[1].themes[1].theme + DIST + '.css']: 
+                    PROJECT.source[1].themes[1].theme + '<%=theme%>.scss'
                 }
             },
             prod: {
@@ -237,8 +142,8 @@ module.exports = function(grunt) {
                     sourcemap: 'none'
                 },
                 files: {
-                    [project.dist[1].themes[1].theme + dist + '.min.css']: 
-                    project.source[1].themes[1].theme + '<%=theme%>.scss'
+                    [PROJECT.dist[1].themes[1].theme + DIST + '.min.css']: 
+                    PROJECT.source[1].themes[1].theme + '<%=theme%>.scss'
                 }
             }
         },
@@ -252,16 +157,16 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: project.dist[1].themes[1].theme,
+                        cwd: PROJECT.dist[1].themes[1].theme,
                         src: ['*.css', '!*.min.css'],
-                        dest: project.dist[1].themes[1].theme,
+                        dest: PROJECT.dist[1].themes[1].theme,
                         ext: '.min.css'
                     },
                     {
                         expand: true,
-                        cwd: project.dist[1].styles,
+                        cwd: PROJECT.dist[1].styles,
                         src: ['*.css', '!*.min.css'],
-                        dest: project.dist[1].styles,
+                        dest: PROJECT.dist[1].styles,
                         ext: '.min.css'
                     }
                 ]
@@ -286,8 +191,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: [
-                    project.dist[1].styles + '**/*.css',
-                    project.dist[1].themes[1].theme + '**/*.css'
+                    PROJECT.dist[1].styles + '**/*.css',
+                    PROJECT.dist[1].themes[1].theme + '**/*.css'
                 ]
             }
         },
@@ -303,9 +208,9 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                cwd: project.dist[0],
+                cwd: PROJECT.dist[0],
                 src: ['**/*.css', '!**/*.min.css'],
-                dest: project.dist[0],
+                dest: PROJECT.dist[0],
                 ext: '.css'
             }
         },
@@ -316,8 +221,8 @@ module.exports = function(grunt) {
          */
         concat: {
             dist: {
-                src: _scripts,
-                dest: project.dist[1].themes[1].theme + dist + '.js',
+                src: SCRIPTS,
+                dest: PROJECT.dist[1].themes[1].theme + DIST + '.js',
             }
         },
 
@@ -330,8 +235,8 @@ module.exports = function(grunt) {
                 transform: [['babelify', {presets: ['es2015']}]]
             },
             dist: {
-                src: _scripts,
-                dest: project.dist[1].themes[1].theme + dist + '.js'
+                src: SCRIPTS,
+                dest: PROJECT.dist[1].themes[1].theme + DIST + '.js'
             }
         },
 
@@ -347,22 +252,22 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: [{ 
-                    src: project.dist[1].scripts + '*.js',
-                    dest: project.dist[1].scripts,
+                    src: PROJECT.dist[1].scripts + '*.js',
+                    dest: PROJECT.dist[1].scripts,
                     expand: true,
                     flatten: true,
-                    rename: function(dest, src) { 
+                    rename: (dest, src) => { 
                         return dest + '/' + src.replace('.js', '.min.js'); 
                     }
                 }]
             },
             themes: {
                 files: [{ 
-                    src: project.dist[1].themes[1].theme + '**/*.js',
-                    dest: project.dist[1].themes[1].theme,
+                    src: PROJECT.dist[1].themes[1].theme + '**/*.js',
+                    dest: PROJECT.dist[1].themes[1].theme,
                     expand: true,
                     flatten: true,
-                    rename: function(dest, src) { 
+                    rename: (dest, src) => { 
                         return dest + '/' + src.replace('.js', '.min.js'); 
                     }
                 }]
@@ -374,7 +279,7 @@ module.exports = function(grunt) {
          * @see https://github.com/ahmednuaman/grunt-scss-lint
          */
         scsslint: {
-            source: [project.source[0] + '**/*.scss'],
+            source: [PROJECT.source[0] + '**/*.scss'],
             options: {
                 config: '.scss-lint.yml',
                 colorizeOutput: false
@@ -386,16 +291,29 @@ module.exports = function(grunt) {
          * @see https://github.com/gruntjs/grunt-contrib-jshint
          */
         jshint: {
-            source: [project.source[0] + '**/*.js']
+            options: {
+                esversion: 6
+            },
+            source: [PROJECT.source[0] + '**/*.js']
         },
 
         /**
-         * Mocha Cli
-         * @note used for Scss unit testing
-         * @see https://github.com/Rowno/grunt-mocha-cli
+         * Mocha Test
+         * @see https://github.com/pghalliday/grunt-mocha-test
          */
-        mochacli: {
-            scss: [project.test[1].styles + 'tests.js']
+        mochaTest: {
+            options: {
+                reporter: 'spec'
+            },
+            scss: {
+                src: [PROJECT.test[1].styles + 'tests.js']
+            },
+            js: {
+                options: {
+                    require: ['babel-core/register']
+                },
+                src: [PROJECT.test[1].scripts + 'tests.js']
+            }
         },
 
         /**
@@ -405,10 +323,10 @@ module.exports = function(grunt) {
         sassdoc: {
             dist: {
                 src: [
-                    project.source[0] + '**/*.scss'
+                    PROJECT.source[0] + '**/*.scss'
                 ],
                 options: {
-                    dest: project.docs[1].styles
+                    dest: PROJECT.docs[1].styles
                 }
             },
         },
@@ -421,10 +339,10 @@ module.exports = function(grunt) {
             dist : {
                 src: [
                     'Gruntfile.js', 
-                    project.source[0] + '**/*.js'
+                    PROJECT.source[0] + '**/*.js'
                 ],
                 options: {
-                    destination: project.docs[1].scripts
+                    destination: PROJECT.docs[1].scripts
                 }
             }
         },
@@ -436,18 +354,18 @@ module.exports = function(grunt) {
         assemble: {
             options: {
                 layout: 'base.hbs',
-                layoutdir: project.source[1].templates + 'layouts/',
-                partials: project.source[1].templates + 'partials/**/*.hbs',
-                helpers: [project.source[1].templates + 'helpers/**/*.js']
+                layoutdir: PROJECT.source[1].templates + 'layouts/',
+                partials: PROJECT.source[1].templates + 'partials/**/*.hbs',
+                helpers: [PROJECT.source[1].templates + 'helpers/**/*.js']
             },
             dist: {
-                cwd: project.source[1].templates + 'pages/',
-                dest: project.dist[1].templates,
+                cwd: PROJECT.source[1].templates + 'pages/',
+                dest: PROJECT.dist[1].templates,
                 expand: true,
                 src: '**/*.hbs',
                 options: {
-                    assets: './' + project.dist[0],
-                    environment: env,
+                    assets: './' + PROJECT.dist[0],
+                    environment: ENV,
                     theme: theme,
                     dest: '<%=assemble.dist.dest%>'
                 },
@@ -460,10 +378,10 @@ module.exports = function(grunt) {
          */
         browserSync: {
             bsFiles: {
-                src: [project.dist[0]]
+                src: [PROJECT.dist[0]]
             },
             options: {
-                server: ['./' + project.dist[0]],
+                server: ['./' + PROJECT.dist[0]],
                 open: false,
                 watchTask: true,
                 notify: false
@@ -479,46 +397,47 @@ module.exports = function(grunt) {
                 spawn: false,
             },
             scss: {
-                files: [project.source[0] + '**/*.scss'],
+                files: [PROJECT.source[0] + '**/*.scss'],
                 tasks: [ 
                     'copy:modules',
-                    'sass:' + env,
+                    'sass:' + ENV,
                     'clean:modules',
                     'postcss:dist',
                     'csscomb',
-                    //'scsslint',
-                    'mochacli:scss',
+                    'scsslint',
+                    'mochaTest:scss',
                     'sassdoc',
                     'notify:css'
                 ],
             },
             scripts: {
                 files: [
-                    project.source[0] + src + '.js',
-                    _scripts,
-                    project.source[0] + 'tools/**/*.js',
-                    project.source[0] + 'utilities/**/*.js',
+                    PROJECT.source[0] + SRC + '.js',
+                    SCRIPTS,
+                    PROJECT.source[0] + 'tools/**/*.js'
                 ],
                 tasks: [
-                    //'jshint',
+                    'jshint',
+                    'mochaTest:js',
                     'jsdoc',
                     'browserify',
                     'notify:scripts'
                 ]
             },
             config: {
-                files: [project.source[0] + '**/*.json'],
+                files: [PROJECT.source[0] + '**/*.json'],
                 tasks: [
                     'copy:modules',
-                    'sass:' + env,
+                    'sass:' + ENV,
                     'clean:modules',
                     'postcss:dist',
                     'csscomb',
-                    //'scsslint',
-                    'mochacli:scss',
+                    'scsslint',
+                    'mochaTest:scss',
                     'sassdoc',
                     'notify:css',
-                    //'jshint',
+                    'jshint',
+                    'mochaTest:js',
                     'jsdoc',
                     'browserify',
                     'notify:scripts'
@@ -527,14 +446,14 @@ module.exports = function(grunt) {
                 ]
             },
             images: {
-                files: project.source[1].images + '**/*',
+                files: PROJECT.source[1].images + '**/*',
                 tasks: [
                     'clean:images',
                     'copy:images'
                 ]
             },
             templates: {
-                files: project.source[1].templates + '**/*',
+                files: PROJECT.source[1].templates + '**/*',
                 tasks: [
                     'assemble',
                     'notify:templates'
@@ -617,21 +536,20 @@ module.exports = function(grunt) {
      * Compile Assets
      * @param {('dev'|'prod')} environment
      */
-    var compile = function(environment) {
+    var compile = environment => {
         var tasks = [
             'clean:dist',
             'clean:theme',
-            'replace:sassTheme',
-            'copy:dist',
-            'copy:images',
             'lint',
             'test',
-            'browserify',
             'copy:modules',
             'sass:' + environment,
             'clean:modules',
             'postcss',
             'csscomb',
+            'browserify',
+            'copy:dist',
+            'copy:images',
             'assemble',
             'docs'
         ];
@@ -654,14 +572,13 @@ module.exports = function(grunt) {
     ]);
 
     // Compile a specific theme
-    grunt.registerTask('theme', function(target) {
-        target = target || theme;
-        grunt.config('theme', target);
+    grunt.registerTask('theme', target => {
+        grunt.config('theme', target || theme);
         grunt.task.run(compile(env));
     });
 
     // Compile all themes
-    grunt.registerTask('themes', function() {
+    grunt.registerTask('themes', () => {
         themes.forEach(function(theme) {
             grunt.task.run('theme:' + theme);
         });
@@ -669,8 +586,8 @@ module.exports = function(grunt) {
         
     // Lint
     grunt.registerTask('lint', [
-        //'scsslint',
-        //'jshint'
+        'scsslint',
+        'jshint'
     ]);
         
     // Test
