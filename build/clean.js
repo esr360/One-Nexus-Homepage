@@ -9,6 +9,7 @@
 module.exports = function clean(custom) {
 
     const options = Object.assign({
+        environment: 'dev',
         theme: 'one-nexus',
         clean: [
             'app', 

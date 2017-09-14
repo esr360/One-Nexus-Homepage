@@ -33,6 +33,7 @@ module.exports = function compile(custom) {
     // Compile app assets
     if (options.compile.includes('app')) {
         Object.assign(tasks, require('clean') ({
+            environment: environment,
             clean: ['app']
         }));
 
@@ -41,6 +42,7 @@ module.exports = function compile(custom) {
 
             if (options.environment == 'prod') {
                 Object.assign(tasks.push('cssmin:app'), require('clean') ({
+                    environment: 'dev',
                     theme: options.theme,
                     clean: ['app'],
                     assets: ['styles']
@@ -53,6 +55,7 @@ module.exports = function compile(custom) {
 
             if (options.environment == 'prod') {
                 Object.assign(tasks.push('uglify:theme'), require('clean') ({
+                    environment: 'dev',
                     theme: options.theme,
                     clean: ['app'],
                     assets: ['scripts']
@@ -68,6 +71,7 @@ module.exports = function compile(custom) {
     // Compile theme assets
     if (options.compile.includes('theme')) {
         Object.assign(tasks, require('clean') ({
+            environment: environment,
             theme: options.theme,
             clean: ['theme']
         }));
@@ -95,6 +99,7 @@ module.exports = function compile(custom) {
 
             if (options.environment == 'prod') {
                 Object.assign(tasks.push('cssmin:theme'), require('clean') ({
+                    environment: 'dev',
                     theme: options.theme,
                     clean: ['theme'],
                     assets: ['styles']
@@ -119,6 +124,7 @@ module.exports = function compile(custom) {
 
             if (options.environment == 'prod') {
                 Object.assign(tasks.push('uglify:theme'), require('clean') ({
+                    environment: 'dev',
                     theme: options.theme,
                     clean: ['theme'],
                     assets: ['scripts']
