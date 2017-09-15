@@ -18,6 +18,12 @@ module.exports = function() {
     // Set the desired development environment
     this.env = 'dev';
 
+    // Lint files when compiling them
+    this.lint = false;
+
+    // Test files when compiling them
+    this.test = true;
+
     // Map the project's architecture into one Grunt can use
     // Paths ae relative to the project root
     this.project = {

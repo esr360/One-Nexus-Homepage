@@ -25,25 +25,30 @@ module.exports = function compile(custom) {
         ],
         lint: true,
         test: true,
-        docs: true
+        docs: true,
+        notify: true
     }, custom);
 
     let tasks = [];
 
     // Compile app assets
     if (options.compile.includes('app')) {
-        Object.assign(tasks, require('clean') ({
-            environment: environment,
-            clean: ['app']
-        }));
-
         if (options.assets.includes('styles')) {
+            if (options.environment === 'dev') {
+                tasks = tasks.concat(require('./clean')({
+                    environment: options.environment,
+                    clean: ['app'],
+                    assets: ['styles']
+                }));
+            }
+
             tasks.push('copy:appStyles');
 
-            if (options.environment == 'prod') {
-                Object.assign(tasks.push('cssmin:app'), require('clean') ({
-                    environment: 'dev',
-                    theme: options.theme,
+            if (options.environment === 'prod') {
+                tasks.push('cssmin:app');
+
+                tasks = tasks.concat(require('./clean')({
+                    environment: options.environment,
                     clean: ['app'],
                     assets: ['styles']
                 }));
@@ -51,12 +56,21 @@ module.exports = function compile(custom) {
         }
 
         if (options.assets.includes('scripts')) {
+            if (options.environment === 'dev') {
+                tasks = tasks.concat(require('./clean')({
+                    environment: options.environment,
+                    clean: ['app'],
+                    assets: ['scripts']
+                }));
+            }
+
             tasks.push('copy:appScripts');
 
-            if (options.environment == 'prod') {
-                Object.assign(tasks.push('uglify:theme'), require('clean') ({
-                    environment: 'dev',
-                    theme: options.theme,
+            if (options.environment === 'prod') {
+                tasks.push('uglify:app');
+    
+                tasks = tasks.concat(require('./clean')({
+                    environment: options.environment,
                     clean: ['app'],
                     assets: ['scripts']
                 }));
@@ -70,8 +84,8 @@ module.exports = function compile(custom) {
 
     // Compile theme assets
     if (options.compile.includes('theme')) {
-        Object.assign(tasks, require('clean') ({
-            environment: environment,
+        tasks = tasks.concat(require('./clean')({
+            environment: options.environment,
             theme: options.theme,
             clean: ['theme']
         }));
@@ -97,14 +111,16 @@ module.exports = function compile(custom) {
                 'csscomb'
             );
 
-            if (options.environment == 'prod') {
-                Object.assign(tasks.push('cssmin:theme'), require('clean') ({
-                    environment: 'dev',
-                    theme: options.theme,
-                    clean: ['theme'],
-                    assets: ['styles']
-                }));
+            if (options.environment === 'prod') {
+                tasks.push('cssmin:theme');
             }
+
+            tasks = tasks.concat(require('./clean')({
+                environment: options.environment,
+                theme: options.theme,
+                clean: ['theme'],
+                assets: ['styles']
+            }));
         }
 
         if (options.assets.includes('scripts')) {
@@ -122,14 +138,16 @@ module.exports = function compile(custom) {
 
             tasks.push('browserify');
 
-            if (options.environment == 'prod') {
-                Object.assign(tasks.push('uglify:theme'), require('clean') ({
-                    environment: 'dev',
-                    theme: options.theme,
-                    clean: ['theme'],
-                    assets: ['scripts']
-                }));
+            if (options.environment === 'prod') {
+                tasks.push('uglify:theme');
             }
+
+            tasks = tasks.concat(require('./clean')({
+                environment: options.environment,
+                theme: options.theme,
+                clean: ['theme'],
+                assets: ['scripts']
+            }));
         }
     }
 

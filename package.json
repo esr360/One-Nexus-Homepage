@@ -34,9 +34,9 @@
   "devDependencies": {
     "assemble-handlebars": "^0.3.0",
     "autoprefixer": "^6.3.1",
-    "babelify": "^7.3.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.24.1",
+    "babelify": "^7.3.0",
     "bower": "^1.7.9",
     "grunt": "^0.4.5",
     "grunt-assemble": "^0.4.0",
@@ -53,13 +53,14 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csscomb": "^3.1.1",
     "grunt-jsdoc": "^2.1.0",
-    "grunt-mocha-cli": "^2.1.0",
+    "grunt-mocha-test": "^0.13.2",
     "grunt-notify": "^0.4.1",
     "grunt-postcss": "^0.6.0",
     "grunt-sass": "^1.2.1",
     "grunt-sassdoc": "^2.0.2",
     "grunt-scss-lint": "^0.3.8",
     "grunt-text-replace": "^0.4.0",
+    "mocha": "^3.5.3",
     "nopt-grunt-fix": "^1.0.0",
     "sass-true": "^2.1.3"
   }
