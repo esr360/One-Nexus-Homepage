@@ -5,7 +5,7 @@
 /// @author [@esr360](http://twitter.com/esr360)
 ///****************************************************************
 
-module.exports = function() {
+module.exports = function config() {
 
     // Set the default theme to compile assets for
     this.theme = 'one-nexus';
