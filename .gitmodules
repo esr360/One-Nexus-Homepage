@@ -1,18 +1,3 @@
 [submodule "One-Nexus"]
 	path = One-Nexus
 	url = https://github.com/esr360/One-Nexus.git
-[submodule "vendor/Stellar"]
-	path = vendor/Stellar
-	url = https://github.com/markdalgleish/stellar.js.git
-[submodule "vendor/ScrollJack"]
-	path = vendor/ScrollJack
-	url = https://github.com/esr360/ScrollJack.js.git
-[submodule "vendor/ScrollTrigger"]
-	path = vendor/ScrollTrigger
-	url = https://github.com/esr360/ScrollTrigger.git
-[submodule "vendor/Typed"]
-	path = vendor/Typed
-	url = https://github.com/mattboldt/typed.js.git
-[submodule "vendor/Canvas-Particle-Network"]
-	path = vendor/Canvas-Particle-Network
-	url = https://github.com/esr360/canvas-particle-network.git
