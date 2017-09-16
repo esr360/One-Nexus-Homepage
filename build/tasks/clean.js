@@ -31,20 +31,20 @@ module.exports = function(config) {
         ],
 
         devThemeStyles: [
-            config.project.dist[1].themes[1].theme + config.dist + '.css',
-            config.project.dist[1].themes[1].theme + '*.css.map'
+            config.project.dist[1].theme + config.dist + '.css',
+            config.project.dist[1].theme + '*.css.map'
         ],
 
         devThemeScripts: [
-            config.project.dist[1].themes[1].theme + config.dist + '.js'
+            config.project.dist[1].theme + config.dist + '.js'
         ],
 
         prodThemeStyles: [
-            config.project.dist[1].themes[1].theme + config.dist + '.min.css'
+            config.project.dist[1].theme + config.dist + '.min.css'
         ],
 
         prodThemeScripts: [
-            config.project.dist[1].themes[1].theme + config.dist + '.min.js'
+            config.project.dist[1].theme + config.dist + '.min.js'
         ],
 
         modules: [

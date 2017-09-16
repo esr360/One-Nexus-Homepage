@@ -17,17 +17,17 @@ module.exports = function(grunt) {
      * @see /build/config.js
      *************************************************************/
 
-    CONFIG.theme      = grunt.option('theme')         || CONFIG.theme;
-    CONFIG.themes     = grunt.option('themes')        || CONFIG.themes;
-    CONFIG.env        = grunt.option('env')           || CONFIG.env;
-    CONFIG.project    = grunt.option('project')       || CONFIG.project;
-    CONFIG.src        = grunt.option('src')           || CONFIG.src;
-    CONFIG.dist       = grunt.option('dist')          || CONFIG.dist;
-    CONFIG.scripts    = grunt.option('scripts')       || CONFIG.scripts;
-    CONFIG.appScripts = grunt.option('globalScripts') || CONFIG.appScripts;
-    CONFIG.appStyles  = grunt.option('globalStyles')  || CONFIG.appStyles;
-    CONFIG.lint       = grunt.option('lint')          || CONFIG.lint;
-    CONFIG.test       = grunt.option('test')          || CONFIG.test;
+    CONFIG.theme   = grunt.option('theme')   || CONFIG.theme;
+    CONFIG.themes  = grunt.option('themes')  || CONFIG.themes;
+    CONFIG.env     = grunt.option('env')     || CONFIG.env;
+    CONFIG.project = grunt.option('project') || CONFIG.project;
+    CONFIG.src     = grunt.option('src')     || CONFIG.src;
+    CONFIG.dist    = grunt.option('dist')    || CONFIG.dist;
+    CONFIG.scripts = grunt.option('scripts') || CONFIG.scripts;
+    CONFIG.scripts = grunt.option('scripts') || CONFIG.scripts;
+    CONFIG.styles  = grunt.option('styles')  || CONFIG.styles;
+    CONFIG.lint    = grunt.option('lint')    || CONFIG.lint;
+    CONFIG.test    = grunt.option('test')    || CONFIG.test;
 
     /**************************************************************
      * Default Tasks

@@ -15,6 +15,7 @@ export { ONE_NEXUS };
 //*****************************************************************
 
 export { default as ParticleNetwork } from 'canvas-particle-network';
+export { default as Typed } from 'typed.js';
 
 // Tools
 //*****************************************************************

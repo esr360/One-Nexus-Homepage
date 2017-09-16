@@ -18,7 +18,7 @@ module.exports = function(config) {
         dist: {
             src: [
                 config.project.dist[1].styles + '**/*.css',
-                config.project.dist[1].themes[1].theme + '**/*.css'
+                config.project.dist[1].theme + '**/*.css'
             ]
         }
     }

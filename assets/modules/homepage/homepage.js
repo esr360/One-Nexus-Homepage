@@ -72,15 +72,6 @@ export function homepage(els = 'homepage', custom = {}) {
         });
     }
 
-    // animated text for .homepage_banner-alpha
-    $('#typed-workflow').typed({
-        strings: ['$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ npm start \n\n . . .'],
-        typeSpeed: 0,
-        loop: true,
-        backDelay: 1500,
-        contentType: 'text'
-    });
-
     var UiComponents = $('#UiComponents');
 
     UiComponents.owlCarousel({
@@ -112,6 +103,15 @@ export function homepage(els = 'homepage', custom = {}) {
 
     $('#UiComponentsNext').click(function() {
         UiComponents.trigger('next.owl.carousel');
+    });
+
+    // animated text for .homepage_banner-alpha
+    const typed = new Typed('#typed-workflow', {
+        strings: ['$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ npm start \n\n . . .'],
+        typeSpeed: 0,
+        loop: true,
+        backDelay: 1500,
+        contentType: 'text'
     });
 
     const particleCanvas = new app.ParticleNetwork(

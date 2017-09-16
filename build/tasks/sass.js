@@ -10,8 +10,8 @@ module.exports = function(config) {
                 require: 'sass-json-vars'
             },
             files: {
-                [config.project.dist[1].themes[1].theme + config.dist + '.css']: 
-                config.project.source[1].themes[1].theme + '<%=theme%>.scss'
+                [config.project.dist[1].theme + config.dist + '.css']: 
+                config.project.source[1].theme + '<%=theme%>.scss'
             }
         },
         prod: {
@@ -21,8 +21,8 @@ module.exports = function(config) {
                 sourcemap: 'none'
             },
             files: {
-                [config.project.dist[1].themes[1].theme + config.dist + '.min.css']: 
-                config.project.source[1].themes[1].theme + '<%=theme%>.scss'
+                [config.project.dist[1].theme + config.dist + '.min.css']: 
+                config.project.source[1].theme + '<%=theme%>.scss'
             }
         }
     }

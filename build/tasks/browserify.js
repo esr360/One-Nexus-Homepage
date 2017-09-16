@@ -8,8 +8,8 @@ module.exports = function(config) {
             transform: [['babelify', {presets: ['es2015']}]]
         },
         dist: {
-            src: config.scripts,
-            dest: config.project.dist[1].themes[1].theme + config.dist + '.js'
+            src: config.project.source[1].theme + '<%=theme%>.js',
+            dest: config.project.dist[1].theme + config.dist + '.js'
         }
     }
 }

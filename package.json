@@ -29,7 +29,9 @@
     "Synergy": "^3.7.0",
     "canvas-particle-network": "^1.5.0",
     "flickity": "^2.0.8",
-    "normalize-scss": "^7.0.0"
+    "normalize-scss": "^7.0.0",
+    "spinners": "^1.2.2",
+    "typed.js": "^2.0.5"
   },
   "devDependencies": {
     "assemble-handlebars": "^0.3.0",

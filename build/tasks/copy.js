@@ -6,7 +6,7 @@ module.exports = function(config) {
     return {
         appStyles: {
             files: [{
-                src: [config.globalStyles],
+                src: [config.styles],
                 dest: config.project.dist[1].styles,
                 expand: true,
                 flatten: true
@@ -15,7 +15,7 @@ module.exports = function(config) {
 
         appScripts: {
             files: [{
-                src: [config.globalScripts],
+                src: [config.scripts],
                 dest: config.project.dist[1].scripts,
                 expand: true,
                 flatten: true

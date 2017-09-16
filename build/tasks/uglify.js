@@ -28,10 +28,10 @@ module.exports = function(config) {
         theme: {
             files: [{ 
                 src: [
-                    config.project.dist[1].themes[1].theme + '**/*.js',
-                    '!' + config.project.dist[1].themes[1].theme + '**/*min.js',
+                    config.project.dist[1].theme + '**/*.js',
+                    '!' + config.project.dist[1].theme + '**/*min.js',
                 ],
-                dest: config.project.dist[1].themes[1].theme,
+                dest: config.project.dist[1].theme,
                 expand: true,
                 flatten: true,
                 rename: (dest, src) => { 
