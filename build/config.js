@@ -27,11 +27,11 @@ module.exports = function config() {
     // Map the project's architecture into one Grunt can use
     // Paths ae relative to the project root
     this.project = {
-        source: [      'assets/', {
-            images:    'assets/images/',
-            scripts:   'assets/modules/',
-            styles:    'assets/modules/',
-            theme:     'assets/themes/<%=theme%>/',
+        source: [      'src/', {
+            images:    'src/images/',
+            scripts:   'src/modules/',
+            styles:    'src/modules/',
+            theme:     'src/themes/<%=theme%>/',
             templates: 'templates/'
         }],
         dist: [        'dist/', {
