@@ -24,23 +24,19 @@
         height: 0;
         padding-top: 70%;
         overflow: hidden;
-
-        // add background image for mobiles
-        @media (max-width: breakpoint('break-2')) {
-            background-image: url('#{$image-path}/spacestation.svg');
-            background-size: 150%;
-            padding-top: 90%;
-        }
         
         @include component('content') {
             position: absolute;
-            top: 65vmax;
+            top: 20vw;
             width: 100%;
             text-align: center;
             z-index: 0;
-            transform-origin: 0 0;
 
-            @include parallax(-5);
+            @media (min-width: breakpoint('break-3')) {
+                transform-origin: 0 0;
+                top: 65vmax;
+                @include parallax(-5);
+            }
 
             .logo {
                 text-align: center;

@@ -24,12 +24,16 @@
         }
 
         @include component('wrapper') {
-            height: 100vh;
             position: relative;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            perspective: 1px;
-            perspective-origin: 0 0;
+
+            // Apply perspective for CSS parallax
+            @media (min-width: breakpoint('break-3')) {
+                height: 100vh;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                perspective: 1px;
+                perspective-origin: 0 0;
+            }
         }
 
         @include component('content') {

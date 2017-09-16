@@ -2,5 +2,6 @@
     "asset-path": "'../..'",
     "sass-config-parser": "eval-config",
     "component-glue": "'_'",
-    "modifier-glue": "'-'"
+    "modifier-glue": "'-'",
+    "livIconsEvo_path": "'/assets/images/LivIcons/'"
 }

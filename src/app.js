@@ -4,12 +4,13 @@
 //*****************************************************************
 
 import * as app from './app';
+import * as global from './app.json';
 import * as ONE_NEXUS from '../One-Nexus/assets/app';
 
 // Merge `app` with One-Nexus
 Object.assign(app, ONE_NEXUS);
 
-export { ONE_NEXUS };
+export { ONE_NEXUS, global };
 
 // Vendor
 //*****************************************************************
@@ -35,12 +36,9 @@ import { spacestation } from './modules/spacestation/spacestation';
 
 export { billboard, footer, homepage, spacestation };
 
-// Attach `app` to the Window object
+// App-Level Definitions
 //*****************************************************************
 
-window.APPUI = window.APPUI || app;
-
-// App-Level Functions
-//*****************************************************************
+window.APPUI = app;
 
 scrollTrigger();
