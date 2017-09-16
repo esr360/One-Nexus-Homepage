@@ -5,7 +5,7 @@
 
 import * as app from './app';
 import * as global from './app.json';
-import * as ONE_NEXUS from '../One-Nexus/assets/app';
+import * as ONE_NEXUS from '../One-Nexus/src/app';
 
 Object.assign(app, ONE_NEXUS);
 

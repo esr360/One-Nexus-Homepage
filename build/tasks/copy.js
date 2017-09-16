@@ -41,7 +41,7 @@ module.exports = function(config) {
 
         modules: {
             files: [{
-                cwd: 'One-Nexus/assets/modules',
+                cwd: 'One-Nexus/src/modules',
                 src: '**/*.json',
                 dest: config.project.source[0] + 'modules/',
                 expand: true

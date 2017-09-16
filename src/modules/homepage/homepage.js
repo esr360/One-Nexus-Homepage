@@ -108,9 +108,10 @@ export function homepage(els = 'homepage', custom = {}) {
     // animated text for .homepage_banner-alpha
     const typed = new app.Typed('#typed-workflow', {
         strings: ['$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ npm start \n\n . . .'],
-        typeSpeed: 0,
+        typeSpeed: 15,
+        backSpeed: 0,
         loop: true,
-        backDelay: 1500,
+        backDelay: 2000,
         contentType: 'text'
     });
 
