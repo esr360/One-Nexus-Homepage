@@ -8,6 +8,12 @@
     // Configuration
     $global: config((), $custom);
 
+    .row-reverse {
+        > [class*='span'] {
+            vertical-align: bottom;
+        }
+    }
+
     // code tags
     code {
         background: white;
@@ -26,6 +32,7 @@
         }
         pre & {
             border: none;
+            padding: 0;
         }
     }
 

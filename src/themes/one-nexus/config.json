@@ -2,6 +2,9 @@
     "app": {
 
         "alert-bars": {
+            "-brand-gradient": {
+                "background": "linear-gradient(#6ea7fb 0%, #7f45c3 100%)"
+            },
             "-brand-3": {
                 "background-color": ["#COLOR", "brand", "brand-3"]
             }

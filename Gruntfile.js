@@ -55,11 +55,11 @@ module.exports = function(grunt) {
         watch       : require('./build/tasks/watch')(CONFIG),
         notify      : require('./build/tasks/notify')(CONFIG)
     });
-    
+
     /**************************************************************
      * Custom Tasks
      *************************************************************/
-    
+
     // Default Grunt task
     grunt.registerTask('default', [
         'theme:' + CONFIG.theme,
@@ -85,13 +85,13 @@ module.exports = function(grunt) {
             grunt.task.run('theme:' + theme);
         });
     });
-        
+
     // Lint
     grunt.registerTask('lint', [
         'scsslint',
         'jshint'
     ]);
-        
+
     // Test
     grunt.registerTask('test', [
         'mochacli:scss'
@@ -102,11 +102,11 @@ module.exports = function(grunt) {
         'sassdoc',
         'jsdoc'
     ]);
-    
+
     /**************************************************************
      * Load NPM Tasks
      *************************************************************/
-    
+
     grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-browserify');
