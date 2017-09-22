@@ -68,7 +68,7 @@ FontAwesome: 4.7.0
         <!-- Handle code indentation -->
         <script>      
             $('pre code').each(function(i, block) {
-                var lines = block.innerHTML.split('\n');
+                var lines = block.innerText.split('\n');
 
                 if (lines[0] === '') {
                     lines.shift()

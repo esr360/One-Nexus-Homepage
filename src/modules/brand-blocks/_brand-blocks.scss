@@ -31,7 +31,11 @@
             margin: auto;
         }
 
-        a { color: inherit }
+        a {
+            &, &:hover {
+                color: inherit;
+            }
+        }
 
         p { opacity: 0.9 }
 

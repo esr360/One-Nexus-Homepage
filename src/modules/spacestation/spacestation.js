@@ -27,12 +27,18 @@ export function spacestation(els = 'spacestation', custom = {}) {
             $('.homepage_wrapper').on('scroll', function() {
                 var scrollTop = $(this).scrollTop();
 
-                options.fadeOnScroll.forEach(entry => {
-                    $('.' + entry).css({
-                        'opacity': 1 - scrollTop/1000
-                    });
+                const inViewport = app.inViewport({
+                    container: document.querySelector('.homepage_wrapper'), 
+                    target: document.querySelector('.spacestation')
                 });
- 
+
+                if (inViewport) {
+                    options.fadeOnScroll.forEach(entry => {
+                        $('.' + entry).css({
+                            'opacity': 1 - scrollTop/1000
+                        });
+                    });
+                }
             });
         }
 

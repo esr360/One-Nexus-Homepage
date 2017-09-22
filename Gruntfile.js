@@ -24,7 +24,6 @@ module.exports = function(grunt) {
     CONFIG.src     = grunt.option('src')     || CONFIG.src;
     CONFIG.dist    = grunt.option('dist')    || CONFIG.dist;
     CONFIG.scripts = grunt.option('scripts') || CONFIG.scripts;
-    CONFIG.scripts = grunt.option('scripts') || CONFIG.scripts;
     CONFIG.styles  = grunt.option('styles')  || CONFIG.styles;
     CONFIG.lint    = grunt.option('lint')    || CONFIG.lint;
     CONFIG.test    = grunt.option('test')    || CONFIG.test;
@@ -37,23 +36,23 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg         : grunt.file.readJSON('package.json'),
         theme       : CONFIG.theme,
-        clean       : require('./build/tasks/clean')(CONFIG),
-        copy        : require('./build/tasks/copy')(CONFIG),
-        sass        : require('./build/tasks/sass')(CONFIG),
-        cssmin      : require('./build/tasks/cssmin')(CONFIG),
-        postcss     : require('./build/tasks/postcss')(CONFIG),
-        csscomb     : require('./build/tasks/csscomb')(CONFIG),
-        browserify  : require('./build/tasks/browserify')(CONFIG),
-        uglify      : require('./build/tasks/uglify')(CONFIG),
-        scsslint    : require('./build/tasks/scsslint')(CONFIG),
-        jshint      : require('./build/tasks/jshint')(CONFIG),
-        mochaTest   : require('./build/tasks/mochaTest')(CONFIG),
-        sassdoc     : require('./build/tasks/sassdoc')(CONFIG),
-        jsdoc       : require('./build/tasks/jsdoc')(CONFIG),
-        assemble    : require('./build/tasks/assemble')(CONFIG),
+        clean       : require('./build/tasks/clean')      (CONFIG),
+        copy        : require('./build/tasks/copy')       (CONFIG),
+        sass        : require('./build/tasks/sass')       (CONFIG),
+        cssmin      : require('./build/tasks/cssmin')     (CONFIG),
+        postcss     : require('./build/tasks/postcss')    (CONFIG),
+        csscomb     : require('./build/tasks/csscomb')    (CONFIG),
+        browserify  : require('./build/tasks/browserify') (CONFIG),
+        uglify      : require('./build/tasks/uglify')     (CONFIG),
+        scsslint    : require('./build/tasks/scsslint')   (CONFIG),
+        jshint      : require('./build/tasks/jshint')     (CONFIG),
+        mochaTest   : require('./build/tasks/mochaTest')  (CONFIG),
+        sassdoc     : require('./build/tasks/sassdoc')    (CONFIG),
+        jsdoc       : require('./build/tasks/jsdoc')      (CONFIG),
+        assemble    : require('./build/tasks/assemble')   (CONFIG),
         browserSync : require('./build/tasks/browserSync')(CONFIG),
-        watch       : require('./build/tasks/watch')(CONFIG),
-        notify      : require('./build/tasks/notify')(CONFIG)
+        watch       : require('./build/tasks/watch')      (CONFIG),
+        notify      : require('./build/tasks/notify')     (CONFIG)
     });
 
     /**************************************************************
