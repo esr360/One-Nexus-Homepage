@@ -58,7 +58,7 @@ app.scrollTop('scroll-top', app.theme['scroll-top']);
 
 app.search('search', app.theme.search);
 
-app.sideNav('side-nav', app.theme['side-nav']);
+app.sideNav('sideNav', app.theme['side-nav']);
 
 app.spacestation('spacestation', app.theme.spacestation);
 

@@ -15,12 +15,13 @@ breadcrumb: true
 
 {{> header}}
 
+{{> side-nav}}
+
 {{#if billboard}}
     {{> billboard}}
 {{/if}}
 
 <main class="page-content" id="{{contentID}}">
-
     {{#if container}}
         <div class="container{{#each container.modifiers}}-{{.}}{{/each}}{{#if wide}}-large{{/if}}">
     {{/if}}

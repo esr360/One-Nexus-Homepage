@@ -17,12 +17,34 @@ export function homepage(els = 'homepage', custom = {}) {
         disable: app.media('max-width', 'break-3', app)
     }
 
+    const win = document.querySelector('.homepage_wrapper');
+    const UiComponents = $('#UiComponents');
+
+    // animated text for .homepage_banner-alpha
+    const typed = new app.Typed('#typed-workflow', {
+        strings: [
+            '$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ npm start \n\n . . .'
+        ],
+        typeSpeed: 15,
+        backSpeed: 0,
+        loop: true,
+        backDelay: 2000,
+        contentType: 'text'
+    });
+
+    const particleCanvas = new app.ParticleNetwork(
+        document.getElementById('particle-canvas'), {
+            particleColor: '#fff',
+            background: 'transparent',
+            interactive: false,
+            speed: 'slow',
+            density: 'high'
+        }
+    );
+
     if (!options.parallax.disable) {
-
-        const win = document.querySelector('.homepage_wrapper');
-
         win.addEventListener('scroll', () => {
-
+        
             const scroll = win.scrollTop;
 
             $(function() {
@@ -68,11 +90,8 @@ export function homepage(els = 'homepage', custom = {}) {
                     });
                 }
             });
-
         });
     }
-
-    var UiComponents = $('#UiComponents');
 
     UiComponents.owlCarousel({
         margin: 30,
@@ -104,26 +123,6 @@ export function homepage(els = 'homepage', custom = {}) {
     $('#UiComponentsNext').click(function() {
         UiComponents.trigger('next.owl.carousel');
     });
-
-    // animated text for .homepage_banner-alpha
-    const typed = new app.Typed('#typed-workflow', {
-        strings: ['$ git clone https://github.com/esr360/One-Nexus.git \n\n$ cd One-Nexus \n\n $ npm install \n\n$ npm start \n\n . . .'],
-        typeSpeed: 15,
-        backSpeed: 0,
-        loop: true,
-        backDelay: 2000,
-        contentType: 'text'
-    });
-
-    const particleCanvas = new app.ParticleNetwork(
-        document.getElementById('particle-canvas'), {
-            particleColor: '#fff',
-            background: 'transparent',
-            interactive: false,
-            speed: 'slow',
-            density: 'high'
-        }
-    );
 
     app.config.homepage = app.parse(defaults.homepage, custom);
 

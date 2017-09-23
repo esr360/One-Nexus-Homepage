@@ -66,7 +66,6 @@
         }
 
         // Layers
-
         @include component('layer') {
 
             position: absolute;
@@ -169,6 +168,13 @@
                 top: 35vw;
                 width: 100%;
                 @include parallax(0.3);
+            }
+        }
+
+        // Disable CSS parallax when outside viewport for performance
+        @include modifier('outsideViewport') {
+            @include components(('content', 'layer')) {
+                @include parallax('disable');
             }
         }
 

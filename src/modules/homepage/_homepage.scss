@@ -36,6 +36,13 @@
             }
         }
 
+        @include component('navToggle') {
+            position: fixed;
+            z-index: 9;
+            top: 2em;
+            right: 2em;
+        }
+
         @include component('content') {
             width: 100%;
             background-color: color('greyscale', 'grey-1');

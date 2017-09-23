@@ -4,7 +4,7 @@ bodyClass: index
 header:
     modifiers:
     - fixed
-    - hidden
+    - sticky
     - dark
 scripts:
     - <%=assets%>assets/themes/<%=theme%>/app
@@ -15,7 +15,11 @@ Prism:
     version: 1.6.0
 ---
 
-{{> header}}
+{{> side-nav}}
+
+<div class="homepage_navToggle sideNav_toggle button-icon-primary">
+    <i class="fa fa-bars"></i>
+</div>
 
 <!-- Parallax layers -->
 <div class="spacestation_layer-stars1"></div>
@@ -24,6 +28,7 @@ Prism:
 
 <!-- Simulated Document Body -->
 <div class="homepage_wrapper">
+
     <div class="spacestation">
         <div class="spacestation_content">
             <div class="logo">

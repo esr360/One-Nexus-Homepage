@@ -1,3 +1,7 @@
 @mixin parallax($distance, $perspective: 1px) {
-    transform: translateZ($distance * 1px) scale(($perspective - $distance) / $perspective);
+    @if ($distance == 'disable') {
+        transform: none !important;
+    } @else {
+        transform: translateZ($distance * 1px) scale(($perspective - $distance) / $perspective);
+    }
 }

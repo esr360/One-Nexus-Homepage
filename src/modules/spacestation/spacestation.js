@@ -23,22 +23,30 @@ export function spacestation(els = 'spacestation', custom = {}) {
             );
         }
 
-        if (options.fadeOnScroll && window.matchMedia('(min-width: 960px)').matches) {
+        if (window.matchMedia('(min-width: 960px)').matches) {
             $('.homepage_wrapper').on('scroll', function() {
-                var scrollTop = $(this).scrollTop();
 
-                const inViewport = app.inViewport({
+                const spacestation_inViewport = app.inViewport({
                     container: document.querySelector('.homepage_wrapper'), 
                     target: document.querySelector('.spacestation')
                 });
 
-                if (inViewport) {
-                    options.fadeOnScroll.forEach(entry => {
-                        $('.' + entry).css({
-                            'opacity': 1 - scrollTop/1000
+                const operator = (spacestation_inViewport) ? 'removeClass' : 'addClass';
+
+                $('.spacestation')[operator]('spacestation-outsideViewport');
+
+                if (options.fadeOnScroll) {
+                    var scrollTop = $(this).scrollTop();
+
+                    if (spacestation_inViewport) {
+                        options.fadeOnScroll.forEach(entry => {
+                            $('.' + entry).css({
+                                'opacity': 1 - scrollTop/1000
+                            });
                         });
-                    });
+                    }
                 }
+
             });
         }
 
