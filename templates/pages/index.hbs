@@ -298,7 +298,7 @@ Prism:
 
                 <div class="heading_group object-large text-center">
                     <h3 class="heading-light-size-8-grey-5 font-2">Creating a Module</h3>
-                    <p>See the below pseudo examples to see just what's possible with One-Nexus/Synergy</p>
+                    <p>See the below stripped examples to see just what's possible with One-Nexus/Synergy</p>
                 </div>
 
                 <div class="tabs">
@@ -309,7 +309,7 @@ Prism:
                         <li class="tabs_nav_item">Object</li>
                     </ul>
 
-                    <div class="row row-breathe tabs tabs_item">
+                    <div class="row reverse-break-3 row-breathe tabs tabs_item">
 
                         <div class="span-8">
                             <div class="tabs_item active">
@@ -333,10 +333,7 @@ Prism:
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
-                                <div class="alert-bar-error">
-                                    /modules/utilities/colors/<b>colors.json</b> 
-                                    <small>[<a href="#TODO"> source </a>]</small>
-                                </div>
+                                <div class="alert-bar-error">/modules/utilities/colors/<b>colors.json</b></div>
 
                                 <pre class="border"><code class="language-js">
                                     {
@@ -345,6 +342,11 @@ Prism:
                                                 "brand-1": "#2E3882",
                                                 "brand-2": "#06d2ff",
                                                 "brand-3": "#04CEC0"
+                                            },
+                                            "greyscale":{
+                                                "grey-1": "#F4F4F4",
+                                                "grey-2": "#F5BA42",
+                                                "grey-3": "#444444"
                                             },
                                             "alert":{
                                                 "error": "#D9434E",
@@ -448,12 +450,12 @@ Prism:
                                     "app": {
                                         "colors": {
                                             "brand": {
-                                                "brand-1": "#2E3882",
-                                                "brand-4": "#2E3882"
+                                                "brand-1": "#D32AED",
+                                                "brand-4": "#1FE0BD"
                                             },
                                             "alert":{
-                                                "error": "#D9434E",
-                                                "neutral": "#D9434E"
+                                                "error": "#FF0000",
+                                                "neutral": "#544E68"
                                             }
                                         }
                                     }
@@ -500,14 +502,16 @@ Prism:
                                 <li>Customize</li>
                                 <li>Usage</li>
                             </ul>
-                            <hr class="hrule-line" />
-                            <a href="https://github.com/esr360/Synergy/wiki" target="blank" class="button-block-brand-3">View Full Docs</a>
-                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                            <hr class="hrule-line min-break-3" />
+                            <div class="min-break-3">
+                                <a href="https://github.com/esr360/Synergy/wiki" target="blank" class="button-block-brand-3">View Full Docs</a>
+                                <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                            </div>
                         </div>
 
                     </div><!--/ .tabs_item -->
 
-                    <div class="row row-breathe tabs tabs_item active">
+                    <div class="row reverse-break-3 row-breathe tabs tabs_item active">
                         <div class="span-8">
                             <div class="tabs_item active">
                                 <div class="alert-bar-brand-gradient">File Structure</div>
@@ -532,17 +536,14 @@ Prism:
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
-                                <div class="alert-bar-error">
-                                    /modules/elements/buttons/<b>buttons.json</b> 
-                                    <small>[<a href="#TODO"> source </a>]</small>
-                                </div>
+                                <div class="alert-bar-error">/modules/elements/buttons/<b>buttons.json</b></div>
 
                                 <pre class="border"><code class="language-js">
                                 {
                                     "buttons": {
                                         "name": "button",
                                         "color": "white",
-                                        "background": "#444444",
+                                        "background": ["#COLOR", "greyscale", "grey-3"],
                                         "padding": "0.65em 1em",
                                         "line-height": "1",
                                         "colors": {
@@ -592,6 +593,7 @@ Prism:
                                                 }
                                             }
                                         }
+
                                     }
                                 </code></pre>
 
@@ -633,10 +635,23 @@ Prism:
                                 {
                                     "app": {
                                         "colors": {
-                                            ...
+                                            "brand": {
+                                                "brand-1": "#D32AED",
+                                                "brand-4": "#1FE0BD"
+                                            },
+                                            "alert":{
+                                                "error": "#FF0000",
+                                                "neutral": "#544E68"
+                                            }
                                         },
                                         "buttons": {
-
+                                            "colors": {
+                                                "neutral": ["#COLOR", "alert", "neutral"]
+                                            },
+                                            "sizes": {
+                                                "small": "0.8em",
+                                                "xlarge": "1.5em"
+                                            }
                                         }
                                     }
                                 </code></pre>
@@ -646,24 +661,21 @@ Prism:
                                 <div class="alert-bar-info">/dist/one-nexus/<b>one-nexus.css</b></div>
 
                                 <pre class="border"><code class="language-css">
-                                    .button,
-                                    [class*='button-'] {
+                                    .button, [class*='button-'] {
                                         display: inline-block;
-                                        color: #FFFFFF;
+                                        color: white;
                                         background: #444444;
-                                        padding: 0.75em 1.25em;
-                                    }
-                                    [class*='button-'][class*='-brand-1'] {
-                                        background-color: pink;
+                                        padding: 0.65em 1em;
+                                        line-height: 1;
                                     }
                                     [class*='button-'][class*='-brand-2'] {
-                                        background-color: #06D2FF;
+                                        background-color: #06d2ff;
                                     }
-                                    [class*='button-'][class*='-brand-3'] {
-                                        background-color: #04CEC0;
+                                    [class*='button-'][class*='-error'] {
+                                        background-color: #FF0000;
                                     }
-                                    [class*='button-'][class*='-myBrand'] {
-                                        background-color: #2093DB;
+                                    [class*='button-'][class*='-neutral'] {
+                                        background-color: #544E68;
                                     }
                                     [class*='button-'][class*='-small'] {
                                         font-size: 0.8em;
@@ -678,14 +690,14 @@ Prism:
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
-                                <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
+                                <div class="alert-bar-help">/templates/partials/<b>header.hbs</b></div>
 
                                 <pre class="border"><code class="language-markup">
                                     &lt;button class="button">Button&lt;/button>
-                                    &lt;button class="button-myBrand">Button&lt;/button>
+                                    &lt;button class="button-brand-2">Button&lt;/button>
                                     &lt;button class="button-xlarge">Button&lt;/button>
-                                    &lt;button class="button-myBrand-small">Button&lt;/button>
-                                    &lt;button class="button-large-brand-3">Button&lt;/button>
+                                    &lt;button class="button-brand-2-small">Button&lt;/button>
+                                    &lt;button class="button-large-neutral">Button&lt;/button>
                                 </code></pre> 
                             </div><!--/ .tabs_item -->
                         </div>
@@ -699,14 +711,17 @@ Prism:
                                 <li>Include Module</li>
                                 <li>Customize</li>
                                 <li>CSS Output</li>
+                                <li>HTML Usage</li>
                             </ul>
-                            <hr class="hrule-line" />
-                            <a href="https://github.com/esr360/Synergy/wiki" class="button-block-brand-3">View Full Docs</a>
-                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                            <hr class="hrule-line min-break-3" />
+                            <div class="min-break-3">
+                                <a href="https://github.com/esr360/Synergy/wiki" target="blank" class="button-block-brand-3">View Full Docs</a>
+                                <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                            </div>
                         </div>
                     </div><!--/ .tabs_item -->
 
-                    <div class="row row-breathe tabs tabs_item">
+                    <div class="row reverse-break-3 row-breathe tabs tabs_item">
                         <div class="span-8">
                             <div class="tabs_item active">
                                 <div class="alert-bar-brand-gradient">File Structure</div>
@@ -733,10 +748,7 @@ Prism:
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
-                                <div class="alert-bar-error">
-                                    /modules/objects/header/<b>header.json</b> 
-                                    <small>[<a href="#TODO"> source </a>]</small>
-                                </div>
+                                <div class="alert-bar-error">/modules/objects/header/<b>header.json</b></div>
 
                                 <pre class="border"><code class="language-js">
                                 {
@@ -744,8 +756,8 @@ Prism:
                                         "name": "header",
                                         "background": ["#COLOR", "brand", "brand-1"],
                                         "height": "100px",
-                                        "text-color": "#EFFCFA",
-                                        "link-color": "#FFFFFF",
+                                        "text-color": ["#COLOR", "greyscale", "grey-1"],
+                                        "link-color": "white",
                                         "logo": {
                                             "image-path": "../../images/logo.png",
                                             "height": "50px",
@@ -754,9 +766,9 @@ Prism:
                                         },
                                         "dark": {
                                             "enabled": false,
-                                            "background": "#353535",
-                                            "text-color": "#F7F7F7",
-                                            "link-color": "#04E2C1"
+                                            "background": ["#COLOR", "greyscale", "grey-3"],
+                                            "text-color": ["#COLOR", "greyscale", "grey-1"],
+                                            "link-color": ["#COLOR", "brand", "brand-1"]
                                         },
                                         "sticky": {
                                             "enabled": false,
@@ -912,35 +924,82 @@ Prism:
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
+                                <div class="alert-bar-error">/themes/one-nexus/<b>one-nexus.json</b></div>
+
+                                <pre class="border"><code class="language-js">
+                                {
+                                    "app": {
+                                        "colors": {
+                                            "brand": {
+                                                "brand-1": "#D32AED",
+                                                "brand-4": "#1FE0BD"
+                                            },
+                                            "alert":{
+                                                "error": "#FF0000",
+                                                "neutral": "#544E68"
+                                            }
+                                        },
+                                        "buttons": {
+                                            "colors": {
+                                                "neutral": ["#COLOR", "alert", "neutral"]
+                                            },
+                                            "sizes": {
+                                                "small": "0.8em",
+                                                "xlarge": "1.5em"
+                                            }
+                                        },
+                                        "header": {
+                                            "dark": {
+                                                "enabled": true,
+                                                "background": ["#COLOR", "alert", "neutral"]
+                                            }
+                                        }
+                                    }
+                                </code></pre>
+                            </div>
+
+                            <div class="tabs_item">
                                 <div class="alert-bar-info">/dist/one-nexus/<b>one-nexus.css</b></div>
 
                                 <pre class="border"><code class="language-css">
-                                    .appHeader, 
-                                    [class*="appHeader-"] {
-                                        position: absolute;
-                                        top: 50px;
-                                        background: black;
+                                    .header, [class*='header-'] {
+                                        background: #544E68;
+                                        color: #F4F4F4;
+                                        height: 100px;
                                     }
-                                    [class*="appHeader-"][class*="-fixed"] {
+                                    .header a, [class*='header-'] a {
+                                        color: #D32AED;
+                                    }
+                                    .header_logo, [class*='header_logo-'] {
+                                        background-image: url('../../images/logo.png');
+                                        background-size: cover;
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        height: 50px;
+                                        width: 200px;
+                                        padding: 20px 0;
+                                    }
+                                    [class*='header-'][class*='-fixed'] {
                                         position: fixed;
+                                        width: 100%;
                                         top: 0;
                                     }
-                                </code></pre> 
+                                </code></pre>
 
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
-                                <div class="alert-bar-info">/templates/partials/<b>header.hbs</b></div>
+                                <div class="alert-bar-help">/templates/partials/<b>header.hbs</b></div>
 
                                 <pre class="border"><code class="language-markup">
-                                    &lt;!-- If 'sticky' is enabled, header will become fixed
+                                    &lt;!-- If `options.sticky.enabled` is `true`, header will become fixed
                                     when the top reaches top of the viewport: -->
-                                    &lt;header class="appHeader">
+                                    &lt;header class="header">
                                         ...
                                     &lt;/header>
 
                                     &lt;!-- Or for a permanently fixed header: -->
-                                    &lt;header class="appHeader-fixed">
+                                    &lt;header class="header-fixed">
                                         ...
                                     &lt;/header>
                                 </code></pre> 
@@ -956,12 +1015,15 @@ Prism:
                                 <li>Module JavaScript</li>
                                 <li>Import Module</li>
                                 <li>Include Module</li>
+                                <li>Customize</li>
                                 <li>CSS Output</li>
                                 <li>HTML usage</li>
                             </ul>
-                            <hr class="hrule-line" />
-                            <a href="https://github.com/esr360/Synergy/wiki" class="button-block-brand-3">View Full Docs</a>
-                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                            <hr class="hrule-line min-break-3" />
+                            <div class="min-break-3">
+                                <a href="https://github.com/esr360/Synergy/wiki" target="blank" class="button-block-brand-3">View Full Docs</a>
+                                <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                            </div>
                         </div>
                     </div><!--/ .tabs_item -->
 
@@ -978,126 +1040,162 @@ Prism:
                     <p>One-Nexus comes with everything you need for your next project</p>
                 </div>
 
-                <div class="row-flow row-breathe text-center">
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: responsive.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Modular-Scale Typography</h4>
+                <div class="row-flow text-center">
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: responsive.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Modular-Scale Typography</h4>
+                            <p class="well_text">One-Nexus comes with truly responsive typography using modular scale values. <a href="#TODO">Learn More</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: dashboard.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Optimised Performance</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: dashboard.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Optimised Performance</h4>
+                            <p class="well_text">One-Nexus encourages best practices with a focus on better performing websites.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: cloud-download.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Dependencies Via NPM</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: cloud-download.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Dependencies Via NPM</h4>
+                            <p class="well_text">All dependencies are handled via NPM and are included in the <a href="#TODO">package.json</a> file.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: share.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Configurable Modules</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: share.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Configurable Modules</h4>
+                            <p class="well_text">Built using <a href="#TODO">Synergy</a>, One-Nexus comes with a bunch of configurable UI modules.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: location-alt.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Google Maps</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: location-alt.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Google Maps</h4>
+                            <p class="well_text">Easily include Google maps and customize them to use your theme's colors. <a href="#TODO">Learn More</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: print-image.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Print Stylesheet</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: print-image.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Print Stylesheet</h4>
+                            <p class="well_text">One-Nexus comes with the HTML5 Boilerplate print stylesheet for printed media. <a href="#TODO">Learn More</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: morph-desktop-smartphone.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Fully Responsive</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: morph-desktop-smartphone.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Fully Responsive</h4>
+                            <p class="well_text">One-Nexus is built using a customizable and fully responsive grid system, <a href="#TODO">Kayzen-GS</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: loader-7.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Talk Between Sass/JS</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: loader-7.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Talk Between Sass/JS</h4>
+                            <p class="well_text">Share configuration data between your module's JavaScript and Sass. <a href="#TODO">Learn More</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: smartphone.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Touch/Swipe Support</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: smartphone.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Touch/Swipe Support</h4>
+                            <p class="well_text">One-Nexus is touch/swipe ready for touch screen devices for various UI elements such as carousels.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: notebook.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">SassDoc/JSDoc</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: notebook.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">SassDoc/JSDoc</h4>
+                            <p class="well_text">Document your modules using <a href="#TODO">SassDoc</a> and <a href="#TODO">JSDoc</a>, using the built in <a href="#TODO">Grunt toools</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: box-add.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Sass/JS Unit-Testing</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: box-add.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Sass/JS Unit-Testing</h4>
+                            <p class="well_text">Unit-test your modules using <a href="#TODO">Sass True</a> and <a href="#TODO">Mocha</a>, using the built in <a href="#TODO">Grunt toools</a>.</p>
+                        </div>
                     </div>
-                    <div class="span-3 break-3-half">
-                        {{> livicon options="
-                            name: paper-plane.svg;
-                            eventOn: parent;
-                            size: 130px; 
-                            style: original;
-                            tryToSharpen: true;
-                        "}}
-                        <h4 class="heading-grey-5-light-size-3">Automated Build Tools</h4>
+                    <div class="span-3 break-4-third break-3-half break-1-full">
+                        <div class="well-transparent-deep-hoverCard-style-1">
+                            {{> livicon options="
+                                name: paper-plane.svg;
+                                eventOn: parent;
+                                size: 130px; 
+                                style: original;
+                                tryToSharpen: true;
+                            "}}
+                            <h4 class="well_title heading-grey-5-light-size-3">Automated Build Tools</h4>
+                            <p class="well_text">Easily build and compile the various One-Nexus assets using the provided <a href="#TODO">Grunt tools</a>.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1149,12 +1247,12 @@ Prism:
                                 data-trigger="transform: translate(55%, -50%) translateZ(0) scale(0.85)"
                                 data-hover="transform: translate(65%, -50%) translateZ(0) scale(0.85)" 
                                 class="homepage_iphone5c"
-                                src="{{assets}}assets/images/mobile-base-purple.png" 
+                                src="{{assets}}assets/images/mobile-preview-2.png" 
                             />
                             <img
                                 data-hover="transform: scale(1.05) translateY(-47.5%) translateZ(0)" 
                                 class="homepage_iphone5c" 
-                                src="{{assets}}assets/images/mobile-base-blue.png" 
+                                src="{{assets}}assets/images/mobile-preview-1.png" 
                             />
                         </div>
                     </div>
@@ -1175,7 +1273,7 @@ Prism:
                                     <h3 class="heading-light-uppercase-brand-4 font-2">Custom grid system</h3>
                                 </div>
                             </div>
-                            <p class="object-small">Kayzen is built using a custom grid system: Kayzen GS, which is based off <code>inline-block</code> columns.</p>
+                            <p class="object-small">One-Nexus is built using a custom grid system: <a href="#TODO">Kayzen GS</a>, which is based off <code>inline-block</code> columns.</p>
                         </div>
                         <div class="object-large">
                             <div class="homepage_section_header">
@@ -1193,9 +1291,9 @@ Prism:
                                     <h3 class="heading-light-uppercase-brand-4 font-2">Optimised for touch devices</h3>
                                 </div>
                             </div>
-                            <p class="object-small">Kayzen is touch/swipe ready for mobile touch screen devices for various UI elements such as carousels.</p>
+                            <p class="object-small">One-Nexus is touch/swipe ready for mobile touch screen devices for various UI elements such as carousels.</p>
                         </div>
-                        <div class="object-large">
+                        <div class="object-large max-break-3">
                             <div class="homepage_section_header">
                                 <div class="homepage_section_header_icon">
                                     {{> livicon options="
@@ -1211,7 +1309,25 @@ Prism:
                                     <h3 class="heading-light-uppercase-brand-4 font-2">Optimised for mobile browsing</h3>
                                 </div>
                             </div>
-                            <p class="object-small">All jQuery plugins and CSS elements have been built with mobiles in mind, ensuring any animations run smoothly.</p>
+                            <p class="object-small">All JavaScript plugins and CSS elements have been built with mobiles in mind, ensuring any animations run smoothly.</p>
+                        </div>
+                        <div class="object-large min-break-4">
+                            <div class="homepage_section_header">
+                                <div class="homepage_section_header_icon">
+                                    {{> livicon options="
+                                        name: dashboard.svg;
+                                        eventOn: grandparent;
+                                        size: 64px; 
+                                        style: original;
+                                        tryToSharpen: true;
+                                    "}}
+                                </div>
+                                <div class="homepage_section_header_title heading_group">
+                                    <h3 class="heading-size-5-grey-5">Smooth Performance</h3>
+                                    <h3 class="heading-light-uppercase-brand-4 font-2">Optimised for mobile browsing</h3>
+                                </div>
+                            </div>
+                            <p class="object-small">All JavaScript plugins and CSS elements have been built with mobiles in mind, ensuring any animations run smoothly.</p>
                         </div>
                     </div>
                 </div>
@@ -1304,7 +1420,7 @@ Prism:
                     <p>See the below pseudo exampe to see just what's possible with One-Nexus/Kayzen-GS</p>
                 </div>
 
-                <div class="row row-breathe tabs">
+                <div class="row reverse-break-3 row-breathe tabs">
                     <div class="span-8">
 
                         <div class="tabs_item active">
@@ -1403,9 +1519,11 @@ Prism:
                             <li>Sass Sample</li>
                             <li>CSS Output</li>
                         </ul>
-                        <hr class="hrule-line" />
-                        <a href="https://github.com/esr360/Synergy/wiki" target="blank" class="button-block-brand-3">View Full Docs</a>
-                        <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                        <hr class="hrule-line min-break-3" />
+                        <div class="min-break-3">
+                            <a href="https://github.com/esr360/Synergy/wiki" target="blank" class="button-block-brand-3">View Full Docs</a>
+                            <p><small><i>One-Nexus comes with a bunch of premade modules just like the example shown here!</i> <a href="modules/">View modules</a></small></p>
+                        </div>
                     </div>
 
                 </div><!-- /.tabs -->

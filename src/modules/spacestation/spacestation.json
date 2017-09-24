@@ -1,6 +1,8 @@
 {
     "spacestation": {
         "name": "spacestation",
+        "animate-rocket": true,
+        "css-parallax": true,
         "fadeOnScroll": [
             "spacestation_content", 
             "spacestation_planets", 

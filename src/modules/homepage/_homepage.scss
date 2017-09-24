@@ -195,7 +195,7 @@
                     margin: auto;
                 }
                 @media (min-width: breakpoint('break-3')) {
-                    padding: 8em 0 14em;
+                    padding: 8em 0 12em;
                 }
             }
 
@@ -317,7 +317,7 @@
                         #D02961 0%, 
                         #8b4490 40%, 
                         color('brand', 'brand-1') 100%
-                    )
+                    );
                 }
                 @media (min-width: breakpoint('break-3')) {
                     margin-bottom: 14em;
@@ -368,6 +368,7 @@
 
             @include component('foreground') {
                 position: absolute;
+                left: -1%;
                 width: 100%;
                 z-index: -1;
                 bottom: -5vw;
@@ -651,3 +652,78 @@
     }
 
 }
+
+
+/////////
+
+$fooHeader: (
+    "name": "header",
+    "background": #D32AED,
+    "height": 100px,
+    "text-color": #F4F4F4,
+    "link-color": white,
+    "logo": (
+        "image-path": "../../images/logo.png",
+        "height": 50px,
+        "width": 200px,
+        "padding": 20px 0
+    ),
+    "dark": (
+        "enabled": false,
+        "background": #444444,
+        "text-color": #F4F4F4,
+        "link-color": #D32AED
+    ),
+    "sticky": (
+        "enabled": false,
+        "offset": 0
+    )
+);
+
+@mixin fooHeader($custom: ()) {
+
+    // Configuration
+    $fooHeader: config($fooHeader, $custom);
+
+    @include module {
+
+        color: this('text-color');
+
+        a {
+            color: this('link-color');
+        }
+
+        @include component('logo') {
+            background-image: url(this('logo', 'image-path'));
+            background-size: cover;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        @include modifier('fixed') {
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        @include option('dark') {
+            color: this('dark', 'text-color');
+
+            a {
+                color: this('dark', 'link-color');
+            }
+        }
+
+    }
+
+}
+
+@include fooHeader((
+    "dark": (
+        "enabled": true,
+        "background": #544E68
+    ),
+    "sticky": (
+        "enabled": true
+    )
+));

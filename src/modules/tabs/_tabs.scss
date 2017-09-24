@@ -11,9 +11,13 @@
     @include component('nav') {
 
         @include modifier('topLine') {
-            margin-bottom: (core('margin') * 2);
+            margin-bottom: core('margin');
             display: table;
             border-collapse: collapse;
+
+            @media (min-width: breakpont('break-3')) {
+                margin-bottom: (core('margin') * 2);
+            }
 
             @include component('item') {
                 position: relative;

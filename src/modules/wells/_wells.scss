@@ -18,6 +18,11 @@
 
     @include modifier('opaque') {
         background-color: rgba(black, 0.1);
+        color: color('greyscale', white);
+    }
+
+    @include modifier('transparent') {
+        background: transparent;
     }
 
     @include modifier('round') {
@@ -25,14 +30,57 @@
     }
 
     @include modifier('hoverCard') {
+        position: relative;
         transition: core('transition');
         display: block;
-        color: color('greyscale', white);
         &:hover {
             background-color: color('greyscale', 'grey-1');
             box-shadow: 1px 1px 4px 1px rgba(black, 0.1);
             transform: scale(1.1);
-            color: color('brand', 'brand-4');
+            z-index: 5;
+            @include modifier('opaque') {
+                color: color('brand', 'brand-4');
+            }
+        }
+    }
+
+    @include modifier('style-1') {
+        @media (min-width: breakpoint('break-2')) {
+            .livicon-evo {
+                position: relative;
+                transition: core('transition');
+                top: 0;
+            }
+            @include component('title') {
+                position: relative;
+                transition: core('transition');
+                top: 0;
+            }
+            @include component('text') {
+                position: absolute;
+                top: 85%;
+                left: 0;
+                right: 0;
+                margin: auto;
+                padding: 0 2em;
+                transition: 0s;
+                opacity: 0;
+                font-size: font-size('size-2');
+            }
+            &:hover {
+                .livicon-evo {
+                    top: -1.5em;
+                }
+                .well_title {
+                    top: -3em;
+                }
+                .well_text {
+                    opacity: 1;
+                    top: 67%;
+                    font-weight: lighter;
+                    transition: core('transition');
+                }
+            }  
         }
     }
 

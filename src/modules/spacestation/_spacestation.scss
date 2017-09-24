@@ -103,8 +103,10 @@
                 top: 5vw;
                 left: 10%;
                 width: 10%;
-                //animation: spin 40s 1 linear;
                 transform-origin: 35vw 35vw;
+                @if (this('animate-rocket')) {
+                    animation: spin 20s 1 linear;
+                }
             }
 
             @include modifier('sun') {
@@ -182,7 +184,7 @@
 
     @keyframes spin {
         0%   { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }   
+        100% { transform: rotate(180deg); }   
     }
 
     @keyframes scroll {
