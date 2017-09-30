@@ -63,9 +63,9 @@
                 right: 0;
                 margin: auto;
                 padding: 0 2em;
-                transition: 0s;
                 opacity: 0;
                 font-size: font-size('size-2');
+                transition: core('transition');
             }
             &:hover {
                 .livicon-evo {
@@ -78,7 +78,6 @@
                     opacity: 1;
                     top: 67%;
                     font-weight: lighter;
-                    transition: core('transition');
                 }
             }  
         }

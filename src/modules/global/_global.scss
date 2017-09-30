@@ -8,9 +8,15 @@
     // Configuration
     $global: config((), $custom);
 
-    .row-reverse {
-        > [class*='span'] {
-            vertical-align: bottom;
+    body {
+        @media (max-width: breakpoint('break-3')) {
+            overflow-x: hidden;
+        }
+    }
+
+    @media (max-width: breakpoint('break-3')) {
+        .reverse-break-3 {
+            display: block;
         }
     }
 

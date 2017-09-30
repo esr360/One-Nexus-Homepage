@@ -22,15 +22,20 @@
         z-index: 0;
         width: 100%;
         height: 0;
-        padding-top: 70%;
+        padding-top: 90%;
         overflow: hidden;
+
+        @media (min-width: breakpoint('break-3')) {
+            padding-top: 70%;
+        }
         
         @include component('content') {
             position: absolute;
-            top: 20vw;
+            top: 32vw;
             width: 100%;
             text-align: center;
             z-index: 0;
+            padding: 0 2em;
 
             @media (min-width: breakpoint('break-3')) {
                 transform-origin: 0 0;
@@ -105,15 +110,15 @@
                 width: 10%;
                 transform-origin: 35vw 35vw;
                 @if (this('animate-rocket')) {
-                    animation: spin 20s 1 linear;
+                    animation: spin 20s 1 forwards;
                 }
             }
 
             @include modifier('sun') {
-                top: 185vw;
-                left: 240%;
+                top: 215vw;
+                left: 286%;
                 width: 25%;
-                @include parallax(-5);
+                @include parallax(-6);
             }
 
             @include modifier('mountain') {
@@ -183,8 +188,12 @@
     }
 
     @keyframes spin {
-        0%   { transform: rotate(0deg); }
-        100% { transform: rotate(180deg); }   
+        0%   {
+            transform: rotate(0deg); 
+        }
+        100% {
+            transform: rotate(180deg); 
+        }   
     }
 
     @keyframes scroll {

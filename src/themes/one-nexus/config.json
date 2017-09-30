@@ -31,6 +31,10 @@
         "colors": {
             "brand": {
                 "brand-4": "#ea4c88"
+            },
+            "greyscale": {
+                "'white'": "#ffffff",
+                "'black'": "#000000"
             }
         },
 

@@ -10,7 +10,7 @@ scripts:
     - <%=assets%>assets/themes/<%=theme%>/app
     - <%=assets%>assets/scripts/LivIconsEvo.Tools
     - <%=assets%>assets/scripts/LivIconsEvo.defaults
-    - <%=assets%>assets/scripts/LivIconsEvo.min
+    - <%=assets%>assets/scripts/LivIconsEvo
 Prism:
     version: 1.6.0
 ---
@@ -147,7 +147,9 @@ Prism:
             <div class="homepage_overviewBox object">
                 <a href="https://github.com/esr360/One-Nexus/archive/master.zip" target="blank" class="button-border-size-4 min-break-2"><i class="fa fa-download"></i>&nbsp; Download</a>
                 <span class="button_group_item min-break-2">or</span>
-                <a href="https://github.com/esr360/One-Nexus/" target="blank" class="button-border-size-4"><i class="fa fa-github-alt"></i>&nbsp; View on Github</a>
+                <a href="https://github.com/esr360/One-Nexus/" target="blank" class="button-border-size-4">
+                    <span class=" min-break-1"><i class="fa fa-github-alt"></i>&nbsp;</span> View on Github
+                </a>
             </div>
 
             <div class="row row-breathe">
@@ -273,16 +275,18 @@ Prism:
             <div class="container homepage_section_box_wrapper">
                 <div class="row">
                     <div class="homepage_section_box span-4">
-                        <h3 class="heading-size-3">Built With Synergy</h3>
-                        <a 
-                            class="github-button" 
-                            href="https://github.com/esr360/Synergy" 
-                            data-icon="octicon-star"
-                            data-count-href="/esr360/Synergy/stargazers" 
-                            data-count-api="/repos/esr360/Synergy#stargazers_count" 
-                            data-count-aria-label="# stargazers on GitHub" 
-                            aria-label="Star esr360/Synergy on GitHub"
-                        >Star</a>
+                        <div class="homepage_section_box_heading">
+                            <h3 class="heading-size-3-flush">Built With Synergy</h3>
+                            <a 
+                                class="github-button" 
+                                href="https://github.com/esr360/Synergy" 
+                                data-icon="octicon-star"
+                                data-count-href="/esr360/Synergy/stargazers" 
+                                data-count-api="/repos/esr360/Synergy#stargazers_count" 
+                                data-count-aria-label="# stargazers on GitHub" 
+                                aria-label="Star esr360/Synergy on GitHub"
+                            >Star</a>
+                        </div>
                         <p>Each One-Nexus component is a configurable module built using <a target="blank" href="https://github.com/esr360/Synergy">Synergy</a>.</p>
                     </div>
                 </div>
@@ -367,7 +371,7 @@ Prism:
                                 <div class="alert-bar-info">/modules/utilities/colors/<b>_colors.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
-                                    // path is relative to './themes/one-nexus/'
+                                    // path is relative to '/themes/one-nexus/'
                                     @import '../../modules/utilities/colors/colors.json';
 
                                     @mixin colors($custom: custom('colors')) {
@@ -568,7 +572,7 @@ Prism:
                                 <div class="alert-bar-info">/modules/elements/buttons/<b>_buttons.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
-                                    // path is relative to './themes/one-nexus/'
+                                    // path is relative to '/themes/one-nexus/'
                                     @import '../../modules/elements/buttons/buttons.json';
 
                                     @mixin buttons($custom: custom('buttons')) {
@@ -783,7 +787,7 @@ Prism:
                                 <div class="alert-bar-info">/modules/objects/header/<b>_header.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
-                                    // path is relative to './themes/one-nexus/'
+                                    // path is relative to '/themes/one-nexus/'
                                     @import '../../modules/objects/header/header.json';
 
                                     @mixin header($custom: custom('header')) {
@@ -827,13 +831,13 @@ Prism:
                             </div><!--/ .tabs_item -->
 
                             <div class="tabs_item">
-                                <div class="alert-bar-info">/modules/objects/header/<b>header.js</b></div>
+                                <div class="alert-bar-success">/modules/objects/header/<b>header.js</b></div>
 
                                 <pre class="border"><code class="language-js">
                                     import * as app from '../../../app';
                                     import defaults from './header.json';
 
-                                    export function header(els = 'header', custom = {}) {
+                                    export function header(custom = {}) {
 
                                         custom = app.custom('header', custom);
 
@@ -854,7 +858,7 @@ Prism:
                                                 logo.modifier('small', operator);
                                             }
 
-                                        }, config, custom);
+                                        }, defaults, custom);
 
                                     }
                                 </code></pre>
@@ -864,6 +868,9 @@ Prism:
                                 <div class="alert-bar-info">/<b>_app.scss</b></div>
 
                                 <pre class="border"><code class="language-scss">
+                                    // Import Synergy
+                                    @import '../node_modules/Synergy/dist/synergy';
+
                                     // Utilities
                                     @import 'modules/utilities/colors/colors';
 
@@ -1387,18 +1394,20 @@ Prism:
 
                 <div class="row">
                     <div class="homepage_section_panel span-7 well-deep-dark-round">
-                        <h3 class="heading-size-4">Kayzen-GS</h3>
-                        <a 
-                            class="github-button" 
-                            href="https://github.com/esr360/Kayzen-GS" 
-                            data-icon="octicon-star"
-                            data-count-href="/esr360/Kayzen-GS/stargazers" 
-                            data-count-api="/repos/esr360/Kayzen-GS#stargazers_count" 
-                            data-count-aria-label="# stargazers on GitHub" 
-                            aria-label="Star esr360/Kayzen-GS on GitHub"
-                        >Star</a>
+                        <div class="homepage_section_box_heading">
+                            <h3 class="heading-size-4-flush">Kayzen-GS</h3>
+                            <a 
+                                class="github-button" 
+                                href="https://github.com/esr360/Kayzen-GS" 
+                                data-icon="octicon-star"
+                                data-count-href="/esr360/Kayzen-GS/stargazers" 
+                                data-count-api="/repos/esr360/Kayzen-GS#stargazers_count" 
+                                data-count-aria-label="# stargazers on GitHub" 
+                                aria-label="Star esr360/Kayzen-GS on GitHub"
+                            >Star</a>
+                        </div>
                         <p>Kayzen-GS is a powerful framework for building responsive grid systems. Built using Sass and based off <code class="alt">inline-block</code> columns, Kayzen-GS is a one of a kind framework custom built for One-Nexus.</p>
-                        <div class="button_group">
+                        <div class="button_group-stack">
                             <a href="https://github.com/esr360/Kayzen-GS/#documentation" target="blank" class="button-brand-4-size-3">Get Started</a>
                             <a href="https://github.com/esr360/Kayzen-GS/#overview" target="blank" class="button-border-white-size-3">Learn More</a>
                         </div>
@@ -1584,7 +1593,7 @@ Prism:
         <div class="homepage_bottom">
 
             <div class="homepage_section-signoff">
-                <div class="container">
+                <div class="container homepage_section_content">
                     <div class="heading_group">
                         <h3 class="heading-size-7-heavy">One Goal, One Solution: One-Nexus.</h3>
                         <h4 class="heading-light-size-4 font-2">Start your next project with One-Nexus to unlock a new way of building</h4>
@@ -1632,15 +1641,17 @@ Prism:
                 <div class="footer_wrapper container">
                     <div class="row row-breathe object-large">
                         <div class="homepage_section_box-alt span-4">
-                            <h4 class="heading-size-3">Other Projects</h4>
-                            <a 
-                                class="github-button"
-                                href="https://github.com/esr360"
-                                data-count-href="/esr360/followers"
-                                data-count-api="/users/esr360#followers"
-                                data-count-aria-label="# followers on GitHub"
-                                aria-label="Follow @esr360 on GitHub"
-                            >Follow @esr360</a>
+                            <div class="homepage_section_box_heading">
+                                <h4 class="heading-size-3-flush">Other Projects</h4>
+                                <a 
+                                    class="github-button"
+                                    href="https://github.com/esr360"
+                                    data-count-href="/esr360/followers"
+                                    data-count-api="/users/esr360#followers"
+                                    data-count-aria-label="# followers on GitHub"
+                                    aria-label="Follow @esr360 on GitHub"
+                                >Follow @esr360</a>
+                            </div>
                             <p>Checkout these other open-source projects on Github for more cool, experimental and boundry-pushing front-end tools.</p>
                         </div>
                         <div class="span-8 va-bottom footer_projects">
