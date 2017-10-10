@@ -60,10 +60,6 @@
             "navigation": false
         },
 
-        "tabs": {
-            "activeClass": "active"
-        },
-
         "typography": {
             "colors": {
                 "link": ["#COLOR", "brand", "brand-2"],

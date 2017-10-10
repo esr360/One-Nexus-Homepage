@@ -29,7 +29,6 @@ export { scrollTrigger };
 
 import { billboard    } from './modules/billboard/billboard';
 import { footer       } from './modules/footer/footer';
-import { header       } from './modules/header/header';
 import { homepage     } from './modules/homepage/homepage';
 import { spacestation } from './modules/spacestation/spacestation';
 
