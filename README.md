@@ -19,7 +19,7 @@
 
 > You may need to slightly modify the above value depending on your setup
 
-#### Install Git Submodules
+#### Install One-Nexus
 
 * Within the One-Nexus-Homepage directory, run `git submodule update --init --recursive`
 
