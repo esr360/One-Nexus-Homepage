@@ -9,6 +9,7 @@
     $global: config((), $custom);
 
     body {
+        -webkit-font-smoothing: subpixel-antialiased;
         @media (max-width: breakpoint('break-3')) {
             overflow-x: hidden;
         }

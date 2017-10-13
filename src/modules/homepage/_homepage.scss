@@ -454,6 +454,7 @@
                 content: '';
                 position: absolute;
                 background-image: url('#{$asset-path}/images/mountain.svg');
+                background-repeat: no-repeat;
                 left: 0;
                 bottom: -2vw;
                 width: 50%;
